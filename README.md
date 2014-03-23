@@ -1,4 +1,5 @@
-Dayz-Epoch-Linux - Mission+Server Files/config
+Dayz-Epoch-Linux<br>
+Mission+Server Files/config
 =======================
 
 A private hive DayZ Epoch 1.0.4.2a Mission for Linux Server<br>
@@ -24,4 +25,25 @@ Installation instructions
 
 6. Test the crap out if, and fix any errors you find.
 
-
+Mods/Scripts Used
+=========================
+	R3F Logistics - Lift + Tow enabled<br>
+	C130J+MV22+Cessna animations<br>
+	SUV+UH1Y animations<br>
+	Self-BloodBag<br>
+	AdminTools<br>
+	AGN SafeZone Commander<br>
+	ServicePoint<br>
+	ChurchCure<br>
+	RussianRoulette<br>
+	BikeSpawn<br>
+	SnapBuilding<br>
+	Breaking Point Mist/fog effect<br>
+	ServerMenu<br>
+	Custom Intro Credits + soundtrack<br>
+	JAEM - Evac Script<br>
+	AdminDome<br>
+	Map Addons (buildings + traders)<br>
+	WAI.17 + Custom missions + AI Patrols (Air+Vehicles+Ground+ParaDrop)<br>
+	
+	
