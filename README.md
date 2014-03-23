@@ -28,23 +28,23 @@ Installation instructions
 
 Mods/Scripts Used
 ==========================
-	R3F Logistics - Lift + Tow enabled<br>
-	C130J+MV22+Cessna animations<br>
-	SUV+UH1Y animations<br>
-	Self-BloodBag<br>
-	AdminTools<br>
-	AGN SafeZone Commander<br>
-	ServicePoint<br>
-	ChurchCure<br>
-	RussianRoulette<br>
-	BikeSpawn<br>
-	SnapBuilding<br>
-	Breaking Point Mist/fog effect<br>
-	ServerMenu<br>
-	Custom Intro Credits + soundtrack<br>
-	JAEM - Evac Script<br>
-	AdminDome<br>
-	Map Addons (buildings + traders)<br>
-	WAI.17 + Custom missions + AI Patrols (Air+Vehicles+Ground+ParaDrop)<br>
+	R3F Logistics - Lift + Tow enabled
+	C130J+MV22+Cessna animations
+	SUV+UH1Y animations
+	Self-BloodBag
+	AdminTools
+	AGN SafeZone Commander
+	ServicePoint
+	ChurchCure
+	RussianRoulette
+	BikeSpawn
+	SnapBuilding
+	Breaking Point Mist/fog effect
+	ServerMenu
+	Custom Intro Credits + soundtrack
+	JAEM - Evac Script
+	AdminDome
+	Map Addons (buildings + traders)
+	WAI.17 + Custom missions + AI Patrols (Air+Vehicles+Ground+ParaDrop)
 	
 	
