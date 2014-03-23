@@ -10,7 +10,7 @@ ai_clear_body = False;
 ai_clean_dead = True;
 
 /// Time (in seconds) after which a dead body will be cleaned up
-cleanup_time = 300;
+cleanup_time = 180;
 ///////////////////////////////////////////////////////
 /// Sets radius for AI patrols (call spawn_group)
 ai_patrol_radius = 600;
@@ -153,13 +153,13 @@ ai_gear_random = [ai_gear0,ai_gear1,ai_gear2,ai_gear3,ai_gear4];
 
 /// 0 ///
 ai_gear0 = [
-["ItemWaterbottleUnfilled","FoodMRE","ItemBandage","ItemBandage","ItemPainkiller"],
+["ItemWaterbottleUnfilled","FoodMRE","ItemBandage","ItemPainkiller"],
 ["ItemRadio","ItemCompass","ItemMap","ItemKnife","ItemFlashlight"]
 ];
 
 /// 1 ///
 ai_gear1 = [
-["FoodCanBakedBeans","ItemSilverBar","ItemBandage","ItemBandage","ItemPainkiller"],
+["FoodCanBakedBeans","ItemSilverBar","ItemBandage","ItemPainkiller"],
 ["ItemWatch","ItemMatchbox_DZE","ItemKnife","ItemFlashlight"]
 ];
 
@@ -171,103 +171,103 @@ ai_gear2 = [
 
 /// 3 ///
 ai_gear3 = [
-["FoodCanSardines","ItemSodaCoke","ItemBandage","ItemBandage","ItemPainkiller"],
+["FoodCanSardines","ItemSodaCoke","ItemBandage","ItemPainkiller"],
 ["ItemWatch","ItemRadio","ItemEtool","ItemMap","ItemKnife","ItemFlashlight"]
 ];
 
 /// 4 ///
 ai_gear4 = [
-["Skin_CZ_Special_Forces_GL_DES_EP1_DZ","ItemSodaMdew","ItemSilverBar","ItemBandage","ItemBandage","ItemPainkiller"],
+["ItemSodaMdew","ItemSilverBar","ItemBandage","ItemPainkiller"],
 ["ItemHatchet_DZE","ItemMatchbox_DZE","ItemCompass","ItemKnife","ItemFlashlight"]
 ];
 
 /// 5 ///
 ai_gear5 = [
-["Skin_SurvivorWdesert_DZ","ItemWaterbottle","ItemSilverBar10oz","ItemBandage","ItemBandage","ItemPainkiller"],
+["ItemWaterbottle","ItemSilverBar10oz","ItemBandage","ItemPainkiller"],
 ["ItemWatch","ItemCrowbar","ItemMap","ItemKnife","ItemFlashlight"]
 ];
 
 /// 6 ///
 ai_gear6 = [
-["ItemMorphine","FoodCanSardines","ItemSodaCoke","ItemSilverBar","ItemBandage","ItemBandage","ItemPainkiller"],
+["ItemMorphine","FoodCanSardines","ItemSodaCoke","ItemSilverBar","ItemBandage"],
 ["ItemCompass","ItemKnife","ItemFlashlight"]
 ];
 
 /// 7 ///
 ai_gear7 = [
-["Skin_SurvivorWcombat_DZ","FoodCanPasta","ItemGoldBar","ItemBandage","ItemBandage","ItemPainkiller"],
+["FoodCanPasta","ItemGoldBar","ItemBandage","ItemPainkiller"],
 ["ItemWatch","ItemMatchbox_DZE","ItemKnife","ItemFlashlight"]
 ];
 
 /// 8 ///
 ai_gear8 = [
-["Skin_FR_Rodriguez_DZ","FoodCanBakedBeans","ItemSilverBar","ItemBandage","ItemBandage","ItemPainkiller"],
+["FoodCanBakedBeans","ItemSilverBar","ItemBandage","ItemPainkiller"],
 ["ItemCompass","ItemMap","ItemKnife","ItemFlashlight"]
 ];
 
 /// 9 ///
 ai_gear9 = [
-["Skin_RU_Policeman_DZ","ItemMorphine","ItemSodaCoke","ItemSilverBar10oz","ItemBandage","ItemBandage","ItemPainkiller"],
+["ItemMorphine","ItemSodaCoke","ItemSilverBar10oz","ItemBandage","ItemPainkiller"],
 ["ItemWatch","ItemMatchbox_DZE","ItemEtool","ItemMap","ItemKnife","ItemFlashlight"]
 ];
 
 /// 10 ///
 ai_gear10 = [
-["FoodCanBakedBeans","ItemSodaMdew","ItemBloodbag","ItemBandage","ItemBandage","ItemPainkiller"],
+["FoodCanBakedBeans","ItemSodaMdew","ItemBloodbag","ItemBandage","ItemPainkiller"],
 ["ItemHatchet_DZE","ItemCompass","ItemMap","ItemKnife","ItemFlashlight"]
 ];
 
 /// 11 ///
 ai_gear11 = [
-["ItemMorphine","FoodCanBakedBeans","ItemWaterbottle","ItemSilverBar","ItemBandage","ItemBandage","ItemPainkiller"],
+["ItemMorphine","FoodCanBakedBeans","ItemWaterbottle","ItemSilverBar","ItemBandage","ItemPainkiller"],
 ["ItemWatch","ItemMatchbox_DZE","ItemMap","ItemKnife","ItemFlashlight"]
 ];
 
 /// 12 ///
 ai_gear12 = [
-["ItemMorphine","FoodCanPasta","FoodCanPasta","ItemBandage","ItemBandage","ItemPainkiller"],
+["ItemMorphine","FoodCanPasta","FoodCanPasta","ItemBandage","ItemPainkiller"],
 ["ItemCompass","ItemMap","ItemKnife","ItemFlashlight"]
 ];
 
 /// 13 ///
 ai_gear13 = [
-["FoodMRE","ItemWaterbottle","ItemBandage","ItemBandage","ItemPainkiller"],
+["FoodMRE","ItemWaterbottle","ItemBandage","ItemPainkiller"],
 ["ItemWatch","ItemMap","ItemKnife","ItemFlashlight"]
 ];
 
 /// 14 ///
 ai_gear14 = [
-["Skin_Soldier_Sniper_PMC_DZ","ItemWaterbottleUnfilled","ItemBandage","ItemBandage","ItemPainkiller"],
+["ItemWaterbottleUnfilled","ItemBandage","ItemPainkiller"],
 ["ItemMatchbox_DZE","ItemCompass","ItemMap","ItemKnife","ItemFlashlight"]
 ];
 
 /// 15 ///
 ai_gear15 = [
-["ItemBandage","ItemBandage","ItemPainkiller"],
+["ItemBandage","ItemBandage","ItemPainkiller","ItemSapphire"],
 ["ItemWatch","ItemMatchbox_DZE","Binocular_Vector","ItemMap","ItemKnife","ItemFlashlight"]
 ];
 
 /// 16 ///
 ai_gear16 = [
-["FoodCanSardines","ItemWaterbottle","ItemBandage","ItemBandage","ItemPainkiller"],
+["FoodCanSardines","ItemWaterbottle","ItemBandage","ItemPainkiller"],
 ["ItemCrowbar","ItemRadio","ItemCompass","ItemMap","ItemKnife","ItemFlashlight"]
 ];
 
 /// 17 ///
 ai_gear17 = [
-["Skin_Priest_DZ","ItemTent","ItemSodaCoke","ItemSilverBar","ItemBandage","ItemBandage","ItemPainkiller"],
+["ItemTent","ItemSodaCoke","ItemSilverBar","ItemBandage","ItemPainkiller"],
 ["ItemWatch","ItemRadio","ItemMatchbox_DZE","ItemMap","ItemKnife","ItemFlashlight"]
 ];
 
 /// 18 ///
 ai_gear18 = [
-["Skin_Soldier1_DZ","ItemWaterbottleUnfilled","ItemBloodbag","ItemSilverBar10oz","ItemBandage","ItemBandage","ItemPainkiller"],
+["ItemWaterbottleUnfilled","ItemBloodbag","ItemSilverBar10oz","ItemBandage","ItemPainkiller"],
 ["ItemMatchbox_DZE","NVGoggles","ItemCompass","ItemMap","ItemKnife","ItemFlashlight"]
 ];
 
 /// 19 ///
 ai_gear19 = [
-["Skin_Sniper1_DZ","ItemAntibiotic","ItemGoldBar10oz","ItemBandage","ItemBandage","ItemPainkiller"],
+["ItemAntibiotic","ItemGoldBar10oz","ItemBandage","ItemPainkiller"],
 ["ItemWatch","ItemEtool","ItemMap","ItemKnife","ItemFlashlight"]
 ];
 
