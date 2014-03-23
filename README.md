@@ -1,4 +1,5 @@
 Dayz-Epoch-Linux<br>
+======================
 Mission+Server Files/config
 =======================
 
@@ -26,7 +27,7 @@ Installation instructions
 6. Test the crap out if, and fix any errors you find.
 
 Mods/Scripts Used
-=========================
+==========================
 	R3F Logistics - Lift + Tow enabled<br>
 	C130J+MV22+Cessna animations<br>
 	SUV+UH1Y animations<br>
