@@ -628,16 +628,6 @@ dayz_recordLogin = {
 	private["_key"];
 	diag_log format["CHILD:103:%1:%2:%3:",_this select 0,_this select 1,_this select 2];
 };
-//----------InitMissions--------//
-  MissionGo = 0;
-  MissionGoMinor = 0;
-    if (isServer) then {
-  SMarray = ["SM1","SM2","SM3","SM4","SM5","SM6"];
-    [] execVM "\z\addons\dayz_server\missions\major\SMfinder.sqf"; //Starts major mission system
-    SMarray2 = ["SM1","SM2","SM3","SM4","SM5","SM6"];
-    [] execVM "\z\addons\dayz_server\missions\minor\SMfinder.sqf"; //Starts minor mission system
-    };
-//---------EndInitMissions------//
 
 dayz_perform_purge = {
 	if(!isNull(_this)) then {
@@ -952,18 +942,3 @@ server_setLocalObjVars = {
 };
 fnc_hTime = compile preprocessFile "\z\addons\dayz_server\missions\misc\fnc_hTime.sqf"; //Random integer selector for mission wait time
 
-///Ghosts of Chernarus
-//LandMarks
-//execVM "\z\addons\dayz_server\maps\GOC_LM_tubf.sqf"; //the battlefield
-//execVM "\z\addons\dayz_server\maps\GOC_LM_wlcr.sqf"; //willow lake castle
-//GOC Traders
-//execVM "\z\addons\dayz_server\maps\GOC_TE_bash.sqf";
-//execVM "\z\addons\dayz_server\maps\GOC_TE_btcc.sqf"; //Bandit camp
-//execVM "\z\addons\dayz_server\maps\GOC_TE_klen.sqf"; //klen without fuelpump+generator
-//execVM "\z\addons\dayz_server\maps\GOC_TE_neaf.sqf"; //N-E airfield
-//execVM "\z\addons\dayz_server\maps\GOC_TE_stary.sqf";
-//GOC Towns
-//execVM "\z\addons\dayz_server\maps\GOC_SI_Zelenogorsk.sqf"
-//execVM "\z\addons\dayz_server\maps\GOC_SI_Grishino.sqf"
-//NewAirport
-//execVM "\z\addons\dayz_server\maps\newairport.sqf"
