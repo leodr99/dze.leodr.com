@@ -1,8 +1,9 @@
-Dayz-Epoch-Linux-Server
+Dayz-Epoch-Linux - Mission+Server Files/config
 =======================
 
-A private hive DayZ Epoch 1.0.4.2a for Linux Server<br>
-Based on Denisio's awesome work, on porting the Hive functions in perl.<br>
+A private hive DayZ Epoch 1.0.4.2a Mission for Linux Server<br>
+<i>Chernarus Map</i><br>
+Derived from Denisio's awesome work, on porting the Hive functions in perl.<br>
 For the Master branch of the mod go to http://github.com/denisio/Dayz-Epoch-Linux-Server/<br>
 <b> ** This will not work on Windows based Servers!!!! ** </b><br>
 
