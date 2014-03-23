@@ -1,10 +1,10 @@
 Dayz-Epoch-Linux-Server
 =======================
 
-A private hive DayZ Epoch 1.0.4.2a for Linux Server
-Based on Denisio's awesome work, on porting the Hive functions in perl.
-For the Master branch of the mod go to http://github.com/denisio/Dayz-Epoch-Linux-Server/
-<b> ** This will not work on Windows based Servers!!!! ** </b>
+A private hive DayZ Epoch 1.0.4.2a for Linux Server<br>
+Based on Denisio's awesome work, on porting the Hive functions in perl.<br>
+For the Master branch of the mod go to http://github.com/denisio/Dayz-Epoch-Linux-Server/<br>
+<b> ** This will not work on Windows based Servers!!!! ** </b><br>
 
 Installation instructions
 =========================
