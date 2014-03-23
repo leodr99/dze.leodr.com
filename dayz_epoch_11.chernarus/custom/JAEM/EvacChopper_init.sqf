@@ -22,11 +22,11 @@ evac_chopperPrice = 1;
 /////////////////////////////////////////////////
 ////// Need a Radio to call Evac-Chopper? ///////
 ////// 1 = Need Radio | 0 = No need Radio ///////
-evac_needRadio = 1;
+evac_needRadio = 0;
 /////////////////////////////////////////////////
 // Evac-Zone marker type Smoke or Landingpad? ///
 ////////// 0 = Landingpad | 1 = Smoke ///////////
-evac_zoneMarker = 1;
+evac_zoneMarker = 0;
 /////////////////////////////////////////////////
 /// Minimum Distance to call for Evac-Chopper ///
 ///////// Dont set this lower then 500! /////////
@@ -67,7 +67,6 @@ while{true} do {
 		if (evac_needRadio == 1) then {
 			_itemsPlayer = items player;
 			_hasRadio = "ItemRadio" in _itemsPlayer;
-			//_hasBriefcase = "ItemBriefcase100oz" in _itemsPlayer;
 			if (_hasRadio) then {
 				if (s_player_evacCall < 0) then {
 					s_player_evacCall = player addAction [("<t color=""#0000FF"">" + ("Call Evac-Chopper") + "</t>"),"custom\JAEM\CallEvacChopper.sqf",[],-1,false,false,"",""];

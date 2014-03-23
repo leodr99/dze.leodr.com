@@ -97,7 +97,7 @@ _hitpoints = evacChopper call vehicle_getHitpoints;
 
 	if (_damage >= 1 && (_part == "PartEngine" || _part == "PartVRotor")) then {
 		if(_part == "PartEngine") then {
-			systemChat("Sorry but the Engine of your Evac-Chopper is too damaged to fly");
+			systemChat("Sorry but the Engine of your Evac-Chopper is to damaged to fly");
 			systemChat("Keep your Evac-Chopper repaired next time!");
 		};
 		if (_part == "PartVRotor") then {

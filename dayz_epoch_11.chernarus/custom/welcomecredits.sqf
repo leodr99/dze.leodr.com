@@ -39,7 +39,7 @@
   
  waitUntil {!isNil "dayz_animalCheck"};
  playsound "introSong";
- sleep 10; //Wait in seconds before the credits start after player IS ingame
+ sleep 5; //Wait in seconds before the credits start after player IS ingame
   
  _role1 = "Welcome to";
  _role1names = ["LeoDR Server","running DayZ Epoch 1.0.4.2a", "Chernarus"];

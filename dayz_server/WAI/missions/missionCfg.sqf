@@ -176,7 +176,7 @@ ammo_box_tools =[
 ];
 
 // Number of items to spawn in ammo boxes 
-wai_mission_numberofitems = 10;
+wai_mission_numberofitems = 5;
 // classnames of items to spawn in ammo boxes (only type magazine will work here)
 ammo_box_items =[
 "ItemBandage",
