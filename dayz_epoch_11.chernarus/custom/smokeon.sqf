@@ -1,0 +1,66 @@
+private ["_cessnasmokecounter","_smoke","_smokeb","_smokec","_smoked","_smokee","_smokef","_smokeg","_smokeh","_smokei","_smokej","_currentCessna"];
+_currentCessna = _this select 3;
+_currentCessna removeAction cessna_smokeon;
+_currentCessna removeAction cessna_smokeoff;
+cessna_smokeoff = -1;
+Cessna_Smoke_On = 1;
+_cessnasmokecounter = 1;
+if (cessna_smokeoff <0) then {
+	cessna_smokeoff = _currentCessna addAction  ["Smoke OFF", "custom\smokeoff.sqf",_currentCessna, 5, true, true, "",""];
+};
+
+while {speed _currentCessna >= 20 && (vehicle player) != player && Cessna_Smoke_On == 1} do {
+	sleep 1;
+	_cessnasmokecounter = _cessnasmokecounter - 1;
+	if (_cessnasmokecounter == 0) then {
+		_cessnasmokecounter = 25;
+		_smoke        = "SmokeshellGreen" createVehicle position _currentCessna;
+		_smokeb       = "SmokeshellRed" createVehicle position _currentCessna;
+		_smokec       = "SmokeshellRed" createVehicle position _currentCessna;
+		_smoked       = "SmokeshellBlue" createVehicle position _currentCessna;
+		_smokee       = "SmokeshellBlue" createVehicle position _currentCessna;
+		_smokef       = "SmokeshellGreen" createVehicle position _currentCessna;
+		_smokeg       = "SmokeshellRed" createVehicle position _currentCessna;
+		_smokeh       = "SmokeshellRed" createVehicle position _currentCessna;
+		_smokei       = "SmokeshellBlue" createVehicle position _currentCessna;
+		_smokej       = "SmokeshellBlue" createVehicle position _currentCessna;
+		_smoke attachto [_currentCessna,[0.05,0,0.5]];
+		_smokeb attachto [_currentCessna,[5.05,0,0.5]];
+		_smokec attachto [_currentCessna,[-5.05,0,0.5]];
+		_smoked attachto [_currentCessna,[2.55,0,0.5]];
+		_smokee attachto [_currentCessna,[-2.55,0,0.5]];
+		_smokef attachto [_currentCessna,[0,0,0.5]];
+		_smokeg attachto [_currentCessna,[5,0,0.5]];
+		_smokeh attachto [_currentCessna,[-5,0,0.5]];
+		_smokei attachto [_currentCessna,[2.5,0,0.5]];
+		_smokej attachto [_currentCessna,[-2.5,0,0.5]];
+	};
+};
+detach _smoke;
+detach _smokeb;
+detach _smokec;
+detach _smoked;
+detach _smokee;
+detach _smokef;
+detach _smokeg;
+detach _smokeh;
+detach _smokei;
+detach _smokej;
+
+sleep 5;
+deleteVehicle _smoke;
+deleteVehicle _smokeb;
+deleteVehicle _smokec;
+deleteVehicle _smoked;
+deleteVehicle _smokee;
+deleteVehicle _smokef;
+deleteVehicle _smokeg;
+deleteVehicle _smokeh;
+deleteVehicle _smokei;
+deleteVehicle _smokej;
+sleep 1;
+Cessna_Smoke_On = 0;
+_currentCessna removeAction cessna_smokeoff;
+_currentCessna removeAction cessna_smokeon;
+cessna_smokeoff = -1;
+cessna_smokeon = -1;

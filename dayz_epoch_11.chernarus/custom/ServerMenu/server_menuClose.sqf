@@ -1,0 +1,4 @@
+player removeAction s_player_servermenu1;
+player removeAction s_player_servermenu2;
+player removeAction s_player_servermenu3;
+player removeAction s_player_servermenuCancel;
