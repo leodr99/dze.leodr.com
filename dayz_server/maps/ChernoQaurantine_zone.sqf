@@ -1536,7 +1536,7 @@ if (true) then
 _vehicle_288 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_MeleeCrowbar", [6903.2397, 2541.1484, 0.83997834], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["ItemCrowbar", [6903.2397, 2541.1484, 0.83997834], [], 0, "CAN_COLLIDE"];
   _vehicle_288 = _this;
   _this setDir 41.19611;
   _this setPos [6903.2397, 2541.1484, 0.83997834];
@@ -1553,7 +1553,7 @@ if (true) then
 _vehicle_291 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_MeleeMachete", [6901.8384, 2542.5503, 0.85146403], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["ItemMachete", [6901.8384, 2542.5503, 0.85146403], [], 0, "CAN_COLLIDE"];
   _vehicle_291 = _this;
   _this setPos [6901.8384, 2542.5503, 0.85146403];
 };
@@ -1561,7 +1561,7 @@ if (true) then
 _vehicle_292 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_MeleeMachete", [6901.9395, 2542.4521, 0.84736955], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["ItemMachete", [6901.9395, 2542.4521, 0.84736955], [], 0, "CAN_COLLIDE"];
   _vehicle_292 = _this;
   _this setDir -86.163849;
   _this setPos [6901.9395, 2542.4521, 0.84736955];

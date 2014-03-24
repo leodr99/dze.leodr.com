@@ -136,7 +136,7 @@ if (true) then
 _vehicle_206 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemFuelcan", [2051.4282, 2560.8481, -2.6702881e-005], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_ItemJerrycan", [2051.4282, 2560.8481, -2.6702881e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_206 = _this;
   _this setPos [2051.4282, 2560.8481, -2.6702881e-005];
 };
@@ -144,7 +144,7 @@ if (true) then
 _vehicle_207 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemFuelcanEmpty", [2050.9651, 2560.5774], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_ItemJerrycan", [2050.9651, 2560.5774], [], 0, "CAN_COLLIDE"];
   _vehicle_207 = _this;
   _this setDir -102.9085;
   _this setPos [2050.9651, 2560.5774];
@@ -153,7 +153,7 @@ if (true) then
 _vehicle_208 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemFuelcan", [2051.3096, 2560.3354, 1.1444092e-005], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_ItemJerrycan", [2051.3096, 2560.3354, 1.1444092e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_208 = _this;
   _this setPos [2051.3096, 2560.3354, 1.1444092e-005];
 };

@@ -149,7 +149,6 @@ if (isServer) then {
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\Cap_Golova.sqf";
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\elektro_town_ver2.sqf";
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\oilfieldsbase.sqf";
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\dichina.sqf";
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\otmel.sqf";
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\lopatino.sqf";
 		//WIP - New Trader
