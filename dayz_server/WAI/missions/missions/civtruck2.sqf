@@ -36,7 +36,7 @@ _objPosition = getPosATL _veh;
 
 [_position,"Civilian Truck"] execVM "\z\addons\dayz_server\WAI\missions\compile\markers.sqf";
 
-[nil,nil,rTitleText,"A group of survivors found transportation, go and get it. check your map for location!", "PLAIN",10] call RE; // BLA,BLA,BLA text on center users screen mission description
+[nil,nil,rTitleText,"A group of bandits found transportation, go and get it. check your map for location!", "PLAIN",10] call RE; // BLA,BLA,BLA text on center users screen mission description
 
 _missiontimeout = true;
 _cleanmission = false;

@@ -49,8 +49,8 @@ _box addWeaponCargoGlobal ["NVGoggles", 2];
 _box addWeaponCargoGlobal ["ItemGPS", 2];
 
 //BACKPACKS
-_box addBackpackCargoGlobal ["DZ_LargeGunBag_EP1", 2];
+_box addBackpackCargoGlobal ["DZ_LargeGunBag_EP1", 3];
 
 // CLOTHING
-_box addMagazineCargoGlobal ["Skin_Drake_Light_DZ", 2];
+_box addMagazineCargoGlobal ["Skin_Drake_Light_DZ", 3];
 

@@ -9,7 +9,8 @@ diag_log format["WAI: Mission MV22 Started At %1",_position];
 
 //Medical Supply Box
 _box = createVehicle ["LocalBasicWeaponsBox",[(_position select 0) - 20,(_position select 1) - 20,0], [], 0, "CAN_COLLIDE"];
-[_box] call Medical_Supply_Box;
+_box1 = createVehicle ["BAF_VehicleBox",[(_position select 0) - 40,(_position select 1) - 20,0], [], 0, "CAN_COLLIDE"];
+[_box] call Medical_Supply_Box; [_box1] call Extra_Large_Gun_Box;
 
 //Medical Tent
 _tent = createVehicle ["USMC_WarfareBFieldHospital",[(_position select 0) - 20,(_position select 1) - 20,0], [], 0, "CAN_COLLIDE"];
@@ -85,8 +86,14 @@ true						// mission true
 true
 ] call spawn_static;
 
+/*
+Custom Chopper Patrol spawn
+*/
+[[_position select 0, _position select 1, 0],[(_position select 0) + 100, (_position select 1) + 100, 0],600,6,"UH1H_DZ",0.65] spawn heli_patrol;
+
+
 [_position,_vehname] execVM "\z\addons\dayz_server\WAI\missions\compile\markers.sqf";
-[nil,nil,rTitleText,"Bandits have captured a Red Cross MV-22! An informant has advised there is medical supplies, he has updated the map for the location!", "PLAIN",10] call RE;
+[nil,nil,rTitleText,"Bandits have captured a MV-22 from the CDC! An informant has advised there is medical and military supplies, he has updated the map for the location!", "PLAIN",10] call RE;
 
 _missiontimeout = true;
 _cleanmission = false;
@@ -114,6 +121,8 @@ if (_playerPresent) then {
 	clean_running_mission = True;
 	deleteVehicle _veh;
 	deleteVehicle _box;
+	deleteVehicle _box1;	
+	deleteVehicle _tent;
 	{_cleanunits = _x getVariable "missionclean";
 	if (!isNil "_cleanunits") then {
 		switch (_cleanunits) do {

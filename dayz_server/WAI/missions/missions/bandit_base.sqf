@@ -85,6 +85,14 @@ if (_playerPresent) then {
 } else {
 	clean_running_mission = True;
 	deleteVehicle _box;
+	deleteVehicle _baserunover;
+	deleteVehicle _baserunover1;
+	deleteVehicle _baserunover2;
+	deleteVehicle _baserunover3;
+	deleteVehicle _baserunover4;
+	deleteVehicle _baserunover5;
+	deleteVehicle _baserunover6;
+	deleteVehicle _baserunover7;
 	{_cleanunits = _x getVariable "missionclean";
 	if (!isNil "_cleanunits") then {
 		switch (_cleanunits) do {

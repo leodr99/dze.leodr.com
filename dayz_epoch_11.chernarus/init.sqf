@@ -27,7 +27,7 @@ player setVariable ["BIS_noCoreConversations", true];
 //disable radio messages to be heard and shown in the left lower corner of the screen
 enableRadio true;
 // May prevent "how are you civillian?" messages from NPC
-enableSentences true;
+enableSentences false;
 
 // DayZ Epoch config
 spawnShoremode = 0; // Default = 1 (on shore); 0 = anywhere on the map
@@ -35,7 +35,7 @@ spawnArea= 1500; // Default = 1500
 
 MaxVehicleLimit = 120; // Default = 50
 MaxDynamicDebris = 300; // Default = 100
-dayz_MapArea = 14000; // Default = 10000
+dayz_MapArea = 16000; // Default = 10000
 dayz_maxLocalZombies = 30; // Default = 30
 dayz_maxGlobalZombiesInit = 30; // start max global z's within 400m area
 dayz_maxGlobalZombiesIncrease = 10; // amount of global z's increase per player in 400m area
@@ -46,15 +46,16 @@ MaxMineVeins = 25;
 
 
 dayz_paraSpawn = true; //HALO Player spawn
+//spawnMarkerCount = 10; //PLEASE NOTE: The extra markers named spawn5 - spawn10 must exist.
 
-dayz_minpos = -1; 
-dayz_maxpos = 16000;
+dayz_minpos = -18000; 
+dayz_maxpos = 18000;
 
 dayz_sellDistance_vehicle = 16;
 dayz_sellDistance_boat = 30;
 dayz_sellDistance_air = 40;
 
-dayz_maxAnimals = 6; // Default: 8
+dayz_maxAnimals = 8; // Default: 8
 dayz_tameDogs = true;
 DynamicVehicleDamageLow = 0; // Default: 0
 DynamicVehicleDamageHigh = 100; // Default: 100
@@ -78,11 +79,12 @@ DZE_PlotPole = [60,90]; //60m radius for plotpoles and deploying others by 90m
 
 dayz_fullMoonNights = true;
 
+/* Loadout at startup */
+DefaultMagazines = ["ItemBandage","ItemPainkiller"]; 
+DefaultWeapons = ["ItemFlashlight"]; 
+DefaultBackpack = ""; 
+DefaultBackpackWeapon = "";
 
-
-/* Epoch Admin Tools
-AdminList = ["5393410","169899718","120705542"];
-ModList = ["171132358"];*/
 
 //
 // removed this events: ["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",40,"Supplyitems"],["any","any","any","any",5,"supply_drop"],
