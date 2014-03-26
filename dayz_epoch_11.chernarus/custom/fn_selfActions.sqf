@@ -6,36 +6,15 @@ scriptName "Functions\misc\fn_selfActions.sqf";
 ************************************************************/
 private ["_isWreckBuilding","_temp_keys","_magazinesPlayer","_isPZombie","_vehicle","_inVehicle","_hasFuelE","_hasRawMeat","_hasKnife","_hasToolbox","_onLadder","_nearLight","_canPickLight","_canDo","_text","_isHarvested","_isVehicle","_isVehicletype","_isMan","_traderType","_ownerID","_isAnimal","_isDog","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_Unlock","_lock","_buy","_dogHandle","_lieDown","_warn","_hastinitem","_allowedDistance","_menu","_menu1","_humanity_logic","_low_high","_cancel","_metals_trader","_traderMenu","_isWreck","_isRemovable","_isDisallowRepair","_rawmeat","_humanity","_speed","_dog","_hasbottleitem","_isAir","_isShip","_playersNear","_findNearestGens","_findNearestGen","_IsNearRunningGen","_cursorTarget","_isnewstorage","_itemsPlayer","_ownerKeyId","_typeOfCursorTarget","_hasKey","_oldOwner","_combi","_key_colors","_player_deleteBuild","_player_flipveh","_player_lockUnlock_crtl","_player_butcher","_player_studybody","_player_cook","_player_boil","_hasFuelBarrelE","_hasHotwireKit","_player_SurrenderedGear","_isSurrendered","_isModular","_ownerKeyName","_temp_keys_names","_hasAttached","_allowTow","_liftHeli","_found","_posL","_posC","_height","_liftHelis","_attached"];
 
-if (DZE_ActionInProgress) exitWith {}; // Do not allow if any script is running.
-
-_vehicle = vehicle player;
-_isPZombie = player isKindOf "PZombie_VB";
-_inVehicle = (_vehicle != player);
-
-_onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
-_canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
+	if (DZE_ActionInProgress) exitWith {}; // Do not allow if any script is running.
+	
+	_vehicle = vehicle player;
+	_isPZombie = player isKindOf "PZombie_VB";
+	_inVehicle = (_vehicle != player);
+	
+	_onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
+	_canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
   
-// ====================== IT's SERVER MENU SCRIPT ======================
-
-// The color for the menu is customizable. Default: f2cb0b. If you want to change it, use HTML color codes. Google it.
-// IMPORTANT: If you have an antihack running like infiSTAR.de's their AH then add these names to the allowed actions list:
-// s_player_servermenu,s_player_servermenu1,s_player_servermenu2,s_player_servermenu3,s_player_servermenu4,s_player_servermenuCancel,	
-
-   // IT07's Server Menu script
-    if((speed player <= 1) && _canDo) then {
-        if (s_player_servermenu < 0) then {
-			s_player_servermenu = player addAction [("<t color=""#f2cb0b"">" + ("Server Menu") +"</t>"),"custom\ServerMenu\server_menu.sqf","",-1,false,false,"", ""];
-		};
-    } else {
-        player removeAction s_player_servermenu;
-		s_player_servermenu = -1;
-		player removeAction s_player_servermenu1;
-		player removeAction s_player_servermenu2;
-		//player removeAction s_player_servermenu3;
-		player removeAction s_player_servermenuCancel;
-    };
-
-// ====================== SERVER MENU SCRIPT END ======================  
 
 	/* Deployable bike */
 	private ["_weapons","_isBike"];
@@ -57,7 +36,7 @@ _canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
 
 	// EOF Bike
 
-  // --------------Krixes Self Bloodbag-----------------------------------------
+	// --------------Krixes Self Bloodbag-----------------------------------------
 	private ["_mags"];
 	_mags = magazines player;
     if ("ItemBloodbag" in _mags) then {
@@ -73,9 +52,9 @@ _canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
 
 
     };
-  // --------------Krixes Self Bloodbag END-----------------------------------------
+	// --------------Krixes Self Bloodbag END-----------------------------------------
 
-// ---------------------------------------RUSSIAN ROULETTE START------------------------------------
+	// ---------------------------------------RUSSIAN ROULETTE START------------------------------------
  
 	private ["_handGun"];
 	_handGun = currentWeapon player;
@@ -93,107 +72,107 @@ _canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
 		s_player_russianr = -1;
 	};
  
-// ---------------------------------------RUSSIAN ROULETTE END------------------------------------
+	// ---------------------------------------RUSSIAN ROULETTE END------------------------------------
 
-_nearLight = 	nearestObject [player,"LitObject"];
-_canPickLight = false;
-if (!isNull _nearLight) then {
-	if (_nearLight distance player < 4) then {
-		_canPickLight = isNull (_nearLight getVariable ["owner",objNull]);
+	_nearLight = 	nearestObject [player,"LitObject"];
+	_canPickLight = false;
+	if (!isNull _nearLight) then {
+		if (_nearLight distance player < 4) then {
+			_canPickLight = isNull (_nearLight getVariable ["owner",objNull]);
+		};
 	};
-};
 
-//Grab Flare
-if (_canPickLight and !dayz_hasLight and !_isPZombie) then {
-	if (s_player_grabflare < 0) then {
-		_text = getText (configFile >> "CfgAmmo" >> (typeOf _nearLight) >> "displayName");
-		s_player_grabflare = player addAction [format[localize "str_actions_medical_15",_text], "\z\addons\dayz_code\actions\flare_pickup.sqf",_nearLight, 1, false, true, "", ""];
-		s_player_removeflare = player addAction [format[localize "str_actions_medical_17",_text], "\z\addons\dayz_code\actions\flare_remove.sqf",_nearLight, 1, false, true, "", ""];
-	};
-} else {
-	player removeAction s_player_grabflare;
-	player removeAction s_player_removeflare;
-	s_player_grabflare = -1;
-	s_player_removeflare = -1;
-};
-
-if (DZE_HeliLift) then {
-	_hasAttached = _vehicle getVariable["hasAttached",false];
-	if(_inVehicle and (_vehicle isKindOf "Air") and ((getPos _vehicle select 2) < 30) and (speed _vehicle < 5) and (typeName _hasAttached == "OBJECT")) then {
-		if (s_player_heli_detach < 0) then {
-			dayz_myLiftVehicle = _vehicle;
-			s_player_heli_detach = dayz_myLiftVehicle addAction ["Detach Vehicle","\z\addons\dayz_code\actions\player_heliDetach.sqf",[dayz_myLiftVehicle,_hasAttached],2,false,true,"",""];
+	//Grab Flare
+	if (_canPickLight and !dayz_hasLight and !_isPZombie) then {
+		if (s_player_grabflare < 0) then {
+			_text = getText (configFile >> "CfgAmmo" >> (typeOf _nearLight) >> "displayName");
+			s_player_grabflare = player addAction [format[localize "str_actions_medical_15",_text], "\z\addons\dayz_code\actions\flare_pickup.sqf",_nearLight, 1, false, true, "", ""];
+			s_player_removeflare = player addAction [format[localize "str_actions_medical_17",_text], "\z\addons\dayz_code\actions\flare_remove.sqf",_nearLight, 1, false, true, "", ""];
 		};
 	} else {
-		dayz_myLiftVehicle removeAction s_player_heli_detach;
-		s_player_heli_detach = -1;
+		player removeAction s_player_grabflare;
+		player removeAction s_player_removeflare;
+		s_player_grabflare = -1;
+		s_player_removeflare = -1;
 	};
-};
-
-if(DZE_HaloJump) then {
-	if(_inVehicle and (_vehicle isKindOf "Air") and ((getPos _vehicle select 2) > 400)) then {
-		if (s_halo_action < 0) then {
-			DZE_myHaloVehicle = _vehicle;
-			s_halo_action = DZE_myHaloVehicle addAction [localize "STR_EPOCH_ACTIONS_HALO","\z\addons\dayz_code\actions\halo_jump.sqf",[],2,false,true,"",""];
-		};
-	} else {
-		DZE_myHaloVehicle removeAction s_halo_action;
-		s_halo_action = -1;
-	};
-};
-
-if (!DZE_ForceNameTagsOff) then {
-	if (s_player_showname < 0 and !_isPZombie) then {
-		if (DZE_ForceNameTags) then {
-			s_player_showname = 1;
-			player setVariable["DZE_display_name",true,true];
+	
+	if (DZE_HeliLift) then {
+		_hasAttached = _vehicle getVariable["hasAttached",false];
+		if(_inVehicle and (_vehicle isKindOf "Air") and ((getPos _vehicle select 2) < 30) and (speed _vehicle < 5) and (typeName _hasAttached == "OBJECT")) then {
+			if (s_player_heli_detach < 0) then {
+				dayz_myLiftVehicle = _vehicle;
+				s_player_heli_detach = dayz_myLiftVehicle addAction ["Detach Vehicle","\z\addons\dayz_code\actions\player_heliDetach.sqf",[dayz_myLiftVehicle,_hasAttached],2,false,true,"",""];
+			};
 		} else {
-			s_player_showname = player addAction ["Display Name (Yes)", "\z\addons\dayz_code\actions\display_name.sqf",true, 0, true, false, "",""];
-			s_player_showname1 = player addAction ["Display Name (No)", "\z\addons\dayz_code\actions\display_name.sqf",false, 0, true, false, "",""];
+			dayz_myLiftVehicle removeAction s_player_heli_detach;
+			s_player_heli_detach = -1;
 		};
 	};
-};
-
-if(_isPZombie) then {
-	if (s_player_callzombies < 0) then {
-		s_player_callzombies = player addAction ["Raise Horde", "\z\addons\dayz_code\actions\call_zombies.sqf",player, 5, true, false, "",""];
+	
+	if(DZE_HaloJump) then {
+		if(_inVehicle and (_vehicle isKindOf "Air") and ((getPos _vehicle select 2) > 400)) then {
+			if (s_halo_action < 0) then {
+				DZE_myHaloVehicle = _vehicle;
+				s_halo_action = DZE_myHaloVehicle addAction [localize "STR_EPOCH_ACTIONS_HALO","\z\addons\dayz_code\actions\halo_jump.sqf",[],2,false,true,"",""];
+			};
+		} else {
+			DZE_myHaloVehicle removeAction s_halo_action;
+			s_halo_action = -1;
+		};
 	};
-	if (DZE_PZATTACK) then {
-		call pz_attack;
-		DZE_PZATTACK = false;
+	
+	if (!DZE_ForceNameTagsOff) then {
+		if (s_player_showname < 0 and !_isPZombie) then {
+			if (DZE_ForceNameTags) then {
+				s_player_showname = 1;
+				player setVariable["DZE_display_name",true,true];
+			} else {
+				s_player_showname = player addAction ["Display Name (Yes)", "\z\addons\dayz_code\actions\display_name.sqf",true, 0, true, false, "",""];
+				s_player_showname1 = player addAction ["Display Name (No)", "\z\addons\dayz_code\actions\display_name.sqf",false, 0, true, false, "",""];
+			};
+		};
 	};
-	if (s_player_pzombiesvision < 0) then {
-		s_player_pzombiesvision = player addAction ["Night Vision", "\z\addons\dayz_code\actions\pzombie\pz_vision.sqf", [], 4, false, true, "nightVision", "_this == _target"];
-	};
-	if (!isNull cursorTarget and (player distance cursorTarget < 3)) then {	//Has some kind of target
-		_isAnimal = cursorTarget isKindOf "Animal";
-		_isZombie = cursorTarget isKindOf "zZombie_base";
-		_isHarvested = cursorTarget getVariable["meatHarvested",false];
-		_isMan = cursorTarget isKindOf "Man";
-		// Pzombie Gut human corpse or animal
-		if (!alive cursorTarget and (_isAnimal or _isMan) and !_isZombie and !_isHarvested) then {
-			if (s_player_pzombiesfeed < 0) then {
-				s_player_pzombiesfeed = player addAction ["Feed", "\z\addons\dayz_code\actions\pzombie\pz_feed.sqf",cursorTarget, 3, true, false, "",""];
+	
+	if(_isPZombie) then {
+		if (s_player_callzombies < 0) then {
+			s_player_callzombies = player addAction ["Raise Horde", "\z\addons\dayz_code\actions\call_zombies.sqf",player, 5, true, false, "",""];
+		};
+		if (DZE_PZATTACK) then {
+			call pz_attack;
+			DZE_PZATTACK = false;
+		};
+		if (s_player_pzombiesvision < 0) then {
+			s_player_pzombiesvision = player addAction ["Night Vision", "\z\addons\dayz_code\actions\pzombie\pz_vision.sqf", [], 4, false, true, "nightVision", "_this == _target"];
+		};
+		if (!isNull cursorTarget and (player distance cursorTarget < 3)) then {	//Has some kind of target
+			_isAnimal = cursorTarget isKindOf "Animal";
+			_isZombie = cursorTarget isKindOf "zZombie_base";
+			_isHarvested = cursorTarget getVariable["meatHarvested",false];
+			_isMan = cursorTarget isKindOf "Man";
+			// Pzombie Gut human corpse or animal
+			if (!alive cursorTarget and (_isAnimal or _isMan) and !_isZombie and !_isHarvested) then {
+				if (s_player_pzombiesfeed < 0) then {
+					s_player_pzombiesfeed = player addAction ["Feed", "\z\addons\dayz_code\actions\pzombie\pz_feed.sqf",cursorTarget, 3, true, false, "",""];
+				};
+			} else {
+				player removeAction s_player_pzombiesfeed;
+				s_player_pzombiesfeed = -1;
 			};
 		} else {
 			player removeAction s_player_pzombiesfeed;
 			s_player_pzombiesfeed = -1;
 		};
-	} else {
-		player removeAction s_player_pzombiesfeed;
-		s_player_pzombiesfeed = -1;
 	};
-};
 
-// Increase distance only if AIR OR SHIP
-_allowedDistance = 6;
-_isAir = cursorTarget isKindOf "Air";
-_isShip = cursorTarget isKindOf "Ship";
-if(_isAir or _isShip) then {
-	_allowedDistance = 14;
-};
+	// Increase distance only if AIR OR SHIP
+	_allowedDistance = 6;
+	_isAir = cursorTarget isKindOf "Air";
+	_isShip = cursorTarget isKindOf "Ship";
+	if(_isAir or _isShip) then {
+		_allowedDistance = 14;
+	};
 
-if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cursorTarget < _allowedDistance) and _canDo) then {	//Has some kind of target
+	if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cursorTarget < _allowedDistance) and _canDo) then {	//Has some kind of target
 
 	// set cursortarget to variable
 	_cursorTarget = cursorTarget;
@@ -921,6 +900,50 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 			s_player_followdog = -1;
 		};
 	};
+	
+	//------------------- Drink Water --------------------------------
+	private["_playerPos","_canDrink","_isPond","_isWell","_pondPos","_objectsWell","_objectsPond","_display"];
+	
+	_playerPos = getPosATL player;
+	_canDrink = count nearestObjects [_playerPos, ["Land_pumpa","Land_water_tank"], 4] > 0;
+	_isPond = false;
+	_isWell = false;
+	_pondPos = [];
+	_objectsWell = [];
+	
+	if (!_canDrink) then {
+		_objectsWell = nearestObjects [_playerPos, [], 4];
+		{
+			//Check for Well
+			_isWell = ["_well",str(_x),false] call fnc_inString;
+			if (_isWell) then {_canDrink = true};
+		} forEach _objectsWell;
+	};
+	
+	if (!_canDrink) then {
+		_objectsPond = nearestObjects [_playerPos, [], 50];
+		{
+			//Check for pond
+			_isPond = ["pond",str(_x),false] call fnc_inString;
+			if (_isPond) then {
+				_pondPos = (_x worldToModel _playerPos) select 2;
+				if (_pondPos < 0) then {
+					_canDrink = true;
+				};
+			};
+		} forEach _objectsPond;
+	};
+	
+	if (_canDrink) then {
+			if (s_player_drinkWater < 0) then {
+				s_player_drinkWater = player addaction[("<t color=""#0000c7"">" + ("Drink water") +"</t>"),"custom\drink_water.sqf"];
+			};
+		} else {
+			player removeAction s_player_drinkWater;
+			s_player_drinkWater = -1;
+	};
+	
+	//-------------------------Drink Water End ----------------------------------------------
 
 } else {
 	//Engineering
@@ -1014,13 +1037,9 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	player removeAction s_church_cure;
 	s_church_cure = -1;
 	
-	//server menu
-	player removeAction s_player_servermenu;
-	player removeAction s_player_servermenu1;
-	player removeAction s_player_servermenu2;
-	//player removeAction s_player_servermenu3;
-	player removeAction s_player_servermenuCancel;
-	s_player_servermenu = -1;
+	//Drink Water from Water Sources
+	player removeAction s_player_drinkWater;
+	s_player_drinkWater = -1;
 };
 
 

@@ -91,8 +91,8 @@ DefaultBackpackWeapon = "";
 //starts on the hour and half past it. disabled due to the fact that WAI already has this mission.
 //
 EpochEvents = [["any","any","any","any",10,"Military"],
-["any","any","any","any",25,"Treasure"],
-["any","any","any","any",55,"Construction"]];
+["any","any","any","any",30,"Treasure"],
+["any","any","any","any",50,"Construction"]];
 
 //Load in compiled functions
 call compile preprocessFileLineNumbers "custom\variables.sqf";				//Initilize the Variables (IMPORTANT: Must happen very early)
@@ -190,14 +190,6 @@ if (!isDedicated) then {
 	//Lights
 	//[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
 	
-	// Mission System Markers [thx to inkko] - #SAR_AI#
-	if (!isnil ("Ccoords")) then {
-		[] execVM "debug\addmarkers.sqf";
-    };
-	if (!isnil ("MCoords")) then {
-		[] execVM "debug\addmarkers75.sqf";
-    };
-	
 	//KH special functions - c130, cessna, mv22
 	_nil = [] execVM "custom\kh_specials.sqf";
 	//Evac script
@@ -216,15 +208,6 @@ execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
 //
 //Custom Scripts
 //
-
-//
-// IF disabling SAR_AI then disable UPSMON Also... if not it will be a PITA
-//
-/*
-call compile preprocessFileLineNumbers "addons\UPSMON\scripts\Init_UPSMON.sqf";	//UPSMON
-call compile preprocessFileLineNumbers "addons\SHK_pos\shk_pos_init.sqf";	//UPSMON
-[] execVM "addons\SARGE\SAR_AI_init.sqf";	//SAR_AI
-*/
 
 // SafeZone
 [] execvm 'AGN\agn_SafeZoneCommander.sqf';

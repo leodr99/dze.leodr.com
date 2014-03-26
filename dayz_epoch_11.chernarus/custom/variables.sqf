@@ -250,6 +250,8 @@ dayz_resetSelfActions = {
 	s_player_heli_lift = -1;
 	s_player_heli_detach = -1;
 	s_player_lockUnlock_crtl = -1;
+	// Drink Water from Water Sources
+	s_player_drinkWater = -1;
 };
 call dayz_resetSelfActions;
 
