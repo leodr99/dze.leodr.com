@@ -71,7 +71,7 @@ DZE_HeliLift = false; // built'in tow/lift functions from Epoch.
 DZE_vehicleAmmo = 1; //enable machine gun ammo for cehicles with turrets
 DZE_BackPackGuard = true;	//Enable/Disable backpack contents being wiped if logging out or loosing conn beside anothe player
 DZE_HumanityTargetDistance = 200; //force nametag view up to #value in meters
-DZE_safeVehicle = ["Old_bike_TK_INS_EP1","ParachuteWest","ParachuteC"]; //vehicles that player can spawn/build
+DZE_safeVehicle = ["Old_bike_TK_INS_EP1","ParachuteWest","ParachuteC","TT650_Civ","CSJ_GyroC"]; //vehicles that player can spawn/build
 DZE_PlayerZed = false; //disable players becoming zeds. they're dead anyway, so what's the point.
 DZE_PlotPole = [60,90]; //60m radius for plotpoles and deploying others by 90m
 //Debug FPS - Server

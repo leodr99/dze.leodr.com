@@ -36,6 +36,22 @@ private ["_isWreckBuilding","_temp_keys","_magazinesPlayer","_isPZombie","_vehic
 
 	// EOF Bike
 
+	//-------------------------------Mergs Church cure-------------------------------------
+
+	private["_playerPos","_canCure"];
+	_playerPos = getPosATL player;
+	_canCure = count nearestObjects [_playerPos, ["Land_Church_01","Land_Church_03","Land_Church_02","Land_Church_02a"], 20] > 0;
+	
+	if (_canCure) then {
+		if (s_church_cure < 0) then {
+		s_church_cure = player addaction[("<t color=""#FF0000"">" + ("Cure Infection") +"</t>"),"custom\churchcure\church_cure.sqf"];
+	};
+	} else {
+		player removeAction s_church_cure;
+		s_church_cure = -1;
+	};
+	//-----------------------------Mergs Church cure end-------------------------------------	
+
 	// --------------Krixes Self Bloodbag-----------------------------------------
 	private ["_mags"];
 	_mags = magazines player;
@@ -1072,20 +1088,3 @@ if (_dogHandle > 0) then {
 	player removeAction s_player_calldog;
 	s_player_calldog = 		-1;
 };
-
-
-//-------------------------------Mergs Church cure-------------------------------------
-
-private["_playerPos","_canCure"];
-_playerPos = getPosATL player;
-_canCure = count nearestObjects [_playerPos, ["Land_Church_01","Land_Church_03","Land_Church_02","Land_Church_02a"], 20] > 0;
-
-if (_canCure) then {
-	if (s_church_cure < 0) then {
-	s_church_cure = player addaction[("<t color=""#FF0000"">" + ("Cure Infection") +"</t>"),"custom\churchcure\church_cure.sqf"];
-};
-} else {
-	player removeAction s_church_cure;
-	s_church_cure = -1;
-};
-//-----------------------------Mergs Church cure end-------------------------------------	
