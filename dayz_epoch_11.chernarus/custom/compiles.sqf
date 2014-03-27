@@ -41,7 +41,7 @@ if (!isDedicated) then {
 	player_changeCombo =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_changeCombo.sqf";
 	
 	player_lockVault =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_lockVault.sqf";
-	// control_zombieAgent = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\control_zombieAgent.sqf";
+	control_zombieAgent = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\control_zombieAgent.sqf";
 	player_updateGui =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_updateGui.sqf";
 	player_crossbowBolt =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_crossbowBolt.sqf";
 	//spawn_flies = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\spawn_flies.sqf";
