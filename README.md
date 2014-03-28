@@ -22,7 +22,7 @@ Installation instructions
 
 5. Pack the PBO's and upload to your server, accordingly (server to server addon, mission to mpmissions folder).
 
-5. Restart the server up and keep an eye on the dump.log (tail -f dump.log) for errors.
+5. Restart the server up and keep an eye on the dump.log (tail -f dump.log; *linux*) for errors.
 
 6. Test the crap out if, and fix any errors you find.
 
@@ -35,16 +35,14 @@ Mods/Scripts Used
 	AdminTools
 	AGN SafeZone Commander
 	ServicePoint
-	ChurchCure
 	RussianRoulette
-	BikeSpawn
+	ActionMenu - (Deply vehicles, bike+gyro+bicycle)
 	SnapBuilding
 	Breaking Point Mist/fog effect
-	ServerMenu
 	Custom Intro Credits + soundtrack
 	JAEM - Evac Script
 	AdminDome
 	Map Addons (buildings + traders)
 	WAI.17 + Custom missions + AI Patrols (Air+Vehicles+Ground+ParaDrop)
-	
-	
+	DrinkWater from several Water Sources
+	Customized Loadouts/Loot-Tables/AmmoCrates
