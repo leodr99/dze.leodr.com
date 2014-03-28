@@ -85,7 +85,7 @@ DefaultWeapons = ["ItemFlashlight"];
 DefaultBackpack = ""; 
 DefaultBackpackWeapon = "";
 
-/*Custom Scripts + maps*/
+/*Custom Scripts*/
 ///Scripts
 LEO_adminTools = true; //enable admintools
 LEO_efectFog = true; //enable BP Fog
@@ -98,18 +98,7 @@ LEO_KHspecials = true; //Vehicle animations
 LEO_REmsgs = true; //MACA123 Remote messages hack
 LEO_servicePoint = true; //service points script
 LEO_customWelcome = true; //custom welcome credits+intro
-/*
-///Maps
-LEO_mapsTrader = true; //new trader, near Zub castle
-LEO_mapsSkaliBridge = true; //Skali island bridge
-LEO_mapsOthers = true; //other map addons
-///Ghosts of Chernarus
-LEO_mapsGOC = true; //enable GOC map Addons - global -
-LEO_mapsGOCTowns = true; //GOC Town addons
-LEO_mapsGOCTraders = true; //GOC traders addons
-LEO_mapsGOCLM = true; //GOC LandMarks
-*/
-/*End Custom Scripts+maps*/
+/*End Custom Scripts variables*/
 
 //
 // removed this events: ["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",40,"Supplyitems"],["any","any","any","any",5,"supply_drop"],
@@ -149,56 +138,6 @@ if (isServer) then {
 	_nil = [] execVM "\z\addons\dayz_server\missions\DayZ_Epoch_11.Chernarus\mission.sqf";
 	//standard server monitor
 	_serverMonitor = 	[] execVM "\z\addons\dayz_code\system\server_monitor.sqf";
-	/* Server side buildings */ 
-	/*
-	///Ghosts of Chernarus
-	if (LEO_mapsGOC) then {
-		//LandMarks
-		if (LEO_mapsGOCLM) then {
-			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_LM_tubf.sqf"; //the battlefield
-			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_LM_wlcr.sqf"; //willow lake castle
-		};
-		//GOC Traders
-		if (LEO_mapsGOCTraders) then {
-			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_bash.sqf";
-			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_btcc.sqf"; //Bandit camp
-			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_klen.sqf"; //klen without fuelpump+generator
-			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_neaf.sqf"; //N-E airfield
-			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_stary.sqf";
-		};
-		//GOC Towns
-		if (LEO_mapsGOCTowns) then {
-			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_SI_Zelenogorsk.sqf";
-			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_SI_Grishino.sqf";
-		};
-	};*/
-	/*
-	///Skali Bridge
-	if (LEO_mapsSkaliBridge) then {
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\bridge.sqf";
-	};
-	///Others
-	if (LEO_mapsOthers) then {
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\blackForestOutpost.sqf";
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\epochbalota.sqf";
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\epochcherno.sqf";
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\epochkamenka.sqf";
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\devfish_camptents.sqf";
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\devilscastle.sqf";
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\dubrovka.sqf";
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\ChernoQaurantine_zone.sqf";
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\milicamps.sqf";
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\train_wreck.sqf";
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\Cap_Golova.sqf";
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\elektro_town_ver2.sqf";
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\oilfieldsbase.sqf";
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\otmel.sqf";
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\lopatino.sqf";
-	};
-	///WIP - New Trader
-	if (LEO_mapsTrader) then {
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\newtrader.sqf";
-	};*/
 };
 
 if (!isDedicated) then {
