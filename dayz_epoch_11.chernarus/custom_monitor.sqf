@@ -1,33 +1,45 @@
+dayz_spaceInterrupt = {
+    private ["_dikCode", "_handled"];
+    _dikCode = _this select 1;
+    _handled = false;
+ 
+    if (_dikCode == 0x44) then {
+        if (leo_stats) then {
+            leo_stats = false;
+            hintSilent "";
+        } else {[] spawn fnc_debug;};
+    };
+    _handled
+};
+
 fnc_debug = {
      leo_stats = true;
      while {leo_stats} do
-  {
-   _pic = (gettext (configFile >> 'CfgVehicles' >> (typeof vehicle player) >> 'picture'));
+	{
+	private ["_kills","_killsH","_killsB","_humanity","_headShots","_zombies","_zombiesA","_pic","_nearestCity","_textCity"];
+	
+	_kills =	player getVariable["zombieKills",0];
+	_killsH =	player getVariable["humanKills",0];
+	_killsB =	player getVariable["banditKills",0];
+	_humanity =	player getVariable["humanity",0];
+	_headShots =	player getVariable["headShots",0];
+	_zombies =	count entities "zZombie_Base";
+	_zombiesA =	{alive _x} count entities "zZombie_Base";
+	_pic = (gettext (configFile >> 'CfgVehicles' >> (typeof vehicle player) >> 'picture'));
+	
+	_nearestCity = nearestLocations [getPos player, ["NameCityCapital","NameCity","NameVillage","NameLocal"],750];
+	_textCity = "Wilderness";
+	if (count _nearestCity > 0) then {_textCity = text (_nearestCity select 0)};
+	
+	if (player == vehicle player) then
+	{
+	_pic = (gettext (configFile >> 'cfgWeapons' >> (currentWeapon player) >> 'picture')); 
+	}
+	else
+	{
+	_pic = (gettext (configFile >> 'CfgVehicles' >> (typeof vehicle player) >> 'picture')); 
+	};
    
-   _nearestCity = nearestLocations [getPos player, ["NameCityCapital","NameCity","NameVillage","NameLocal"],750];
-   _textCity = "Wilderness";
-   if (count _nearestCity > 0) then {_textCity = text (_nearestCity select 0)};
-    
-   if (player == vehicle player) then
-   {
-    _pic = (gettext (configFile >> 'cfgWeapons' >> (currentWeapon player) >> 'picture')); 
-   }
-   else
-   {
-    _pic = (gettext (configFile >> 'CfgVehicles' >> (typeof vehicle player) >> 'picture')); 
-   };
-   
-//	_timeleft= _combattimeout-time;
-   _kills =	player getVariable["zombieKills",0];
-   _killsH =	player getVariable["humanKills",0];
-   _killsB =	player getVariable["banditKills",0];
-   _humanity =	player getVariable["humanity",0];
-   _headShots =	player getVariable["headShots",0];
-   _zombies =	count entities "zZombie_Base";
-   _zombiesA =	{alive _x} count entities "zZombie_Base";
-
-
-
 /* Custom admin/mod monitor */
 	//if ((getPlayerUID player) in ["5393410"]) then { 
 	if (((getPlayerUID player) in AdminList) || ((getPlayerUID player) in ModList )) then { 
