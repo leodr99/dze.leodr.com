@@ -73,7 +73,7 @@ DZE_BackPackGuard = true;	//Enable/Disable backpack contents being wiped if logg
 DZE_HumanityTargetDistance = 200; //force nametag view up to #value in meters
 DZE_safeVehicle = ["Old_bike_TK_INS_EP1","ParachuteWest","ParachuteC","TT650_Civ","CSJ_GyroC"]; //vehicles that player can spawn/build
 DZE_PlayerZed = false; //disable players becoming zeds. they're dead anyway, so what's the point.
-DZE_PlotPole = [60,90]; //60m radius for plotpoles and deploying others by 90m
+DZE_PlotPole = [60,80]; //60m radius for plotpoles and deploying others by 90m
 //Debug FPS - Server
 //DZE_DiagVerbose = true;
 
@@ -84,21 +84,6 @@ DefaultMagazines = ["ItemBandage","ItemPainkiller"];
 DefaultWeapons = ["ItemFlashlight"]; 
 DefaultBackpack = ""; 
 DefaultBackpackWeapon = "";
-
-//CUSTOM VARIABLES/FUNCTIONS
-service_Point = true; //activate service point script
-KH_Specials = true; //Vehicles animations - c130, suv, cessna, mv22
-JAEM_Chopper = true; //Just another evac 
-Action_Menu = true; //Player Action Menu
-RE_msgs = true; //MACA123 Remote Execution script
-AGN_safeZone = true; //SafeZone Protection script
-R3F_script = true; //R3F Tow+Lift script
-custom_debugMonitor = true; //customized debugMonitor script
-bp_nightFog = true; //breaking point mist/fog effect
-welcomeCredits = true; //welcome credits script
-GOC_Maps = true; //Ghosts of Chernarus map additions
-map_Addons = true; //Other map additions
-trader_Addons = true; //new trader map additions
 
 //
 // removed this events: ["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",40,"Supplyitems"],["any","any","any","any",5,"supply_drop"],
@@ -122,10 +107,8 @@ progressLoadingScreen 0.6;
 call compile preprocessFileLineNumbers "server_traders.sqf";				//Compile trader configs
 progressLoadingScreen 0.7;
 call compile preprocessFileLineNumbers "custom\compiles.sqf"; //Compile custom compiles
-if (JAEM_Chopper) then {
-	progressLoadingScreen 0.8;
-	call compile preprocessFileLineNumbers "custom\JAEM\variables.sqf";	//Evac Script
-	};
+progressLoadingScreen 0.8;
+call compile preprocessFileLineNumbers "custom\JAEM\variables.sqf";	//Evac Script
 progressLoadingScreen 1.0;
 
 "filmic" setToneMappingParams [0.153, 0.357, 0.231, 0.1573, 0.011, 3.750, 6, 4]; setToneMapping "Filmic";
@@ -139,7 +122,6 @@ if (isServer) then {
 	_serverMonitor = 	[] execVM "\z\addons\dayz_code\system\server_monitor.sqf";
 	/* Server side buildings */
 	///Ghosts of Chernarus
-	if (GOC_Maps) then {
 		//LandMarks
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_LM_tubf.sqf"; //the battlefield
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_LM_wlcr.sqf"; //willow lake castle
@@ -152,8 +134,6 @@ if (isServer) then {
 		//GOC Towns
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_SI_Zelenogorsk.sqf";
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_SI_Grishino.sqf";
-		};
-	if (map_Addons) then {
 		//Skali Bridge
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\bridge.sqf";
 		//Others
@@ -172,11 +152,8 @@ if (isServer) then {
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\oilfieldsbase.sqf";
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\otmel.sqf";
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\lopatino.sqf";
-		};
-	if (trader_Addons) then {
 		//WIP - New Trader
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\newtrader.sqf";
-		};
 };
 
 if (!isDedicated) then {
@@ -190,24 +167,19 @@ if (!isDedicated) then {
 	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
 
 	//Leo's welcome credits - startup text
-	if (welcomeCredits) then {
 		[] execVM "custom\welcomecredits.sqf";
-	};
 	
 	//Run the player monitor
 	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
 	_playerMonitor = 	[] execVM "\z\addons\dayz_code\system\player_monitor.sqf";	
 	
 	//_CustomGpsVideo = [] execVM "intro\gps_video.sqf";		//Intro Video in ingame GPS monitor
-	if (service_Point) then {
-	// service points helper scripts.
-    [] execVM "service_point\service_point.sqf";
-	}
 	
-	if (RE_msgs) then {
-	//Remote Messages Hack by Maca - epochforums.com
-    _nil = [] execVM "custom\remote_messages.sqf";
-	};
+	// service points helper scripts.
+		[] execVM "service_point\service_point.sqf";
+	
+	// Remote Messages by Maca123
+		_nil = [] execVM "custom\remote_messages.sqf";
 	
 	//anti Hack + admintools exception
 	if ( !((getPlayerUID player) in AdminList) && !((getPlayerUID player) in ModList) && !((getPlayerUID player) in tempList)) then
@@ -219,57 +191,44 @@ if (!isDedicated) then {
 	//[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
 	
 	//KH special functions - c130, cessna, mv22
-	if (KH_Specials) then {
 	_nil = [] execVM "custom\kh_specials.sqf";
-	};
 	
 	//Evac script
-	if (JAEM_Chopper) then {
 	_nil = [] execVM "custom\JAEM\EvacChopper_init.sqf";
-	};
 	
-	// Actions Menu (deploy bike, gyro, TT650)
-	if (Action_Menu) then {
-	_nil = [] execVM "custom\actionmenu\actionmenu_activate.sqf"
-	};
 };
 
 //Remote EXEC
-#include "\z\addons\dayz_code\system\REsec.sqf"
+	#include "\z\addons\dayz_code\system\REsec.sqf"
 
 //Start Dynamic Weather
-execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
+	execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
 
 // BI Effects
-#include "\z\addons\dayz_code\system\BIS_Effects\init.sqf"
+	#include "\z\addons\dayz_code\system\BIS_Effects\init.sqf"
 
 //
 //Custom Scripts
 //
 
 // SafeZone
-if (AGN_safeZone) then {
 	[] execvm 'AGN\agn_SafeZoneCommander.sqf';
-};
 
 //Lift+Tow Logistics
-if (R3F_script) then {
 	[] execVM "R3F_ARTY_AND_LOG\init.sqf";
-};
 
 // Custom User Monitor - stats
-if (custom_debugMonitor) then {
 	[] execVM "custom_monitor.sqf";
-};
 
 //AdminTools Epoch
-[] execVM "admintools\Activate.sqf";
+	[] execVM "admintools\Activate.sqf";
 
 //night fog - breaking point
-if (bp_nightFog) then {
 	[] execVM "custom\effects\nightfog.sqf";
-};
 
+// Actions Menu (deploy bike, gyro, TT650)
+	_nil = [] execVM "custom\actionmenu\actionmenu_activate.sqf";
+	
 //watermark
 if (!isNil "server_name") then {
 	[] spawn {

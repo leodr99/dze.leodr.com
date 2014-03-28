@@ -1,3 +1,4 @@
+/* //Needs fixing - breaking spacebar for building
 dayz_spaceInterrupt = {
     private ["_dikCode", "_handled"];
     _dikCode = _this select 1;
@@ -11,6 +12,7 @@ dayz_spaceInterrupt = {
     };
     _handled
 };
+*/
 
 fnc_debug = {
      leo_stats = true;
