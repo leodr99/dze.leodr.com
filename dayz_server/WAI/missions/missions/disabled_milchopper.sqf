@@ -1,11 +1,17 @@
 //Military Chopper
 
-private ["_playerPresent","_cleanmission","_currenttime","_starttime","_missiontimeout","_vehname","_veh","_position","_vehclass","_vehdir","_objPosition"];
+private ["_playerPresent","_cleanmission","_currenttime","_starttime","_missiontimeout","_vehname","_veh","_position","_vehclass","_vehdir","_objPosition","_needsrelocated","_istoomany"];
 
 _vehclass = armed_chopper call BIS_fnc_selectRandom;
 
 _vehname	= getText (configFile >> "CfgVehicles" >> _vehclass >> "displayName");
-_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos;
+//_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos; //original
+_needsrelocated = true;
+while {_needsrelocated} do {
+	_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos;
+	_istoomany = _position nearObjects ["AllVehicles",500];
+	if((count _istoomany) == 0) then { _needsrelocated = false; };
+};
 diag_log format["WAI: Mission Armed Chopper Started At %1",_position];
 
 //Sniper Gun Box
@@ -86,7 +92,7 @@ true
 ] call spawn_static;
 
 [_position,_vehname] execVM "\z\addons\dayz_server\WAI\missions\compile\markers.sqf";
-[nil,nil,rTitleText,"A bandit helicopter is taking off with a crate of snipers! Save the cargo and keep the guns for yourself.", "PLAIN",10] call RE;
+[nil,nil,rTitleText,"A bandit helicopter is taking off with a crate of sniper guns! Save the cargo and keep the guns for yourself.", "PLAIN",10] call RE;
 
 _missiontimeout = true;
 _cleanmission = false;

@@ -1,4 +1,4 @@
-/* //Needs fixing - breaking spacebar for building
+/*//Needs fixing - breaking spacebar for building
 dayz_spaceInterrupt = {
     private ["_dikCode", "_handled"];
     _dikCode = _this select 1;
@@ -10,9 +10,9 @@ dayz_spaceInterrupt = {
             hintSilent "";
         } else {[] spawn fnc_debug;};
     };
-    _handled
-};
-*/
+//    _handled
+};*/
+
 
 fnc_debug = {
      leo_stats = true;

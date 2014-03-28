@@ -1,8 +1,15 @@
 //C130 Crash
 
-private ["_playerPresent","_cleanmission","_currenttime","_starttime","_missiontimeout","_position"];
+private ["_playerPresent","_cleanmission","_currenttime","_starttime","_missiontimeout","_position","_needsrelocated","_istoomany"];
 
-_position = [getMarkerPos "center",0,2500,10,0,200,0] call BIS_fnc_findSafePos;
+//_position = [getMarkerPos "center",0,2500,10,0,200,0] call BIS_fnc_findSafePos; //original
+
+_needsrelocated = true;
+while {_needsrelocated} do {
+	_position = [getMarkerPos "center",0,3500,10,0,200,0] call BIS_fnc_findSafePos;
+	_istoomany = _position nearObjects ["AllVehicles",500];
+	if((count _istoomany) == 0) then { _needsrelocated = false; };
+};
 diag_log format["WAI: Wrecked C130 Mission Started At %1",_position];
 
 _baserunover = createVehicle ["C130J_wreck_EP1",[(_position select 0), (_position select 1),0],[], 0, "CAN_COLLIDE"];

@@ -1,8 +1,14 @@
 //Ural Attack
 
-private ["_playerPresent","_cleanmission","_currenttime","_starttime","_missiontimeout","_position"];
+private ["_playerPresent","_cleanmission","_currenttime","_starttime","_missiontimeout","_position","_needsrelocated","_istoomany"];
 
-_position = [getMarkerPos "center",0,4500,10,0,200,0] call BIS_fnc_findSafePos;
+//_position = [getMarkerPos "center",0,4500,10,0,200,0] call BIS_fnc_findSafePos;
+_needsrelocated = true;
+while {_needsrelocated} do {
+	_position = [getMarkerPos "center",0,4500,10,0,200,0] call BIS_fnc_findSafePos;
+	_istoomany = _position nearObjects ["AllVehicles",800];
+	if((count _istoomany) == 0) then { _needsrelocated = false; };
+};
 diag_log format["WAI: Ural Attack Mission Started At %1",_position];
 
 _baserunover = createVehicle ["UralWreck",[(_position select 0), (_position select 1),0],[], 0, "CAN_COLLIDE"];
@@ -20,7 +26,7 @@ _box = createVehicle ["RUBasicWeaponsBox",[(_position select 0) + 25,(_position 
 [[[(_position select 0) + 10, (_position select 1) + 10, 0],[(_position select 0) + 10, (_position select 1) - 10, 0]],"M2StaticMG",0.8,"Bandit2_DZ",0,2,"","Random",true] call spawn_static;
 
 [_position,"Ural Attack"] execVM "\z\addons\dayz_server\WAI\missions\compile\markers.sqf";
-[nil,nil,rTitleText,"Bandits have destroyed a Ural carrying medical supplies and are securing the cargo! Check your map for the location!", "PLAIN",10] call RE;
+[nil,nil,rTitleText,"Bandits have destroyed a Ural carrying supplies and are securing the cargo! Check your map for the location!", "PLAIN",10] call RE;
 	
 _missiontimeout = true;
 _cleanmission = false;
@@ -42,7 +48,7 @@ if (_playerPresent) then {
 		(_playerPresent)
 	};
 	diag_log format["WAI: Ural Attack Mission Ended At %1",_position];
-	[nil,nil,rTitleText,"The medical supplies have been secured by survivors!", "PLAIN",10] call RE;
+	[nil,nil,rTitleText,"The supplies have been secured by survivors!", "PLAIN",10] call RE;
 } else {
 	clean_running_mission = True;
 	deleteVehicle _box;
@@ -61,6 +67,6 @@ if (_playerPresent) then {
 	} forEach allUnits;
 	
 	diag_log format["WAI: Ural Attack Mission Timed Out At %1",_position];
-	[nil,nil,rTitleText,"Survivors did not secure the medical supplies in time!", "PLAIN",10] call RE;
+	[nil,nil,rTitleText,"Survivors did not secure the supplies in time!", "PLAIN",10] call RE;
 };
 missionrunning = false;

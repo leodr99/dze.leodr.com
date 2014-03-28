@@ -1,9 +1,15 @@
 //Mayors Mansion
 
-private ["_position","_box","_missiontimeout","_cleanmission","_playerPresent","_starttime","_currenttime","_cleanunits","_rndnum"];
-vehclass = military_unarmed call BIS_fnc_selectRandom;
- 
-_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos;
+private ["_position","_box","_missiontimeout","_cleanmission","_playerPresent","_starttime","_currenttime","_cleanunits","_rndnum","_needsrelocated","_istoomany"];
+_vehclass = military_unarmed call BIS_fnc_selectRandom;
+
+ //_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos; //original
+_needsrelocated = true;
+while {_needsrelocated} do {
+	_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos;
+	_istoomany = _position nearObjects ["AllVehicles",500];
+	if((count _istoomany) == 0) then { _needsrelocated = false; };
+};
 
 //Large Gun Box
 _box = createVehicle ["BAF_VehicleBox",[(_position select 0),(_position select 1), .5], [], 0, "CAN_COLLIDE"];
@@ -25,6 +31,8 @@ _rndnum = round (random 3) + 4;
  
 [[[(_position select 0) - 15, (_position select 1) + 15, 8]],"M2StaticMG",0.8,"TK_INS_Soldier_AT_EP1",1,2,"","Random",true] call spawn_static;
 [[[(_position select 0) + 15, (_position select 1) - 15, 8]],"M2StaticMG",0.8,"TK_INS_Soldier_AT_EP1",1,2,"","Random",true] call spawn_static;
+ 
+[[(_position select 0) - 30, (_position select 1) + 30, 0],[(_position select 0) + 20, (_position select 1) - 20, 0],200,8,_vehclass,0.5] spawn vehicle_patrol; 
  
 [_position,"Mayors Mansion"] execVM "\z\addons\dayz_server\WAI\missions\compile\markers.sqf";
 [nil,nil,rTitleText,"The Mayor has gone rogue, go take him and his task force out to claim the black market weapons!", "PLAIN",10] call RE;

@@ -116,7 +116,7 @@ civil_vehicles = [
 ];
 
 // Number of guns to spawn in ammo boxes 
-wai_mission_numberofguns = 8;
+wai_mission_numberofguns = (round (random 10));
 // classnames of guns to spawn in ammo boxes (only class weapons)
 ammo_box_guns = [
 "M9SD",
@@ -138,7 +138,7 @@ ammo_box_guns = [
 "Pecheneg_DZ",
 "RPK_74",
 "BAF_LRR_scoped",
-"DMR",
+"DMR_DZ",
 "SVD_CAMO",
 "SCAR_H_LNG_Sniper_SD",
 "M110_NVG_EP1",
@@ -147,11 +147,18 @@ ammo_box_guns = [
 "BAF_L86A2_ACOG",
 "M14_EP1",
 "Sa58V_CCO_EP1",
-"Crossbow_DZ"
+"Crossbow_DZ",
+"AK_74_GL",
+"G36A_camo",
+"M14_EP1",
+"M16A4_GL",
+"M24",
+"M4A3_RCO_GL_EP1",
+"M4SPR"
 ];
 
 // Number of tools to spawn in ammo boxes 
-wai_mission_numberoftools = 5;
+wai_mission_numberoftools = (round (random 5));
 // classnames of tools to spawn in ammo boxes (only toolbelt items or weapon class Eg. "Chainsaw" or "ItemToolbox")
 ammo_box_tools =[
 "ItemToolbox",
@@ -171,20 +178,37 @@ ammo_box_tools =[
 "ChainsawR",
 "ItemRadio",
 "ItemMap",
-"ItemKeyKit",
 "ItemSledge"
 ];
 
 // Number of items to spawn in ammo boxes 
-wai_mission_numberofitems = 5;
+wai_mission_numberofitems = (round (random 5));
 // classnames of items to spawn in ammo boxes (only type magazine will work here)
 ammo_box_items =[
 "ItemBandage",
-"ItemSodaCoke",
+"ItemSodaR4z0r",
 "ItemSodaXdrink",
-"30Rnd_556x45_StanagSD",
-"30Rnd_545x39_AKSD",
-"ItemDocument"
+"ItemSodaClays",
+"ItemSodaSmasht",
+"ItemSodaDrwaste",
+"ItemSodaLemonade",
+"ItemSodaRabbit",
+"ItemSodaRbull",
+"ItemSodaOrangeSherbet",
+"ItemSodaLvg",
+"ItemSodaMzly",
+"ItemWaterbottleUnfilled",
+"ItemHeatPack",
+"ItemJerrycanEmpty",
+"ItemGenerator",
+"ItemKeyKit",
+"ItemHotwireKit",
+"ItemJerryMixed",
+"ItemDocument",
+"ItemLRK",
+"ItemTNK",
+"ItemAVE",
+"ItemORP"
 ];
 
 //////////////////////////////////////////////////////////////////////

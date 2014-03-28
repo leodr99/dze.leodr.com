@@ -74,7 +74,7 @@ DZE_HumanityTargetDistance = 200; //force nametag view up to #value in meters
 DZE_safeVehicle = ["Old_bike_TK_INS_EP1","ParachuteWest","ParachuteC","TT650_Civ","CSJ_GyroC"]; //vehicles that player can spawn/build
 DZE_PlayerZed = false; //disable players becoming zeds. they're dead anyway, so what's the point.
 DZE_PlotPole = [60,80]; //60m radius for plotpoles and deploying others by 90m
-//Debug FPS - Server
+///Debug FPS - Server
 //DZE_DiagVerbose = true;
 
 dayz_fullMoonNights = true;
@@ -85,10 +85,37 @@ DefaultWeapons = ["ItemFlashlight"];
 DefaultBackpack = ""; 
 DefaultBackpackWeapon = "";
 
+/*Custom Scripts + maps*/
+///Scripts
+LEO_adminTools = true; //enable admintools
+LEO_efectFog = true; //enable BP Fog
+LEO_actions = true; //enable actionmenu
+LEO_customDebugMonitor = true; //enable custom debug
+LEO_R3FLog = true; //enable R3F tow+lift
+LEO_AGNsafeZone = true; //enable AGN Traders SafeZone
+LEO_JAEM = true; //Evac chopper
+LEO_KHspecials = true; //Vehicle animations
+LEO_REmsgs = true; //MACA123 Remote messages hack
+LEO_servicePoint = true; //service points script
+LEO_customWelcome = true; //custom welcome credits+intro
+/*
+///Maps
+LEO_mapsTrader = true; //new trader, near Zub castle
+LEO_mapsSkaliBridge = true; //Skali island bridge
+LEO_mapsOthers = true; //other map addons
+///Ghosts of Chernarus
+LEO_mapsGOC = true; //enable GOC map Addons - global -
+LEO_mapsGOCTowns = true; //GOC Town addons
+LEO_mapsGOCTraders = true; //GOC traders addons
+LEO_mapsGOCLM = true; //GOC LandMarks
+*/
+/*End Custom Scripts+maps*/
+
 //
 // removed this events: ["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",40,"Supplyitems"],["any","any","any","any",5,"supply_drop"],
 //starts on the hour and half past it. disabled due to the fact that WAI already has this mission.
 //
+
 EpochEvents = [["any","any","any","any",10,"Military"],
 ["any","any","any","any",30,"Treasure"],
 ["any","any","any","any",50,"Construction"]];
@@ -107,8 +134,10 @@ progressLoadingScreen 0.6;
 call compile preprocessFileLineNumbers "server_traders.sqf";				//Compile trader configs
 progressLoadingScreen 0.7;
 call compile preprocessFileLineNumbers "custom\compiles.sqf"; //Compile custom compiles
-progressLoadingScreen 0.8;
-call compile preprocessFileLineNumbers "custom\JAEM\variables.sqf";	//Evac Script
+if (LEO_JAEM) then {
+	progressLoadingScreen 0.8;
+	call compile preprocessFileLineNumbers "custom\JAEM\variables.sqf";	//Evac Script
+};
 progressLoadingScreen 1.0;
 
 "filmic" setToneMappingParams [0.153, 0.357, 0.231, 0.1573, 0.011, 3.750, 6, 4]; setToneMapping "Filmic";
@@ -120,23 +149,36 @@ if (isServer) then {
 	_nil = [] execVM "\z\addons\dayz_server\missions\DayZ_Epoch_11.Chernarus\mission.sqf";
 	//standard server monitor
 	_serverMonitor = 	[] execVM "\z\addons\dayz_code\system\server_monitor.sqf";
-	/* Server side buildings */
+	/* Server side buildings */ 
+	/*
 	///Ghosts of Chernarus
+	if (LEO_mapsGOC) then {
 		//LandMarks
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_LM_tubf.sqf"; //the battlefield
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_LM_wlcr.sqf"; //willow lake castle
+		if (LEO_mapsGOCLM) then {
+			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_LM_tubf.sqf"; //the battlefield
+			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_LM_wlcr.sqf"; //willow lake castle
+		};
 		//GOC Traders
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_bash.sqf";
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_btcc.sqf"; //Bandit camp
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_klen.sqf"; //klen without fuelpump+generator
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_neaf.sqf"; //N-E airfield
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_stary.sqf";
+		if (LEO_mapsGOCTraders) then {
+			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_bash.sqf";
+			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_btcc.sqf"; //Bandit camp
+			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_klen.sqf"; //klen without fuelpump+generator
+			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_neaf.sqf"; //N-E airfield
+			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_stary.sqf";
+		};
 		//GOC Towns
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_SI_Zelenogorsk.sqf";
-		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_SI_Grishino.sqf";
-		//Skali Bridge
+		if (LEO_mapsGOCTowns) then {
+			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_SI_Zelenogorsk.sqf";
+			call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_SI_Grishino.sqf";
+		};
+	};*/
+	/*
+	///Skali Bridge
+	if (LEO_mapsSkaliBridge) then {
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\bridge.sqf";
-		//Others
+	};
+	///Others
+	if (LEO_mapsOthers) then {
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\blackForestOutpost.sqf";
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\epochbalota.sqf";
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\epochcherno.sqf";
@@ -152,23 +194,28 @@ if (isServer) then {
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\oilfieldsbase.sqf";
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\otmel.sqf";
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\lopatino.sqf";
-		//WIP - New Trader
+	};
+	///WIP - New Trader
+	if (LEO_mapsTrader) then {
 		call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\newtrader.sqf";
+	};*/
 };
 
 if (!isDedicated) then {
 
 	//Load Admintools Users list
-	[] execVM "admintools\AdminList.sqf";
-	
+	if (LEO_adminTools) then {
+		[] execVM "admintools\AdminList.sqf";
+	};
 	//Conduct map operations
 	0 fadeSound 0;
 	waitUntil {!isNil "dayz_loadScreenMsg"};
 	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
 
 	//Leo's welcome credits - startup text
+	if (LEO_customWelcome) then {
 		[] execVM "custom\welcomecredits.sqf";
-	
+	};
 	//Run the player monitor
 	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
 	_playerMonitor = 	[] execVM "\z\addons\dayz_code\system\player_monitor.sqf";	
@@ -176,11 +223,13 @@ if (!isDedicated) then {
 	//_CustomGpsVideo = [] execVM "intro\gps_video.sqf";		//Intro Video in ingame GPS monitor
 	
 	// service points helper scripts.
+	if (LEO_servicePoint) then {
 		[] execVM "service_point\service_point.sqf";
-	
-	// Remote Messages by Maca123
+	};
+	// Remote Messages by Maca123	
+	if (LEO_REmsgs) then {
 		_nil = [] execVM "custom\remote_messages.sqf";
-	
+	};
 	//anti Hack + admintools exception
 	if ( !((getPlayerUID player) in AdminList) && !((getPlayerUID player) in ModList) && !((getPlayerUID player) in tempList)) then
 		{
@@ -191,11 +240,13 @@ if (!isDedicated) then {
 	//[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
 	
 	//KH special functions - c130, cessna, mv22
-	_nil = [] execVM "custom\kh_specials.sqf";
-	
+	if (LEO_KHspecials) then {
+		_nil = [] execVM "custom\kh_specials.sqf";
+	};
 	//Evac script
-	_nil = [] execVM "custom\JAEM\EvacChopper_init.sqf";
-	
+	if (LEO_JAEM) then {
+		_nil = [] execVM "custom\JAEM\EvacChopper_init.sqf";
+	};
 };
 
 //Remote EXEC
@@ -210,24 +261,34 @@ if (!isDedicated) then {
 //
 //Custom Scripts
 //
-
+if (LEO_AGNsafeZone) then {
 // SafeZone
 	[] execvm 'AGN\agn_SafeZoneCommander.sqf';
+};
 
+if (LEO_R3FLog) then {
 //Lift+Tow Logistics
 	[] execVM "R3F_ARTY_AND_LOG\init.sqf";
-
+};
+if (LEO_customDebugMonitor) then {
 // Custom User Monitor - stats
 	[] execVM "custom_monitor.sqf";
+};
 
+if (LEO_adminTools) then {
 //AdminTools Epoch
 	[] execVM "admintools\Activate.sqf";
+};
 
+if (LEO_efectFog) then {
 //night fog - breaking point
 	[] execVM "custom\effects\nightfog.sqf";
+};
 
+if (LEO_actions) then {
 // Actions Menu (deploy bike, gyro, TT650)
 	_nil = [] execVM "custom\actionmenu\actionmenu_activate.sqf";
+};
 	
 //watermark
 if (!isNil "server_name") then {

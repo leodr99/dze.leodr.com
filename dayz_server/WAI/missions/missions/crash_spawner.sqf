@@ -1,4 +1,4 @@
-private ["_currenttime","_starttime","_playerPresent","_cleanmission","_missiontimeout","_guaranteedLoot","_randomizedLoot","_spawnChance","_spawnMarker","_spawnRadius","_spawnFire","_fadeFire","_crashModel","_lootTable","_crashName","_spawnRoll","_position","_crash","_config","_hasAdjustment","_newHeight","_adjustedPos","_num","_itemTypes","_index","_weights","_cntWeights","_nearby","_itemType"];
+private ["_currenttime","_starttime","_playerPresent","_cleanmission","_missiontimeout","_guaranteedLoot","_randomizedLoot","_spawnChance","_spawnMarker","_spawnRadius","_spawnFire","_fadeFire","_crashModel","_lootTable","_crashName","_spawnRoll","_position","_crash","_config","_hasAdjustment","_newHeight","_adjustedPos","_num","_itemTypes","_index","_weights","_cntWeights","_nearby","_itemType","_needsrelocated","_istoomany"];
 
 _guaranteedLoot = 25;
 _randomizedLoot = 10;
@@ -10,13 +10,19 @@ _spawnFire = true;
 _fadeFire = false;
 missionrunning = true;
 	
-_crashModel = ["UH60Wreck_DZ","UH1Wreck_DZ"] call BIS_fnc_selectRandom;
+_crashModel = ["UH60Wreck_DZ","UH1Wreck_DZ","UH60_NAVY_Wreck_DZ","UH60_ARMY_Wreck_DZ","UH60_NAVY_Wreck_burned_DZ","UH60_ARMY_Wreck_burned_DZ"] call BIS_fnc_selectRandom;
 
 _lootTable = "HeliCrash";
 
 _crashName	= getText (configFile >> "CfgVehicles" >> _crashModel >> "displayName");
 
-_position = [getMarkerPos _spawnMarker,0,5500,10,0,2000,0] call BIS_fnc_findSafePos;
+//_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos; //original
+_needsrelocated = true;
+while {_needsrelocated} do {
+	_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos;
+	_istoomany = _position nearObjects ["AllVehicles",800];
+	if((count _istoomany) == 0) then { _needsrelocated = false; };
+};
 
 //diag_log(format["CRASHSPAWNER: Spawning '%1' with loot table '%2' NOW! (%3) at: %4", _crashName, _lootTable, time, str(_position)]);
 diag_log format["WAI: Mission Crash_Spawner Started At %1",_position];
@@ -92,7 +98,7 @@ _rndnum,						  //Number Of units
 "Random",				  //Gearset number. "Random" for random gear set.
 true						// mission true
 ] call spawn_group;
-
+/*
 [[_position select 0, _position select 1, 0],                  //position
 4,						  //Number Of units
 1,					      //Skill level 0-1. Has no effect if using custom skills
@@ -113,7 +119,7 @@ true						// mission true
 "Bandit2_DZ",						  //Skin "" for random or classname here.
 "Random",				  //Gearset number. "Random" for random gear set.
 true						// mission true
-] call spawn_group;
+] call spawn_group;*/
 
 if ((random 3) < 1) then {
 	[[[(_position select 0), (_position select 1) + 10, 0]], //position(s) (can be multiple).

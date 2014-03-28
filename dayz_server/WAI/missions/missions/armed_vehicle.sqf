@@ -1,11 +1,19 @@
 //Armed Vehicle
 
-private ["_playerPresent","_cleanmission","_currenttime","_starttime","_missiontimeout","_vehname","_veh","_position","_vehclass","_vehdir","_objPosition"];
+private ["_playerPresent","_cleanmission","_currenttime","_starttime","_missiontimeout","_vehname","_veh","_position","_vehclass","_vehdir","_objPosition","_needsrelocated","_istoomany"];
 
 _vehclass = armed_vehicle call BIS_fnc_selectRandom;
 
 _vehname	= getText (configFile >> "CfgVehicles" >> _vehclass >> "displayName");
-_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos;
+//_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos; //original
+
+_needsrelocated = true;
+while {_needsrelocated} do {
+	_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos;
+	_istoomany = _position nearObjects ["AllVehicles",500];
+	if((count _istoomany) == 0) then { _needsrelocated = false; };
+};
+
 diag_log format["WAI: Mission Armed Vehicle Started At %1",_position];
 
 //Chain Bullet Box

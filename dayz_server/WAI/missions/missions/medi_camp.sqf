@@ -1,9 +1,15 @@
 //Medical Supply Camp
 
-private ["_position","_box","_missiontimeout","_cleanmission","_playerPresent","_starttime","_currenttime","_cleanunits","_rndnum"];
+private ["_position","_box","_missiontimeout","_cleanmission","_playerPresent","_starttime","_currenttime","_cleanunits","_rndnum","_needsrelocated","_istoomany"];
 vehclass = military_unarmed call BIS_fnc_selectRandom;
  
-_position = [getMarkerPos "center",0,3200,10,0,20,0] call BIS_fnc_findSafePos;
+//_position = [getMarkerPos "center",0,3200,10,0,20,0] call BIS_fnc_findSafePos;
+_needsrelocated = true;
+while {_needsrelocated} do {
+	_position = [getMarkerPos "center",0,3200,10,0,20,0] call BIS_fnc_findSafePos;
+	_istoomany = _position nearObjects ["AllVehicles",700];
+	if((count _istoomany) == 0) then { _needsrelocated = false; };
+};
 
 //Large Gun Box
 _box = createVehicle ["BAF_VehicleBox",[(_position select 0) + 15,(_position select 1) + 5,0], [], 0, "CAN_COLLIDE"];
@@ -16,8 +22,7 @@ _baserunover = createVehicle ["Land_fortified_nest_big",[(_position select 0) +1
 _baserunover2 = createVehicle ["Land_Fort_Watchtower",[(_position select 0) +25, (_position select 1) +10,0],[], 0, "CAN_COLLIDE"];
 
 _rndnum = round (random 3) + 4;
-[[_position select 0, _position select 1, 0],4,1,"Random",4,"","TK_INS_Soldier_AT_EP1","Random",true] call spawn_group;
-[[_position select 0, _position select 1, 0],4,1,"Random",4,"","TK_INS_Soldier_AT_EP1","Random",true] call spawn_group;
+[[_position select 0, _position select 1, 0],_rndnum,1,"Random",4,"","TK_INS_Soldier_AT_EP1","Random",true] call spawn_group;
 [[_position select 0, _position select 1, 0],4,1,"Random",4,"","TK_INS_Soldier_AT_EP1","Random",true] call spawn_group;
  
 [_position,"Medical Supply Camp"] execVM "\z\addons\dayz_server\WAI\missions\compile\markers.sqf";

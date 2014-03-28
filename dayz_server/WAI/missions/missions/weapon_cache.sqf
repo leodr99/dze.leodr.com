@@ -1,8 +1,14 @@
 //Weapon Cache
 
-private ["_position","_box","_missiontimeout","_cleanmission","_playerPresent","_starttime","_currenttime","_cleanunits","_rndnum"];
+private ["_position","_box","_missiontimeout","_cleanmission","_playerPresent","_starttime","_currenttime","_cleanunits","_rndnum","_needsrelocated","_istoomany"];
 
-_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos;
+//_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos;
+_needsrelocated = true;
+while {_needsrelocated} do {
+	_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos;
+	_istoomany = _position nearObjects ["AllVehicles",800];
+	if((count _istoomany) == 0) then { _needsrelocated = false; };
+};
 diag_log format["WAI: Mission Weapon Cache Started At %1",_position];
 
 

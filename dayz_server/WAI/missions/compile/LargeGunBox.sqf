@@ -31,12 +31,10 @@ _box addMagazineCargoGlobal ["30Rnd_762x39_AK47", 10];
 _box addMagazineCargoGlobal ["30Rnd_556x45_G36", 10];
 _box addMagazineCargoGlobal ["20Rnd_762x51_DMR", 10];
 _box addMagazineCargoGlobal ["20Rnd_762x51_DMR", 10];
-_box addMagazineCargoGlobal ["30Rnd_556x45_Stanag", 10];
+_box addMagazineCargoGlobal ["30Rnd_556x45_Stanag", 30];
 _box addMagazineCargoGlobal ["200Rnd_556x45_M249", 10];
 _box addMagazineCargoGlobal ["5Rnd_762x51_M24", 4];
 _box addMagazineCargoGlobal ["5Rnd_762x51_M24", 4];
-_box addMagazineCargoGlobal ["30Rnd_556x45_Stanag", 10];
-_box addMagazineCargoGlobal ["30Rnd_556x45_Stanag", 10];
 
 _box addMagazineCargoGlobal ["17Rnd_9x19_glock17", 10];
 _box addMagazineCargoGlobal ["30Rnd_9x19_UZI", 10];

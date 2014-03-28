@@ -1,10 +1,16 @@
 //Weapon Cache ported from EMS 1st Testpreview
 
-private ["_position","_box","_missiontimeout","_cleanmission","_playerPresent","_starttime","_currenttime","_cleanunits","_rndnum","_vehname","_veh","_position","_vehclass","_vehdir","_objPosition"];
+private ["_position","_box","_missiontimeout","_cleanmission","_playerPresent","_starttime","_currenttime","_cleanunits","_rndnum","_vehname","_veh","_position","_vehclass","_vehdir","_objPosition","_needsrelocated","_istoomany"];
 _vehclass = ["SUV_Camo","UAZ_Unarmed_UN_EP1","HMMWV_Armored","BTR40_TK_INS_EP1"] call BIS_fnc_selectRandom;
 
 _vehname	= getText (configFile >> "CfgVehicles" >> _vehclass >> "displayName");
-_position = [getMarkerPos "center",0,5800,10,0,200,0] call BIS_fnc_findSafePos;
+//_position = [getMarkerPos "center",0,5800,10,0,200,0] call BIS_fnc_findSafePos;
+_needsrelocated = true;
+while {_needsrelocated} do {
+	_position = [getMarkerPos "center",0,5800,10,0,200,0] call BIS_fnc_findSafePos;
+	_istoomany = _position nearObjects ["AllVehicles",800];
+	if((count _istoomany) == 0) then { _needsrelocated = false; };
+};
 diag_log format["WAI: Mission Weapon Cache Started At %1",_position];
 
 _box = createVehicle ["BAF_VehicleBox",[(_position select 0) - 40,(_position select 1) - 40,0], [], 0, "CAN_COLLIDE"];
@@ -29,7 +35,7 @@ _rndnum = round (random 3) + 4;
      
 [[_position select 0, _position select 1, 0],4,1,"Random",4,"","Bandit2_DZ","Random",true] call spawn_group;
 
-[[[(_position select 0), (_position select 1) + 30, 0],[(_position select 0) + 30, (_position select 1), 0]],"M2StaticMG",0.8,"Bandit2_DZ",2,2,"","Random",true] call spawn_static;
+[[[(_position select 0), (_position select 1) + 30, 0],[(_position select 0) + 30, (_position select 1), _vehdir]],"M2StaticMG",0.8,"Bandit2_DZ",2,2,"","Random",true] call spawn_static;
 
 
 [_position,"Weapon cache"] execVM "\z\addons\dayz_server\WAI\missions\compile\markers.sqf";
@@ -59,6 +65,7 @@ if (_playerPresent) then {
 } else {
 	clean_running_mission = True;
 	deleteVehicle _box;
+	deleteVehicle _veh;
 	{_cleanunits = _x getVariable "missionclean";
 	if (!isNil "_cleanunits") then {
 		switch (_cleanunits) do {

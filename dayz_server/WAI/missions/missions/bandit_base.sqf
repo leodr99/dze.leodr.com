@@ -1,10 +1,16 @@
 //Bandit Base
 //Credits to Korbi Dallas for the information on setDir for the placement of nests
  
-private ["_position","_box","_missiontimeout","_cleanmission","_playerPresent","_starttime","_currenttime","_cleanunits","_rndnum"];
+private ["_position","_box","_missiontimeout","_cleanmission","_playerPresent","_starttime","_currenttime","_cleanunits","_rndnum","_needsrelocated","_istoomany"];
 vehclass = military_unarmed call BIS_fnc_selectRandom;
  
-_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos;
+//_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos; //original
+_needsrelocated = true;
+while {_needsrelocated} do {
+	_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos;
+	_istoomany = _position nearObjects ["AllVehicles",500];
+	if((count _istoomany) == 0) then { _needsrelocated = false; };
+};
 
 //Extra Large Gun Box
  _box = createVehicle ["RUVehicleBox",[(_position select 0),(_position select 1),0], [], 0, "CAN_COLLIDE"];

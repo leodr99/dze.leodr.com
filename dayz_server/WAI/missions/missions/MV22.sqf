@@ -1,16 +1,22 @@
 //Medical Supply
 
-private ["_playerPresent","_cleanmission","_currenttime","_starttime","_missiontimeout","_vehname","_veh","_position","_vehclass","_vehdir","_objPosition"];
+private ["_playerPresent","_cleanmission","_currenttime","_starttime","_missiontimeout","_vehname","_veh","_position","_vehclass","_vehdir","_objPosition","_needsrelocated","_istoomany"];
 _vehclass = "MV22_DZ";
-
 _vehname	= getText (configFile >> "CfgVehicles" >> _vehclass >> "displayName");
-_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos;
+//_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos; //original
+_needsrelocated = true;
+while {_needsrelocated} do {
+	_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos;
+	_istoomany = _position nearObjects ["AllVehicles",500];
+	if((count _istoomany) == 0) then { _needsrelocated = false; };
+};
 diag_log format["WAI: Mission MV22 Started At %1",_position];
 
 //Medical Supply Box
 _box = createVehicle ["LocalBasicWeaponsBox",[(_position select 0) - 20,(_position select 1) - 20,0], [], 0, "CAN_COLLIDE"];
-_box1 = createVehicle ["BAF_VehicleBox",[(_position select 0) - 40,(_position select 1) - 20,0], [], 0, "CAN_COLLIDE"];
-[_box] call Medical_Supply_Box; [_box1] call Extra_Large_Gun_Box;
+_box1 = createVehicle ["BAF_VehicleBox",[(_position select 0) - 20,(_position select 1) + 20,0], [], 0, "CAN_COLLIDE"];
+[_box] call Medical_Supply_Box;
+[_box1] call Extra_Large_Gun_Box;
 
 //Medical Tent
 _tent = createVehicle ["USMC_WarfareBFieldHospital",[(_position select 0) - 20,(_position select 1) - 20,0], [], 0, "CAN_COLLIDE"];
@@ -51,7 +57,7 @@ true
 "Random",				  //Gearset number. "Random" for random gear set.
 true
 ] call spawn_group;
-
+/*
 [[_position select 0, _position select 1, 0],                  //position
 4,						  //Number Of units
 1,					      //Skill level 0-1. Has no effect if using custom skills
@@ -73,7 +79,7 @@ true						// mission true
 "Random",				  //Gearset number. "Random" for random gear set.
 true						// mission true
 ] call spawn_group;
-
+*/
 //Turrets
 [[[(_position select 0) + 10, (_position select 1) + 10, 0],[(_position select 0) + 10, (_position select 1) - 10, 0]], //position(s) (can be multiple).
 "M2StaticMG",             //Classname of turret
@@ -89,7 +95,7 @@ true
 /*
 Custom Chopper Patrol spawn
 */
-[[_position select 0, _position select 1, 0],[(_position select 0) + 100, (_position select 1) + 100, 0],600,6,"UH1H_DZ",0.65] spawn heli_patrol;
+[[_position select 0, _position select 1, 0],[(_position select 0) + 100, (_position select 1) + 100, 0],400,6,"UH1H_DZ",0.65] spawn heli_patrol;
 
 
 [_position,_vehname] execVM "\z\addons\dayz_server\WAI\missions\compile\markers.sqf";
