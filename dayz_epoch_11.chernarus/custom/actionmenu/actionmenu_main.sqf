@@ -107,7 +107,7 @@ ServerInfo =
 ["",true],
         ["Specs", [2],  "", -5, [["expression", format[EXECscript6 ,"Specs.sqf"]]], "1", "1"],
         ["Rules", [3],  "", -5, [["expression", format[EXECscript6 ,"Rules.sqf"]]], "1", "1"],
-        ["Tips", [4],  "", -5, [["expression", format[EXECscript6 ,"Tips.sqf"]]], "1", "1"],
+//        ["Tips", [4],  "", -5, [["expression", format[EXECscript6 ,"Tips.sqf"]]], "1", "1"],
             ["", [-1], "", -5, [["expression", ""]], "1", "0"],
             ["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
 ];

@@ -73,7 +73,7 @@ class CfgSounds
     sounds[] =
     {
 		introSong,
-		cureEffect
+		gunClick
     };
 	class introSong
     {
@@ -81,10 +81,10 @@ class CfgSounds
     sound[]={intro.ogg,0.9,1};
     titles[] = {};
     };
-	class cureEffect
+	class gunClick
     {
-    name="cureEffect";
-    sound[]={\custom\churchcure\cure_effect.ogg,0.9,1};
+    name="gunClick";
+    sound[]={\custom\Russian_Roulette\gunclick.ogg,0.9,1};
     titles[] = {};
     };
 };
@@ -212,6 +212,5 @@ class DayZ_loadingScreen
 		};
 	};
 };
-//#include "addons\SARGE\SAR_define.hpp"
 #include "custom\snap_build\points.hpp"
 #include "admintools\dialog.hpp"

@@ -61,8 +61,8 @@
  _role9names = ["11032014:", "WickedAI + SFZone Cleanup", "and the usual bug/glitch hunt!", "16032014:","WAI.17 Missions + Patrols (46 locations)"];
  _role9 = "Special Thanks";
  _role9names = ["To all of the scripters", "that helped build this out!", "For your enjoyment!"];
- _role10 = ["For more Info"];
- _role10names = ["Use your mouse wheel","and choose Server Menu!"];
+ _role10 = "For more Info";
+ _role10names = ["Use your mouse wheel","and choose Server Menu!","Under Actions."];
   
  {
   sleep 2;

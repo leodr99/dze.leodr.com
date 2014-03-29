@@ -80,10 +80,10 @@ DZE_PlotPole = [60,80]; //60m radius for plotpoles and deploying others by 90m
 dayz_fullMoonNights = true;
 
 /* Loadout at startup */
-DefaultMagazines = ["ItemBandage","ItemPainkiller"]; 
+DefaultMagazines = ["ItemBandage"]; 
 DefaultWeapons = ["ItemFlashlight"]; 
-DefaultBackpack = ""; 
-DefaultBackpackWeapon = "";
+DefaultBackpack = "DZ_Patrol_Pack_EP1"; 
+//DefaultBackpackWeapon = "";
 
 /*Custom Scripts*/
 ///Scripts
@@ -99,6 +99,10 @@ LEO_REmsgs = true; //MACA123 Remote messages hack
 LEO_servicePoint = true; //service points script
 LEO_customWelcome = true; //custom welcome credits+intro
 /*End Custom Scripts variables*/
+
+DefaultMagazines = ["ItemBandage","ItemPainkiller","ItemWaterbottle","FoodMRE"]; 
+DefaultWeapons = ["ItemFlashlight","ItemMap","ItemToolbox"];
+DefaultBackpack = "DZ_Patrol_Pack_EP1";
 
 //
 // removed this events: ["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",40,"Supplyitems"],["any","any","any","any",5,"supply_drop"],

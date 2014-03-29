@@ -28,7 +28,7 @@ if (DucksR == GooseR) then {
     };
 } else {
     // If they are a duck, let them know
-    _nul = [objNull, player, rSAY, "gunclick"] call RE;
+    _nul = [objNull, player, rSAY, "gunClick"] call RE;
     cutText [format["You pull the trigger and it clicks."], "PLAIN DOWN"];
     player removeAllEventHandlers "fired";
 };
