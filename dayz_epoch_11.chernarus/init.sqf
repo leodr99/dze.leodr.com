@@ -71,7 +71,7 @@ DZE_HeliLift = false; // built'in tow/lift functions from Epoch.
 DZE_vehicleAmmo = 1; //enable machine gun ammo for cehicles with turrets
 DZE_BackPackGuard = true;	//Enable/Disable backpack contents being wiped if logging out or loosing conn beside anothe player
 DZE_HumanityTargetDistance = 200; //force nametag view up to #value in meters
-DZE_safeVehicle = ["Old_bike_TK_INS_EP1","ParachuteWest","ParachuteC","TT650_Civ","CSJ_GyroC"]; //vehicles that player can spawn/build
+DZE_safeVehicle = ["Old_bike_TK_INS_EP1","Old_bike_TK_CIV_EP1","ParachuteWest","ParachuteC","TT650_Civ","CSJ_GyroC"]; //vehicles that player can spawn/build
 DZE_PlayerZed = false; //disable players becoming zeds. they're dead anyway, so what's the point.
 DZE_PlotPole = [60,80]; //60m radius for plotpoles and deploying others by 90m
 ///Debug FPS - Server
@@ -80,9 +80,12 @@ DZE_PlotPole = [60,80]; //60m radius for plotpoles and deploying others by 90m
 dayz_fullMoonNights = true;
 
 /* Loadout at startup */
-DefaultMagazines = ["ItemBandage"]; 
-DefaultWeapons = ["ItemFlashlight"]; 
-DefaultBackpack = "DZ_Patrol_Pack_EP1"; 
+//DefaultMagazines = ["ItemBandage","ItemSodaCoke","FoodbeefCooked"]; 
+//DefaultWeapons = ["ItemFlashlight","ItemMap"]; 
+//DefaultBackpack = ["DZ_Patrol_Pack_EP1"]; 
+DefaultMagazines = ["ItemBandage","ItemPainkiller","ItemWaterbottle","FoodMRE"]; 
+DefaultWeapons = ["ItemFlashlight","ItemMap","ItemToolbox"];
+DefaultBackpack = ["DZ_Patrol_Pack_EP1"];
 //DefaultBackpackWeapon = "";
 
 /*Custom Scripts*/
@@ -99,10 +102,6 @@ LEO_REmsgs = true; //MACA123 Remote messages hack
 LEO_servicePoint = true; //service points script
 LEO_customWelcome = true; //custom welcome credits+intro
 /*End Custom Scripts variables*/
-
-DefaultMagazines = ["ItemBandage","ItemPainkiller","ItemWaterbottle","FoodMRE"]; 
-DefaultWeapons = ["ItemFlashlight","ItemMap","ItemToolbox"];
-DefaultBackpack = "DZ_Patrol_Pack_EP1";
 
 //
 // removed this events: ["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",40,"Supplyitems"],["any","any","any","any",5,"supply_drop"],
@@ -142,6 +141,40 @@ if (isServer) then {
 	_nil = [] execVM "\z\addons\dayz_server\missions\DayZ_Epoch_11.Chernarus\mission.sqf";
 	//standard server monitor
 	_serverMonitor = 	[] execVM "\z\addons\dayz_code\system\server_monitor.sqf";
+
+	/* ADDON BUILDINGS */
+	//LandMarks
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_LM_tubf.sqf"; //the battlefield
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_LM_wlcr.sqf"; //willow lake castle
+	//GOC Traders
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_bash.sqf";
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_btcc.sqf"; //Bandit camp
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_klen.sqf"; //klen without fuelpump+generator
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_neaf.sqf"; //N-E airfield
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_TE_stary.sqf";
+	//GOC Towns
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_SI_Zelenogorsk.sqf";
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\GOC_SI_Grishino.sqf";
+	///Skali Bridge
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\bridge.sqf";
+	///Others
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\blackForestOutpost.sqf";
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\epochbalota.sqf";
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\epochcherno.sqf";
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\epochkamenka.sqf";
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\devfish_camptents.sqf";
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\devilscastle.sqf";
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\dubrovka.sqf";
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\ChernoQaurantine_zone.sqf";
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\milicamps.sqf";
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\train_wreck.sqf";
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\Cap_Golova.sqf";
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\elektro_town_ver2.sqf";
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\oilfieldsbase.sqf";
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\otmel.sqf";
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\lopatino.sqf";
+	///WIP - New Trader
+	call compile preProcessFileLineNumbers "\z\addons\dayz_server\maps\newtrader.sqf";
 };
 
 if (!isDedicated) then {

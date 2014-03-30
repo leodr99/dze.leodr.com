@@ -44,4 +44,4 @@ _info10sub = format["mumble: dze.leodr.com / twitter: leodr99 / e-mail: dayze@le
 <t size='0.5' align='left' color='#f2cb0b'> %19 </t><br />
 <t size='0.4' align='left' color='#FFFFFF'> %20 </t>",
 _info1, _info1sub, _info2, _info2sub, _info3, _info3sub, _info4, _info4sub, _info5, _info5sub,
-, _info6, _info6sub, _info7, _info7sub, _info8, _info8sub, _info9, _info9sub, _info10, _info10sub],safezoneX+0.30,safezoneY+0.1,35,0.1,0,3034] spawn BIS_fnc_dynamicText;
+_info6, _info6sub, _info7, _info7sub, _info8, _info8sub, _info9, _info9sub, _info10, _info10sub],safezoneX+0.30,safezoneY+0.1,35,0.1,0,3034] spawn BIS_fnc_dynamicText;

@@ -61,7 +61,8 @@ while {_doLoop < 5} do {
             _res = preprocessFile "\cache\players\default.sqf";
             diag_log ("PLAYER DEFAULT CACHE: "+_res);
             if ((_res == "") or (isNil "_res")) then {            
-	        _primary = ["PASS",false,"1",[],[["ItemFlashlight","ItemMap","ItemGPS"],["ItemBandage"]],["DZ_Patrol_Pack_EP1",[],[]],[0,0,0],"Survivor2_DZ",0.96];
+	        //_primary = ["PASS",false,"1",[],[["ItemFlashlight","ItemMap","ItemGPS"],["ItemBandage"]],["DZ_Patrol_Pack_EP1",[],[]],[0,0,0],"Survivor2_DZ",0.96];
+			_primary = ["PASS",false,"1",[],[["ItemFlashlight","ItemMap","ItemToolbox"],["ItemBandage","ItemPainkiller","ItemWaterbottle","FoodMRE"]],["DZ_Patrol_Pack_EP1",[],[]],[0,0,0],"Survivor2_DZ",0.96];
             } else {  
                 _primary = call compile _res;
             };

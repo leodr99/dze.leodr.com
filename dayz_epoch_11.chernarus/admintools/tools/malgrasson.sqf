@@ -1,22 +1,9 @@
 // Toggle grass on or off
-// last edit: NoxSicarius
+private ["_grassToggle"];
+_grassToggle = _this select 0;
 
-if(isNil "grassToggle") then
-{
-	grassToggle = 0;
-};
-
-if (grassToggle == 0) then 
-{
-	grassToggle = 1;
-	cutText ["Grass - OFF", "PLAIN DOWN"];
+if (_grassToggle) then {
 	setterraingrid 50;
-}
-else
-{
-	grassToggle = 0;
-	cutText ["Grass - ON", "PLAIN DOWN"];
-	setterraingrid 25;};
+}else{
+	setterraingrid 25;
 };
-
-
