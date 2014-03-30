@@ -12,7 +12,10 @@ briefing = 0;
 debriefing = 0;
 
 onPauseScript = "";
-loadScreen = "\z\addons\dayz_code\gui\dayz_logo_ca.paa";
+// --------------------LEO----------------------------- //
+//loadScreen = "\z\addons\dayz_code\gui\dayz_logo_ca.paa";
+loadScreen = "dzeleodr.jpg";
+// ---------------------------------------------------- //
 
 class Header
 {
@@ -84,7 +87,7 @@ class CfgSounds
 	class gunClick
     {
     name="gunClick";
-    sound[]={\custom\Russian_Roulette\gunclick.ogg,0.9,1};
+    sound[]={custom\Russian_Roulette\gunclick.ogg,0.9,1};
     titles[] = {};
     };
 };

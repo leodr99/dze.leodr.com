@@ -15,26 +15,6 @@ private ["_isWreckBuilding","_temp_keys","_magazinesPlayer","_isPZombie","_vehic
 	_onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 	_canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
   
-/*  //--------------Bike Deploy  //added in the action menu
-	private ["_weapons","_isBike"];
-	_weapons = [currentWeapon player] + (weapons player) + (magazines player);
-	_isBike = typeOf cursorTarget in ["Old_bike_TK_INS_EP1","Old_bike_TK_CIV_EP1"];
-	
-	//BIKE DEPLOY
-	if ("ItemToolbox" in _weapons) then {
-			hasBikeItem = true;
-		} else { hasBikeItem = false;};
-		if((speed player <= 1) && hasBikeItem && _canDo) then {
-			if (s_player_deploybike < 0) then {
-				s_player_deploybike = player addaction[("<t color=""#007ab7"">" + ("Deploy Bike") +"</t>"),"custom\spawnbike\deploy.sqf","",5,false,true,"", ""];
-			};
-		} else {
-			player removeAction s_player_deploybike;
-			s_player_deploybike = -1;
-	};
-
-	// EOF Bike
-*/
 	// --------------Krixes Self Bloodbag-----------------------------------------
 	private ["_mags"];
 	_mags = magazines player;
@@ -80,6 +60,18 @@ private ["_isWreckBuilding","_temp_keys","_magazinesPlayer","_isPZombie","_vehic
 			_canPickLight = isNull (_nearLight getVariable ["owner",objNull]);
 		};
 	};
+
+	// --------------------------------------AIRDROP--------------------------------------------------
+	_isAirdrop = cursorTarget isKindOf "Notebook";
+	if ((speed player <= 1) && _isAirdrop && _canDo && (player distance cursorTarget < 4)) then {
+		if (s_player_Airdrop < 0) then {
+			s_player_Airdrop = player addAction [("<t color=""#0096ff"">" + ("Fix Notebook (Airdrop)") +"</t>"),"custom\airdrop\Airdrop.sqf",cursorTarget, 0, false, true, "",""];
+			};
+	} else {
+		player removeAction s_player_Airdrop;
+		s_player_Airdrop = -1;
+	};
+	// --------------------------------------AIRDROP END----------------------------------------------
 
 	//Grab Flare
 	if (_canPickLight and !dayz_hasLight and !_isPZombie) then {

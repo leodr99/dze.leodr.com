@@ -50,11 +50,11 @@ fnc_debug = {
 		<t size='0.85' font='LucidaConsoleB' align='center' color='#00FF00'>Restart in %26 m</t><br/>
 		<img size='6' image='%25'/><br/>
 		<t size='0.75' font='Bitstream' align='left' >[%18]</t><t size='0.95' font='Bitstream' align='right'>[FPS: %10]</t><br/>
-		<t size='0.75' font='Bitstream' align='center' color='#FFBF00'>Survived %7 Days</t><br/>
+		<t size='0.75' font='Bitstream' align='center' color='#FFBF00'>Survived %7 DayZ</t><br/>
 		<t size='0.75' font='Bitstream' align='left' >Players: %8</t><t size='0.95 'font='Bitstream' align='right'>Within 500m: %11</t><br/>
-		<t size='0.75' font='Bitstream' align='left' >Vehicles:</t><t size='0.95' font='Bitstream'align='right'>%13(%14)</t><br/>
-		<t size='0.75' font='Bitstream' align='left' >Air: %16</t><t size='0.95' font='Bitstream'align='right'>Sea: %23</t><br/>
-		<t size='0.75' font='Bitstream' align='left' >All Bikes: %15</t><t size='0.95' font='Bitstream'align='right'>Cars: %17</t><br/>
+		<t size='0.75' font='Bitstream' align='left' >Vehicles:</t><t size='0.95' font='Bitstream' align='right'>%13(%14)</t><br/>
+		<t size='0.75' font='Bitstream' align='left' >Air: %16</t><t size='0.95' font='Bitstream' align='right'>Sea: %23</t><br/>
+		<t size='0.75' font='Bitstream' align='left' >All Bikes: %15</t><t size='0.95' font='Bitstream' align='right'>Cars: %17</t><br/>
 		<t size='0.75' font='Bitstream' align='left' >Zombies (alive/total): </t><t size='0.95' font='Bitstream' align='right'>%20(%19)</t><br/>
 		<t size='0.75' font='Bitstream' align='left' color='#FFBF00'>Zombies Killed: </t><t size='0.95' font='Bitstream' align='right'>%2</t><br/>
 		<t size='0.75' font='Bitstream' align='left' color='#FFBF00'>Headshots: </t><t size='0.95' font='Bitstream' align='right'>%3</t><br/>
@@ -63,33 +63,35 @@ fnc_debug = {
 		<t size='0.75' font='Bitstream' align='left' color='#FFBF00'>Humanity: </t><t size='0.95' font='Bitstream' align='right'>%6</t><br/>
 		<t size='0.75' font='Bitstream' align='left' color='#FFBF00'>Blood: </t><t size='0.95' font='Bitstream' align='right'>%9</t><br/>
 		<t size='0.75' font='Bitstream' align='left' >GPS: %22</t><t size='0.95' font='Bitstream' align='right'>DIR: %24</t><br/>
-		<t size='0.75' font='Bitstream' align='center' > %21 </t>",
-		(name player),
-		_kills, 
-		_headShots,
-		_killsH,
-		_killsB,
-		_humanity, 
-		(dayz_Survived), 
-		(count playableUnits),
-		r_player_blood,
-		(round diag_fps),
-		(({isPlayer _x} count (getPos vehicle player nearEntities [["AllVehicles"], 500]))-1),
-		viewdistance,
-		(count([6800, 9200, 0] nearEntities [["StaticWeapon","Car","Motorcycle","Tank","Air","Ship"],25000])),
-		(count vehicles),
-		(count([6800, 9200, 0] nearEntities [["Motorcycle"],25000])),
-		(count([6800, 9200, 0] nearEntities [["Air"],25000])),
-		(count([6800, 9200, 0] nearEntities [["Car"],25000])),
-		(gettext (configFile >> 'CfgVehicles' >> (typeof vehicle player) >> 'displayName')),
-		_zombies,
-		_zombiesA,
-		(getPosASL player),
-		(mapGridPosition getPos player),
-		(count([6800, 9200, 0] nearEntities [["Ship"],25000])),
-		(round(getDir player)),
-		_pic,
-		(240-(round(serverTime/60)))];
+		<t size='0.75' font='Bitstream' align='center' > %21 </t><br />
+		<t size='0.75' font='Bitstream' align='left' color='#FFBF00'>Location:</t><t size='0.95' font='Bitstream' align='right' color='#FF0000'>%27</t>",
+		(name player), //%1
+		(_kills), //%2
+		(_headShots), //%3
+		(_killsH), //%4
+		(_killsB), //%5
+		(round (_humanity)), //%6
+		(dayz_Survived), //%7
+		(count playableUnits), //%8
+		(round (r_player_blood)), //%9
+		(round diag_fps), //%10
+		(({isPlayer _x} count (getPos vehicle player nearEntities [["AllVehicles"], 500]))-1), //%11
+		(viewdistance), //%12
+		(count([6800, 9200, 0] nearEntities [["StaticWeapon","Car","Motorcycle","Tank","Air","Ship"],25000])), //%13
+		(count vehicles), //%14
+		(count([6800, 9200, 0] nearEntities [["Motorcycle"],25000])), //%15
+		(count([6800, 9200, 0] nearEntities [["Air"],25000])), //%16
+		(count([6800, 9200, 0] nearEntities [["Car"],25000])), //%17
+		(gettext (configFile >> 'CfgVehicles' >> (typeof vehicle player) >> 'displayName')), //%18
+		(_zombies), //%19
+		(_zombiesA), //%20
+		(getPosASL player), //%21
+		(mapGridPosition getPos player), //%22
+		(count([6800, 9200, 0] nearEntities [["Ship"],25000])), //%23
+		(round(getDir player)), //%24
+		_pic, //%25
+		(240-(round(serverTime/60))), //%26
+		(_textCity)]; //%27
 		sleep 5;
 	} else {
 

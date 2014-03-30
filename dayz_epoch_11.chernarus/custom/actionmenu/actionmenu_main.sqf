@@ -15,7 +15,7 @@ Actionmenu =
 	["",true],
 		["Action Menu", [2], "#USER:ActionMenua", -5, [["expression", ""]], "1", "1"],
 //		["Graphic Menu", [3], "#USER:SkyMenu", -5, [["expression", ""]], "1", "1"],
-		["View Distance (Fog)", [4], "#USER:FogMenu", -5, [["expression", ""]], "1", "1"],
+		["View Distance (Fog)", [3], "#USER:FogMenu", -5, [["expression", ""]], "1", "1"],
 		["Donations", [4], "#USER:DonatorMenu", -5, [["expression", ""]], "1", "1"],
 		["", [-1], "", -5, [["expression", ""]], "1", "0"],
 			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
@@ -25,8 +25,8 @@ ActionMenu =
 	["",true],
 		["Action Menu", [2], "#USER:ActionMenua", -5, [["expression", ""]], "1", "1"],
 //		["Graphic Menu", [3], "#USER:SkyMenu", -5, [["expression", ""]], "1", "1"],
-		["View Distance (Fog)", [4], "#USER:FogMenu", -5, [["expression", ""]], "1", "1"],
-		["Server Info", [5], "#USER:ServerInfo", -5, [["expression", ""]], "1", "1"],
+		["View Distance (Fog)", [3], "#USER:FogMenu", -5, [["expression", ""]], "1", "1"],
+		["Server Info", [4], "#USER:ServerInfo", -5, [["expression", ""]], "1", "1"],
             ["", [-1], "", -5, [["expression", ""]], "1", "0"],
             ["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
 ];

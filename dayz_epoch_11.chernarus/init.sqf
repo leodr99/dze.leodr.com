@@ -48,7 +48,7 @@ MaxMineVeins = 25;
 dayz_paraSpawn = true; //HALO Player spawn
 //spawnMarkerCount = 10; //PLEASE NOTE: The extra markers named spawn5 - spawn10 must exist.
 
-dayz_minpos = -18000; 
+dayz_minpos = -1; //-maxpos
 dayz_maxpos = 18000;
 
 dayz_sellDistance_vehicle = 16;
@@ -58,13 +58,14 @@ dayz_sellDistance_air = 40;
 dayz_maxAnimals = 8; // Default: 8
 dayz_tameDogs = true;
 DynamicVehicleDamageLow = 0; // Default: 0
-DynamicVehicleDamageHigh = 100; // Default: 100
+DynamicVehicleDamageHigh = 90; // Default: 100
 DynamicVehicleFuelLow = 0;
 DynamicVehicleFuelHigh = 35;
 
 DZE_TRADER_SPAWNMODE = false; // vehicle parachute spawn
 DZE_BuildOnRoads = true; // Default: False
 DZE_BuildingLimit = 600; // default = 150 per plotpole radius
+DZE_GodModeBase = true;
 DZE_StaticConstructionCount = 1; //reduce build time to 1 step/stage / default = 0 (3 stages)
 DZE_HaloJump = true;
 DZE_HeliLift = false; // built'in tow/lift functions from Epoch.
@@ -75,6 +76,8 @@ DZE_safeVehicle = ["Old_bike_TK_INS_EP1","Old_bike_TK_CIV_EP1","ParachuteWest","
 DZE_PlayerZed = false; //disable players becoming zeds. they're dead anyway, so what's the point.
 DZE_PlotPole = [60,80]; //60m radius for plotpoles and deploying others by 90m
 ///Debug FPS - Server
+DZE_DiagFpsSlow = true;
+DZE_DiagFpsFast = false;
 //DZE_DiagVerbose = true;
 
 dayz_fullMoonNights = true;
@@ -101,6 +104,7 @@ LEO_KHspecials = true; //Vehicle animations
 LEO_REmsgs = true; //MACA123 Remote messages hack
 LEO_servicePoint = true; //service points script
 LEO_customWelcome = true; //custom welcome credits+intro
+LEO_airDrop = true; //airDrop activation
 /*End Custom Scripts variables*/
 
 //
@@ -108,9 +112,7 @@ LEO_customWelcome = true; //custom welcome credits+intro
 //starts on the hour and half past it. disabled due to the fact that WAI already has this mission.
 //
 
-EpochEvents = [["any","any","any","any",10,"Military"],
-["any","any","any","any",30,"Treasure"],
-["any","any","any","any",50,"Construction"]];
+EpochEvents = [["any","any","any","any",10,"Military"],["any","any","any","any",30,"Treasure"],["any","any","any","any",50,"Construction"]];
 
 //Load in compiled functions
 call compile preprocessFileLineNumbers "custom\variables.sqf";				//Initilize the Variables (IMPORTANT: Must happen very early)
@@ -118,18 +120,15 @@ progressLoadingScreen 0.1;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\publicEH.sqf";				//Initilize the publicVariable event handlers
 progressLoadingScreen 0.2;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\medical\setup_functions_med.sqf";	//Functions used by CLIENT for medical
-progressLoadingScreen 0.4;
+progressLoadingScreen 0.3;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\compiles.sqf";				//Compile regular functions
-progressLoadingScreen 0.5;
+progressLoadingScreen 0.4;
 call compile preprocessFileLineNumbers "custom\snap_build\compiles.sqf";			//Snap building functions
-progressLoadingScreen 0.6;
+progressLoadingScreen 0.5;
 call compile preprocessFileLineNumbers "server_traders.sqf";				//Compile trader configs
-progressLoadingScreen 0.7;
+progressLoadingScreen 0.6;
 call compile preprocessFileLineNumbers "custom\compiles.sqf"; //Compile custom compiles
-if (LEO_JAEM) then {
-	progressLoadingScreen 0.8;
-	call compile preprocessFileLineNumbers "custom\JAEM\variables.sqf";	//Evac Script
-};
+if (LEO_JAEM) then { progressLoadingScreen 0.7;	call compile preprocessFileLineNumbers "custom\JAEM\variables.sqf";}; //Evac Script
 progressLoadingScreen 1.0;
 
 "filmic" setToneMappingParams [0.153, 0.357, 0.231, 0.1573, 0.011, 3.750, 6, 4]; setToneMapping "Filmic";
@@ -180,32 +179,29 @@ if (isServer) then {
 if (!isDedicated) then {
 
 	//Load Admintools Users list
-	if (LEO_adminTools) then {
-		[] execVM "admintools\AdminList.sqf";
-	};
+	if (LEO_adminTools) then {	[] execVM "admintools\AdminList.sqf";};
+
 	//Conduct map operations
 	0 fadeSound 0;
 	waitUntil {!isNil "dayz_loadScreenMsg"};
 	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
 
-	//Leo's welcome credits - startup text
-	if (LEO_customWelcome) then {
-		[] execVM "custom\welcomecredits.sqf";
-	};
 	//Run the player monitor
 	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
 	_playerMonitor = 	[] execVM "\z\addons\dayz_code\system\player_monitor.sqf";	
 	
+	//anti Hack
+    waitUntil {(getPlayerUID player) != ""};
+
+	//Leo's welcome credits - startup text
+	if (LEO_customWelcome) then { [] execVM "custom\welcomecredits.sqf";};
+
 	//_CustomGpsVideo = [] execVM "intro\gps_video.sqf";		//Intro Video in ingame GPS monitor
 	
 	// service points helper scripts.
-	if (LEO_servicePoint) then {
-		[] execVM "service_point\service_point.sqf";
-	};
+	if (LEO_servicePoint) then { [] execVM "service_point\service_point.sqf";};
 	// Remote Messages by Maca123	
-	if (LEO_REmsgs) then {
-		_nil = [] execVM "custom\remote_messages.sqf";
-	};
+	if (LEO_REmsgs) then { _nil = [] execVM "custom\remote_messages.sqf";};
 	//anti Hack + admintools exception
 	if ( !((getPlayerUID player) in AdminList) && !((getPlayerUID player) in ModList) && !((getPlayerUID player) in tempList)) then
 		{
@@ -215,14 +211,15 @@ if (!isDedicated) then {
 	//Lights
 	//[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
 	
-	//KH special functions - c130, cessna, mv22
-	if (LEO_KHspecials) then {
-		_nil = [] execVM "custom\kh_specials.sqf";
-	};
-	//Evac script
-	if (LEO_JAEM) then {
-		_nil = [] execVM "custom\JAEM\EvacChopper_init.sqf";
-	};
+	// SafeZone
+	if (LEO_AGNsafeZone) then {	[] execvm 'AGN\agn_SafeZoneCommander.sqf';};
+	// Mission System Markers
+    [] execVM "debug\addmarkers.sqf"; [] execVM "debug\addmarkers75.sqf";
+    // Custom User Monitor - stats
+	if (LEO_customDebugMonitor) then { [] execVM "custom_monitor.sqf";};
+	// Action Menu
+	if (LEO_actions) then { [] execVM "custom\actionmenu\actionmenu_activate.sqf"}
+
 };
 
 //Remote EXEC
@@ -235,37 +232,21 @@ if (!isDedicated) then {
 	#include "\z\addons\dayz_code\system\BIS_Effects\init.sqf"
 
 //
-//Custom Scripts
+///Custom Scripts (Server+Client)
 //
-if (LEO_AGNsafeZone) then {
-// SafeZone
-	[] execvm 'AGN\agn_SafeZoneCommander.sqf';
-};
-
-if (LEO_R3FLog) then {
 //Lift+Tow Logistics
-	[] execVM "R3F_ARTY_AND_LOG\init.sqf";
-};
-if (LEO_customDebugMonitor) then {
-// Custom User Monitor - stats
-	[] execVM "custom_monitor.sqf";
-};
-
-if (LEO_adminTools) then {
+if (LEO_R3FLog) then { [] execVM "R3F_ARTY_AND_LOG\init.sqf";};
 //AdminTools Epoch
-	[] execVM "admintools\Activate.sqf";
-};
+if (LEO_adminTools) then { [] execVM "admintools\Activate.sqf";};
+// Breaking Point Fog effect
+if (LEO_efectFog) then { [] execVM "custom\effects\nightfog.sqf";};
+//KH special functions - c130, cessna, mv22
+if (LEO_KHspecials) then {	_nil = [] execVM "custom\kh_specials.sqf";};
+//Call AirDrop
+if (LEO_airDrop) then { [] execVM "custom\airdrop\notebook_cherno.sqf";};
+//Evac script
+if (LEO_JAEM) then { _nil = [] execVM "custom\JAEM\EvacChopper_init.sqf";};
 
-if (LEO_efectFog) then {
-//night fog - breaking point
-	[] execVM "custom\effects\nightfog.sqf";
-};
-
-if (LEO_actions) then {
-// Actions Menu (deploy bike, gyro, TT650)
-	_nil = [] execVM "custom\actionmenu\actionmenu_activate.sqf";
-};
-	
 //watermark
 if (!isNil "server_name") then {
 	[] spawn {
