@@ -4,7 +4,7 @@ _startLogged = false;
 while{true} do {
 	sleep 3;
 	if (vehicle player != player && vehicle player isKindOf "Air") then {
-		if (vehicle player isKindOf "MV22_DZ") then {
+		if ((vehicle player isKindOf "MV22_DZ") || (vehicle player isKindOf "MV22")) then {
 			_vehicleActionsRemoved = 0;
 			themv22 = vehicle player;
 			if ((((getPosATL themv22) select 2) >= 25 || speed themv22 > 5)&& ((themv22 animationPhase "turn_wing") == 1)) then {
@@ -48,7 +48,7 @@ while{true} do {
 				mv22_closedoor = themv22 addAction ["Close Gunner Door","custom\mv22\closedoor.sqf",themv22,5,false,false,"","(player==driver themv22) && (themv22 animationphase ""door1_bottom"" == 1)"];
 			};
 		};
-		if (vehicle player isKindOf "C130J_US_EP1") then {
+		if ((vehicle player isKindOf "C130J_US_EP1") || (vehicle player isKindOf "C130J")) then {
 			_vehicleActionsRemoved = 0;
 			thec130 = vehicle player;
 			if (c130_openramp <0) then {
@@ -64,7 +64,7 @@ while{true} do {
 				c130_closerdoor = thec130 addAction ["Close Doors","custom\c130\closerdoor.sqf",thec130,5,false,false,"","(player==driver thec130) && (thec130 animationphase ""door_2_2"" == 1)"];
 			};
 		};
-		if (vehicle player isKindOf "UH1Y_DZ") then {
+		if ((vehicle player isKindOf "UH1Y_DZ") || (vehicle player isKindOf "UH1Y_DZE")) then {
 			_vehicleActionsRemoved = 0;
 			theuh1y = vehicle player;
 			if ((((getPosATL theuh1y) select 2) > 10 || speed theuh1y > 2) && ((theuh1y animationPhase "mainrotor_unfolded") == 1)) then {

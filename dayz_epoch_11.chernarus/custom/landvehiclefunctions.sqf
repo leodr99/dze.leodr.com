@@ -4,7 +4,7 @@ _startLogged = false;
 while{true} do {
 	sleep 3;
 	if (vehicle player != player && vehicle player isKindOf "Car") then {
-		if (vehicle player isKindOf "ArmoredSUV_PMC_DZ") then {
+		if ((vehicle player isKindOf "ArmoredSUV_PMC_DZ") || (vehicle player isKindOf "ArmoredSUV_PMC_DZE")) then {
 			_landvehicleActionsRemoved = 0;
 			thesuv = vehicle player;
 			if (suv_packgun <0) then {

@@ -86,7 +86,9 @@ R3F_LOG_CFG_remorqueurs =
 	"V3S_Open_TK_Civ_EP1",
 	"V3S_Open_TK_EP1",
 	"V3S_TK_EP1_DZE",
-	"V3S_Refuel_TK_GUE_EP1_DZ"
+	"V3S_Refuel_TK_GUE_EP1_DZ",
+	"ArmoredSUV_PMC_DZ",
+	"ArmoredSUV_PMC_DZE"
 ];
 
 /**
@@ -192,6 +194,9 @@ R3F_LOG_CFG_objets_remorquables =
 	"SUV_White",
 	"SUV_Yellow",
 	"tractor",
+	"TT650_Civ",
+	"TT650_Ins",
+	"TT650_Gue",
 	"UAZ_CDF",
 	"UAZ_INS",
 	"UAZ_MG_TK_EP1_DZE",
@@ -393,6 +398,9 @@ R3F_LOG_CFG_objets_heliportables =
 	"SUV_White",
 	"SUV_Yellow",
 	"tractor",
+	"TT650_Civ",
+	"TT650_Ins",
+	"TT650_Gue",
 	"UAZ_CDF",
 	"UAZ_INS",
 	"UAZ_MG_TK_EP1_DZE",
@@ -642,7 +650,15 @@ R3F_LOG_CFG_objets_transportables =
 	["GuerillaCacheBox", 20],
 	["Supply_Crate_DZE", 25],
 	["RUVehicleBox", 40],
-	["USVehicleBox", 40]
+	["USVehicleBox", 40],
+	["TT650_Civ",50],
+	["TT650_Ins",50],
+	["TT650_Gue",50],
+	["Old_bike_base_EP1",35],
+	["Old_bike_TK_CIV_EP1",35],
+	["Old_bike_TK_INS_EP1",35],
+	["Old_moto_TK_Civ_EP1",50]
+
 ];
 
 /****** MOVABLE-BY-PLAYER OBJECTS / OBJETS DEPLACABLES PAR LE JOUEUR ******/
@@ -653,12 +669,15 @@ R3F_LOG_CFG_objets_transportables =
  */
 R3F_LOG_CFG_objets_deplacables =
 [
-	"BAF_GMG_Tripod_D",
+	//"BAF_GMG_Tripod_D",
 	"SpecialWeaponsBox",
 	"GuerillaCacheBox",
 	"Supply_Crate_DZE",
 	"RUVehicleBox",
-	"USVehicleBox"
+	"USVehicleBox",
+	"USBasicWeaponsBox",
+	"RUBasicWeaponsBox",
+	"BAF_VehicleBox"
 ];
 
 /*

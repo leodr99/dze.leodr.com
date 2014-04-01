@@ -37,11 +37,11 @@ _objPosition = getPosATL _veh;
 
 [[_position select 0, _position select 1, 0],5,1,1,4,"","Survivor2_DZ","4",true] call spawn_group; // Spawn group one
 [[_position select 0, _position select 1, 0],5,1,1,4,"","Survivor2_DZ","4",true] call spawn_group; // Spawn group two
-[[(_position select 0)+ 30, _position select 1, 0],[(_position select 0)+ 30, _position select 1, 0],50,2,"HMMWV_Armored",1] spawn vehicle_patrol; //Spawn Hamvy around driver and gunner
+[[(_position select 0)+ 30, _position select 1, 0],[(_position select 0)+ 30, _position select 1, 0],50,2,"HMMWV_Armored",1] spawn vehicle_patrol; //Spawn Hamvy
 
 ///-----------------------------------------------------------------------END SPAWN YOU UNITS BLOCK
 
-[_position,"Civilian Truck"] execVM "\z\addons\dayz_server\WAI\missions\compile\markers.sqf";
+[_position,"Bandit Truck"] execVM "\z\addons\dayz_server\WAI\missions\compile\markers.sqf";
 
 [nil,nil,rTitleText,"A group of bandits found transportation, go and get it. check your map for location!", "PLAIN",10] call RE; // BLA,BLA,BLA text on center users screen mission description
 
@@ -66,7 +66,7 @@ _playerPresent = false;
 (_playerPresent)
 };
 diag_log format["WAI: Mission Convoy Ended At %1",_position]; // BLA,BLA,BLA text on center users screen mission OK END
-[nil,nil,rTitleText,"The Civilian Truck has been Captured!", "PLAIN",10] call RE;
+[nil,nil,rTitleText,"The bandit Truck has been Captured!", "PLAIN",10] call RE;
 } else {
 clean_running_mission = True;
 deleteVehicle _veh;
@@ -85,6 +85,6 @@ if (!isNil "_cleanunits") then {
 } forEach allUnits;
 
 diag_log format["WAI: Mission Civilian Truks timed out At %1",_position];
-[nil,nil,rTitleText,"The survivors got away with the truck!", "PLAIN",10] call RE; // BLA,BLA,BLA text on center users screen mission FAIL
+[nil,nil,rTitleText,"The bandits got away with the truck!", "PLAIN",10] call RE; // BLA,BLA,BLA text on center users screen mission FAIL
 };
 missionrunning = false;

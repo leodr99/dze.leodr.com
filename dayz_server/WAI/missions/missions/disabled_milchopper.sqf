@@ -57,27 +57,6 @@ true
 true
 ] call spawn_group;
 
-[[_position select 0, _position select 1, 0],                  //position
-4,						  //Number Of units
-1,					      //Skill level 0-1. Has no effect if using custom skills
-"Random",			      //Primary gun set number. "Random" for random weapon set.
-4,						  //Number of magazines
-"",						  //Backpack "" for random or classname here.
-"Bandit2_DZ",						  //Skin "" for random or classname here.
-"Random",				  //Gearset number. "Random" for random gear set.
-true						// mission true
-] call spawn_group;
-
-[[_position select 0, _position select 1, 0],                  //position
-4,						  //Number Of units
-1,					      //Skill level 0-1. Has no effect if using custom skills
-"Random",			      //Primary gun set number. "Random" for random weapon set.
-4,						  //Number of magazines
-"",						  //Backpack "" for random or classname here.
-"Bandit2_DZ",						  //Skin "" for random or classname here.
-"Random",				  //Gearset number. "Random" for random gear set.
-true						// mission true
-] call spawn_group;
 
 //Turrets
 [[[(_position select 0), (_position select 1) + 10, 0]], //position(s) (can be multiple).

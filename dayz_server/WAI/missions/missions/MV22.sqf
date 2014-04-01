@@ -7,7 +7,7 @@ _vehname	= getText (configFile >> "CfgVehicles" >> _vehclass >> "displayName");
 _needsrelocated = true;
 while {_needsrelocated} do {
 	_position = [getMarkerPos "center",0,5500,10,0,2000,0] call BIS_fnc_findSafePos;
-	_istoomany = _position nearObjects ["AllVehicles",500];
+	_istoomany = _position nearObjects ["AllVehicles",800];
 	if((count _istoomany) == 0) then { _needsrelocated = false; };
 };
 diag_log format["WAI: Mission MV22 Started At %1",_position];

@@ -56,7 +56,7 @@ _rndnum = round (random 3) + 5;
 [[_position select 0, _position select 1, 0],_rndnum,1,"Random",4,"","USMC_LHD_Crew_Yellow","Random",true] call spawn_group;
 [[_position select 0, _position select 1, 0],5,1,"Random",4,"","USMC_LHD_Crew_Blue","Random",true] call spawn_group;
 [[_position select 0, _position select 1, 0],5,1,"Random",4,"","USMC_LHD_Crew_Blue","Random",true] call spawn_group;
-[[_position select 0, _position select 1, 0],5,1,"Random",4,"","USMC_LHD_Crew_Blue","Random",true] call spawn_group;
+//[[_position select 0, _position select 1, 0],5,1,"Random",4,"","USMC_LHD_Crew_Blue","Random",true] call spawn_group;
 
 //Turrets
 [[[(_position select 0) + 5, (_position select 1) + 10, 0]], //position(s) (can be multiple).
@@ -93,7 +93,7 @@ true						// mission true
 ] call spawn_static;
 
 //Heli Para Drop
-[[(_position select 0),(_position select 1),0],[0,0,0],400,"BAF_Merlin_HC3_D",10,1,"Random",4,"","USMC_LHD_Crew_Blue","Random",False] spawn heli_para;
+[[(_position select 0),(_position select 1),0],[(_position select 0) - 1000,(_position select 1) - 1000,0],400,"BAF_Merlin_HC3_D",5,1,"Random",4,"","USMC_LHD_Crew_Blue","Random",False] spawn heli_para;
 
 
 [_position,"Disabled Convoy"] execVM "\z\addons\dayz_server\WAI\missions\compile\markers.sqf";

@@ -46,7 +46,6 @@ AllowedVehiclesList = [
 ["JetSkiYanahui_Case_Yellow",1],
 ["Kamaz",2],
 ["KamazRefuel_DZ",2],
-["Ka60_PMC",1],
 ["Lada1",3],
 ["Lada1_TK_CIV_EP1",3],
 ["Lada2",3],

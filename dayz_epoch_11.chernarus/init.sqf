@@ -63,6 +63,7 @@ DynamicVehicleFuelLow = 0;
 DynamicVehicleFuelHigh = 35;
 
 DZE_TRADER_SPAWNMODE = false; // vehicle parachute spawn
+DZE_DeathMsgGlobal = true; //GlobaChat Kill message
 DZE_BuildOnRoads = true; // Default: False
 DZE_BuildingLimit = 600; // default = 150 per plotpole radius
 DZE_GodModeBase = true;
@@ -105,6 +106,7 @@ LEO_REmsgs = true; //MACA123 Remote messages hack
 LEO_servicePoint = true; //service points script
 LEO_customWelcome = true; //custom welcome credits+intro
 LEO_airDrop = true; //airDrop activation
+LEO_radioMsgs = true; //WIP - RE radio messages to players with a "ItemRadio"
 /*End Custom Scripts variables*/
 
 //
