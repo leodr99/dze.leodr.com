@@ -17,11 +17,14 @@ _dist = (_pos distance _plane_start);
 _txt1 = (gettext (configFile >> 'CfgVehicles' >> _TheModel >> 'displayName'));
 _txt3 = (gettext (configFile >> 'CfgVehicles' >> _randombox >> 'displayName'));
 _message = format["RandomDrop called in\n%5\n(%1)\nBy:\n%2\nTransporter:\n%4\n(%3)\nDistance:\n%6KM",_randombox , dayz_playerName,_TheModel,_txt1,_txt3,(round(_dist/1000))];
+customRemoteMessage = ['globalChat', _message, player];
+/*
 if (_BCast) then {
 	[nil, nil, rHINT, _message] call RE;
 } else {
 	hint _message;
-};
+};*/
+publicVariable "customRemoteMessage";
 
 diag_log format["Halfcare V2.0 Called In by: (%3) - (UID: %4) Start at: %7 Drop at: %1 Model: %9 (%6) DropBoxtype: (%2) WeaponsBox: %10 (%5)", _pos, _randcont, dayz_playerName, _hcGPUID, _randombox,_TheModel,_plane_start,_txt1,_txt3];
 
@@ -190,22 +193,27 @@ switch (true) do {
 	case not (alive _Drop_plane): {
 		_txt1 = (gettext (configFile >> 'CfgVehicles' >> _TheModel >> 'displayName'));
 		_message2 = format["The\n%2\n(%1)\n was shot down or crashed around:\n***(%2)***",_TheModel,(mapGridPosition getPos _Drop_plane),_txt1]; 
-		if (_BCast) then {
+		/*if (_BCast) then {
 			[nil, nil, rHINT, _message2] call RE;
 		} else {
 			hint _message2; 
-		};
+		};*/
+		customRemoteMessage = ['globalChat', _message2, player];
+		publicVariable "customRemoteMessage";
+
 diag_log format["Halfcare V2.0 Called In: %1 DropBoxtype (%2) WeaponsBox (%3) Model (%4) crashed, dumping package %5", getPos _Drop_plane, _randcont, _randombox,_TheModel,waypoints _aigroup]; 
 	};
 	case alive _Drop_plane: {
 		sleep 0.75;
 		_txt1 = (gettext (configFile >> 'CfgVehicles' >> _TheModel >> 'displayName'));
 		_message2 = format["The\n%3\n(%1)\nIs now @\n***(%2)***\nDumping Carepackage!",_TheModel,(mapGridPosition getPos _Drop_plane),_txt1]; 
-		if (_BCast) then {
+		/*if (_BCast) then {
 			[nil, nil, rHINT, _message2] call RE;
 		} else {
 			hint _message2; 
-		};
+		};*/
+		customRemoteMessage = ['globalChat', _message2, player];
+		publicVariable "customRemoteMessage";		
 		_plane_end = _start_pos call BIS_fnc_selectRandom;
 diag_log format["Halfcare V2.0 (Random) Called In: %1 DropBoxtype (%2) WeaponsBox (%3) %4 dumping package and flying to %5 %6", getPos _Drop_plane, _randcont, _randombox,_TheModel,_plane_end,waypoints _aigroup]; 
 		deleteWaypoint [_aigroup, 1];
