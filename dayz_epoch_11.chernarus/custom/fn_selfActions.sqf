@@ -72,6 +72,17 @@ private ["_isWreckBuilding","_temp_keys","_magazinesPlayer","_isPZombie","_vehic
 		s_player_Airdrop = -1;
 	};
 	// --------------------------------------AIRDROP END----------------------------------------------
+	
+	// ---------------------------------------ACTIONMENU----------------------------------------------
+	if ((speed player <= 1) && _canDo) then {
+		if(s_player_ActionMenu < 0) then {
+			s_player_ActionMenu = player addaction [("<t color=""#00FFFF"">" + ("Action Menu") +"</t>"),"custom\actionmenu\actionmenu_execute.sqf",[],0,false,true,"",""];
+			};
+	} else {
+		player removeAction s_player_ActionMenu;
+		s_player_ActionMenu = -1;
+	};
+	// ---------------------------------------ACTIONMENU END------------------------------------------
 
 	//Grab Flare
 	if (_canPickLight and !dayz_hasLight and !_isPZombie) then {

@@ -96,7 +96,7 @@ DefaultBackpack = ["DZ_Patrol_Pack_EP1"];
 ///Scripts
 LEO_adminTools = true; //enable admintools
 LEO_efectFog = true; //enable BP Fog
-LEO_actions = true; //enable actionmenu
+LEO_actions = false; //enable actionmenu **Moved script to fn_SelfActions.sqf
 LEO_customDebugMonitor = true; //enable custom debug
 LEO_R3FLog = true; //enable R3F tow+lift
 LEO_AGNsafeZone = true; //enable AGN Traders SafeZone
