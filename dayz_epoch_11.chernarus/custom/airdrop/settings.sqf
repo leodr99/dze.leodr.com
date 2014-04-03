@@ -14,7 +14,7 @@ _InCombMode		= 0;
 //Item (Magazine) to enable drop, besides toolbox
 _kitItem		= "ItemHotwireKit";
 //Broadcast "descrete" hint to all players when someone calls a drop? (false = only caller)
-_BCast			=  true;
+_BCast			=  false;
 //Delete box?
 _Del_Box		=  true; 
 //Delete admin box?
