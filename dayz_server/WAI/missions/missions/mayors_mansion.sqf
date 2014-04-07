@@ -21,10 +21,10 @@ diag_log format["WAI: Mission Mayors Mansion Started At %1",_position];
 _baserunover = createVehicle ["Land_A_Villa_EP1",[(_position select 0), (_position select 1),0],[], 0, "CAN_COLLIDE"];
 
 _rndnum = round (random 3) + 4;
-[[_position select 0, _position select 1, 0],4,1,"Random",4,"Random","TK_INS_Soldier_AT_EP1","Random",true] call spawn_group;
-[[_position select 0, _position select 1, 0],4,1,"Random",4,"Random","TK_INS_Soldier_AT_EP1","Random",true] call spawn_group;
-[[_position select 0, _position select 1, 0],4,1,"Random",4,"Random","TK_INS_Soldier_AT_EP1","Random",true] call spawn_group;
-[[_position select 0, _position select 1, 0],4,1,"Random",4,"Random","TK_INS_Soldier_AT_EP1","Random",true] call spawn_group;
+[[_position select 0, _position select 1, 0],4,1,"Random",4,"","TK_INS_Soldier_AT_EP1","Random",true] call spawn_group;
+[[_position select 0, _position select 1, 0],4,1,"Random",4,"","TK_INS_Soldier_AT_EP1","Random",true] call spawn_group;
+[[_position select 0, _position select 1, 0],4,1,"Random",4,"","TK_INS_Soldier_AT_EP1","Random",true] call spawn_group;
+[[_position select 0, _position select 1, 0],4,1,"Random",4,"","TK_INS_Soldier_AT_EP1","Random",true] call spawn_group;
 
 //The Mayor Himself
 [[_position select 0, _position select 1, 0],1,1,"Random",4,"","Functionary1_EP1_DZ","Random",true] call spawn_group;
