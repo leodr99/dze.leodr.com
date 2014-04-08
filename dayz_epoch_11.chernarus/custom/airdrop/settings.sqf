@@ -14,9 +14,9 @@ _InCombMode		= 0;
 //Item (Magazine) to enable drop, besides toolbox
 _kitItem		= "ItemHotwireKit";
 //Broadcast "descrete" hint to all players when someone calls a drop? (false = only caller)
-_BCast			=  false;
+_BCast			= false;
 //Delete box?
-_Del_Box		=  true; 
+_Del_Box		= true; 
 //Delete admin box?
 _Del_aBox		= false; 
 //Time in sec before box deletes (add 60sec for plane del)
@@ -24,7 +24,7 @@ _Del_BoxTime	= 840;
 //Countdown to autodrop if player has drop control
 _ADVDroptimeOut	= 200; 
 //Clear Vehicle Inventory?
-_Clr_VehInv		=  true; 
+_Clr_VehInv		= true; 
 //Clear Vehicle ammo? //0=no vehicle ammo //1=normal vehicle ammo //2=full vehicle ammo
 _Vehammo		= 1; 
 //item to activate adv. debug and drop control
@@ -32,7 +32,7 @@ _RCitem			= "ItemRadio";
 //Only one bag! Backpack in admin drop, just change to what you want
 _baGType		= "DZ_LargeGunBag_EP1"; 
 //add extra keykits to admin drop? (epoch, other mods set to false)
-_akeYKits		=  true; 
+_akeYKits		= true; 
 _keYKits		= 5; 
 // Amount of Weapons in admin box
 _wepcount		= 3; 
@@ -41,21 +41,51 @@ _magcount		= 25;
 //Vehcle drop settings, first the list of vehicles you do want, you can also use
 //"Car", "Truck" or simmular instead to only drop cars and trucks.
 //i set it to drop "LandVehicle","Air", wich is all land and air vehicles as default
-_TheVehList		= ["LandVehicle","Air"];
+_TheVehList		= ["ArmoredSUV_PMC_DZE","Pickup_PK_INS_DZE","HMMWV_M998A2_SOV_DES_EP1_DZE","VWGolf_DZE1","GAZ_Vodnik_DZE","LadaLM_DZE1","UAZ_CDF_DZE1","SUV_Camo_DZE1"];
 //This is a list of vehicles you dont want
 //nr2 line is an example of how to exclde more vehicles !!ONLY UNCOMMENT ONE LINE!!
-_TheVehNogoList	= ["BIS_Steerable_Parachute","ParachuteBase","Steerable_Parachute_EP1","StaticWeapon","MQ9PredatorB","MQ9PredatorB_US_EP1","C130J_base","Chukar","Chukar_EP1","Tank","GRAD_base","Bicycle","Bike"];
+_TheVehNogoList	= [
+"BIS_Steerable_Parachute",
+"ParachuteBase",
+"Steerable_Parachute_EP1",
+"StaticWeapon",
+"MQ9PredatorB",
+"MQ9PredatorB_US_EP1",
+"C130J_base","Chukar",
+"Chukar_EP1",
+"Tank",
+"GRAD_base",
+"Bicycle",
+"Bike",
+"UAZ_AGS30_Base",
+"UAZ_SPG9_Base",
+"Truck",
+"Wheeled_APC",
+"Tracked_APC",
+"PaperCar",
+"BIS_alice_emptydoor",
+"FoldChair_with_Cargo",
+"HMMWV_TOW",
+"HMMWV_MK19",
+"HMMWV_Avenger",
+"Motorcycle",
+"AH64_base_EP1",
+"AW159_Lynx_BAF",
+"BAF_Merlin_HC3_D",
+"CruiseMissile1",
+"Kamov_Base",
+"Mi17_base",
+"Mi24_Base",
+"UH60_Base"
+
+];
 //_TheVehNogoList	= ["BIS_Steerable_Parachute","ParachuteBase","Steerable_Parachute_EP1","Tank","StaticWeapon","MQ9PredatorB","MQ9PredatorB_US_EP1","BRDM2_base","GRAD_base","BTR90_base","LAV25_base","C130J_base","Chukar","Chukar_EP1","MAZ_543_SCUD_TK_EP1","M1126_ICV_M2_EP1","M1126_ICV_mk19_EP1","M1130_CV_EP1","M1129_MC_EP1","M1135_ATGMV_EP1","M1128_MGS_EP1","M1133_MEV_EP1","AH1Z","AV8B2","AV8B","A10","Mi17_rockets_RU","Mi24_base","AH64_base_EP1","F35B","Ka52","Ka52Black","Su25_base","Mi17sh_rockets_CZ_EP1","Ka137_base","L39_TK_EP1","AW159_Lynx_BAF","Bicycle","Bike"];
 //Change plane/heli here
 //Note that choppers are prone to blow up randomly! 
 //Also i changed the an2 to always switch to mv22 in the_box_car.sqf
 _planeheli = [
 "MV22_DZ",
-"MV22",
-"CH_47F_EP1",
 "CH_47F_EP1_DZE",
-"An2_TK_EP1",
-"C130J",
 "C130J_US_EP1",
 "BAF_Merlin_HC3_D"
 ];

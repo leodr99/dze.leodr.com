@@ -41,6 +41,7 @@ for "_x" from 1 to _unitnumber do {
 		case 2 : {_aigear = ai_gear2;};
 		case 3 : {_aigear = ai_gear3;};
 		case 4 : {_aigear = ai_gear4;};
+		case 5 : {_aigear = ai_gear5;};
 		case "Random" : {_aigear = ai_gear_random call BIS_fnc_selectRandom;};
 	};
 	_gearmagazines = _aigear select 0;

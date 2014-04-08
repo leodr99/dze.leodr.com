@@ -406,7 +406,7 @@ if (true) then
 _vehicle_251 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemFuelcan", [11841.428, 7688.9634, 7.6293945e-005], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_ItemJerrycan", [11841.428, 7688.9634, 7.6293945e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_251 = _this;
   _this setPos [11841.428, 7688.9634, 7.6293945e-005];
 };
@@ -414,7 +414,7 @@ if (true) then
 _vehicle_252 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemFuelcan", [11841.526, 7688.541, -0.00012207031], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_ItemJerrycan", [11841.526, 7688.541, -0.00012207031], [], 0, "CAN_COLLIDE"];
   _vehicle_252 = _this;
   _this setPos [11841.526, 7688.541, -0.00012207031];
 };
@@ -430,7 +430,7 @@ if (true) then
 _vehicle_254 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemCrowbar", [11843.432, 7690.9307, 0.81833744], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_MeleeCrowbar", [11843.432, 7690.9307, 0.81833744], [], 0, "CAN_COLLIDE"];
   _vehicle_254 = _this;
   _this setDir 4.0186739;
   _this setPos [11843.432, 7690.9307, 0.81833744];
@@ -686,7 +686,7 @@ if (true) then
 _vehicle_286 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemFuelcan", [3130.6948, 2747.5156, 3.0517578e-005], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_ItemJerrycan", [3130.6948, 2747.5156, 3.0517578e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_286 = _this;
   _this setPos [3130.6948, 2747.5156, 3.0517578e-005];
 };
@@ -694,7 +694,7 @@ if (true) then
 _vehicle_287 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemFuelcan", [3131.1172, 2747.6765, 2.2888184e-005], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_ItemJerrycan", [3131.1172, 2747.6765, 2.2888184e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_287 = _this;
   _this setPos [3131.1172, 2747.6765, 2.2888184e-005];
 };
@@ -895,7 +895,7 @@ if (true) then
 _vehicle_314 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemFuelcan", [3269.5356, 3608.3486, -4.5776367e-005], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_ItemJerrycan", [3269.5356, 3608.3486, -4.5776367e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_314 = _this;
   _this setPos [3269.5356, 3608.3486, -4.5776367e-005];
 };
@@ -903,7 +903,7 @@ if (true) then
 _vehicle_315 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemFuelcan", [3269.5889, 3607.7324, -1.5258789e-005], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_ItemJerrycan", [3269.5889, 3607.7324, -1.5258789e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_315 = _this;
   _this setPos [3269.5889, 3607.7324, -1.5258789e-005];
 };
@@ -1011,7 +1011,7 @@ if (true) then
 _vehicle_328 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemFuelcan", [4121.334, 3823.2051, 1.5258789e-005], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_ItemJerrycan", [4121.334, 3823.2051, 1.5258789e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_328 = _this;
   _this setPos [4121.334, 3823.2051, 1.5258789e-005];
 };
@@ -1045,7 +1045,7 @@ if (true) then
 _vehicle_332 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemFuelcan", [4752.3291, 3354.7075, -3.8146973e-005], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_ItemJerrycan", [4752.3291, 3354.7075, -3.8146973e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_332 = _this;
   _this setPos [4752.3291, 3354.7075, -3.8146973e-005];
 };
@@ -1053,7 +1053,7 @@ if (true) then
 _vehicle_333 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemFuelcan", [4753.3013, 3355.155, -9.9182129e-005], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_ItemJerrycan", [4753.3013, 3355.155, -9.9182129e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_333 = _this;
   _this setPos [4753.3013, 3355.155, -9.9182129e-005];
 };
@@ -1061,7 +1061,7 @@ if (true) then
 _vehicle_334 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemFuelcan", [4752.8721, 3354.8418, -8.392334e-005], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_ItemJerrycan", [4752.8721, 3354.8418, -8.392334e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_334 = _this;
   _this setPos [4752.8721, 3354.8418, -8.392334e-005];
 };
@@ -1085,7 +1085,7 @@ if (true) then
 _vehicle_337 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemCrowbar", [4753.1152, 3354.1978, -2.2888184e-005], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_MeleeCrowbar", [4753.1152, 3354.1978, -2.2888184e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_337 = _this;
   _this setPos [4753.1152, 3354.1978, -2.2888184e-005];
 };
@@ -1582,7 +1582,7 @@ if (true) then
 _vehicle_399 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemFuelcan", [6221.2725, 4168.1611], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_ItemJerrycan", [6221.2725, 4168.1611], [], 0, "CAN_COLLIDE"];
   _vehicle_399 = _this;
   _this setPos [6221.2725, 4168.1611];
 };
@@ -1590,7 +1590,7 @@ if (true) then
 _vehicle_400 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemFuelcan", [6221.4648, 4168.752, 1.5258789e-005], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_ItemJerrycan", [6221.4648, 4168.752, 1.5258789e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_400 = _this;
   _this setPos [6221.4648, 4168.752, 1.5258789e-005];
 };
@@ -1598,7 +1598,7 @@ if (true) then
 _vehicle_401 = objNull;
 if (true) then
 {
-  _this = createVehicle ["WeaponHolder_ItemFuelcan", [6220.8584, 4168.5269, 3.0517578e-005], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_ItemJerrycan", [6220.8584, 4168.5269, 3.0517578e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_401 = _this;
   _this setPos [6220.8584, 4168.5269, 3.0517578e-005];
 };

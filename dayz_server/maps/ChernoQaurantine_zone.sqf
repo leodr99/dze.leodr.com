@@ -1536,7 +1536,7 @@ if (true) then
 _vehicle_288 = objNull;
 if (true) then
 {
-  _this = createVehicle ["ItemCrowbar", [6903.2397, 2541.1484, 0.83997834], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WeaponHolder_MeleeCrowbar", [6903.2397, 2541.1484, 0.83997834], [], 0, "CAN_COLLIDE"];
   _vehicle_288 = _this;
   _this setDir 41.19611;
   _this setPos [6903.2397, 2541.1484, 0.83997834];

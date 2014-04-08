@@ -35,11 +35,12 @@ diag_log ["WAI:CST:SPAWN:Visochina"];*/
 [[4774.0439,2507.7603,0],4,"Random","Random",2,"","Bandit2_DZ","Random"] call spawn_group;
 //[[6970.9785,2640.334,0],2,"Random","Random",2,"","Bandit2_DZ","Random"] call spawn_group;
 diag_log ["WAI:CST:SPAWN:Cherno"];
+/*
 //Elektro1
 [[6566.5137,2412.969,0],4,"Random","Random",2,"","Bandit2_DZ","Random"] call spawn_group;
 //[[10186.388,1936.0364,3.4404879],2,"Random","Random",2,"","Bandit2_DZ","Random"] call spawn_group;
 diag_log ["WAI:CST:SPAWN:Elektro"];
-/*
+
 //Pusta
 [[10476.077,2412.2297,9.6632004],3,"Random","Random",4,"","Bandit2_DZ","Random"] call spawn_group;
 //Tulga
@@ -58,13 +59,13 @@ diag_log ["WAI:CST:SPAWN:Elektro"];
 [[12161.262, 7288.5391, -0.00061035156],3,"Random","Random",4,"","Bandit2_DZ","Random"] call spawn_group;
 //Berezeno3
 [[12877.6, 8081.5957, 0],3,"Random","Random",4,"","Bandit2_DZ","Random"] call spawn_group;
-*/
+
 //Kraznostav
 [[11938.791, 9118.6982, 0],3,"Random","Random",2,"","Bandit2_DZ","Random"] call spawn_group;
 //Berezeno3
 //[[12734.678, 9571.3135, -2.6702881e-005],3,"Random","Random",4,"","Bandit2_DZ","Random"] call spawn_group;
 //Grishino
-/*[[12870.976, 10060.382, 11.137758],2,"Random","Random",2,"","Bandit2_DZ","Random"] call spawn_group;
+[[12870.976, 10060.382, 11.137758],2,"Random","Random",2,"","Bandit2_DZ","Random"] call spawn_group;
 
 [[11130.03, 12335.65, 9.50177], //Lopatino
 2,        //Number Of units
@@ -144,7 +145,7 @@ diag_log ["WAI:CST:SPAWN:Vybor"];
 3,        //Number Of units
 "Random",           //Skill level 0-1 or skill array number if using custom skills "Random" for random Skill array.
 "Random",         //Primary gun set number. "Random" for random weapon set.
-2,        //Number of magazines
+3,        //Number of magazines
 "",        //Backpack "" for random or classname here.
 "Bandit2_DZ",     //Skin "" for random or classname here.
 "Random"                  //Gearset number. "Random" for random gear set.
@@ -235,7 +236,7 @@ diag_log ["WAI:CST:SPAWN:Staroye"];
 "Bandit2_DZ",     //Skin "" for random or classname here.
 "Random"                  //Gearset number. "Random" for random gear set.
 ] call spawn_group;
-*/
+
 
 [[2744.5173, 5288.1021,0], //Zelenogorsk1
 3,        //Number Of units
@@ -247,7 +248,7 @@ diag_log ["WAI:CST:SPAWN:Staroye"];
 "Random"                  //Gearset number. "Random" for random gear set.
 ] call spawn_group;
 
-/*
+
 [[2344.5273, 5388.1021,0], //Zelenogorsk2
 2,        //Number Of units
 "Random",           //Skill level 0-1 or skill array number if using custom skills "Random" for random Skill array.
@@ -391,7 +392,7 @@ diag_log ["WAI:CST:SPAWN:Rog"];
 */
 
 [[6894.6455, 11438.785,0], //Devil's Castle
-4,        //Number Of units
+6,        //Number Of units
 1,           //Skill level 0-1 or skill array number if using custom skills "Random" for random Skill array.
 "Random",         //Primary gun set number. "Random" for random weapon set.
 4,        //Number of magazines
@@ -477,7 +478,7 @@ diag_log ["WAI:CST:SPAWN:Orvolets"];
 */
 
 [[4760.895, 10160.055, 0.080749512], //NWAF1
-2,        //Number Of units
+4,        //Number Of units
 "Random",           //Skill level 0-1 or skill array number if using custom skills "Random" for random Skill array.
 "Random",         //Primary gun set number. "Random" for random weapon set.
 2,        //Number of magazines
@@ -486,9 +487,9 @@ diag_log ["WAI:CST:SPAWN:Orvolets"];
 "Random"                  //Gearset number. "Random" for random gear set.
 ] call spawn_group;
 diag_log ["WAI:CST:SPAWN:NWAF1"];
-
+/*
 [[4607.541, 9625.1084,0], //NWAF2
-2,        //Number Of units
+3,        //Number Of units
 "Random",           //Skill level 0-1 or skill array number if using custom skills "Random" for random Skill array.
 "Random",         //Primary gun set number. "Random" for random weapon set.
 2,        //Number of magazines
@@ -498,7 +499,7 @@ diag_log ["WAI:CST:SPAWN:NWAF1"];
 ] call spawn_group;
 diag_log ["WAI:CST:SPAWN:NWAF2"];
 
-/*
+
 [[5222.3984, 9780.6406, 0], //NWAF3
 2,        //Number Of units
 "Random",           //Skill level 0-1 or skill array number if using custom skills "Random" for random Skill array.

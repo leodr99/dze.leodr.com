@@ -6,7 +6,7 @@ private ["_playerPresent","_cleanmission","_currenttime","_starttime","_missiont
 
 _needsrelocated = true;
 while {_needsrelocated} do {
-	_position = [getMarkerPos "center",0,3500,10,0,200,0] call BIS_fnc_findSafePos;
+	_position = [getMarkerPos "center",0,4500,10,0,100,0] call BIS_fnc_findSafePos;
 	_istoomany = _position nearObjects ["AllVehicles",500];
 	if((count _istoomany) == 0) then { _needsrelocated = false; };
 };

@@ -15,7 +15,7 @@ _Has_Tools = "ItemToolbox" in items player;
 _timeout = player getVariable["combattimeout", 0];
 _inCombat = if (_timeout>=diag_tickTime)then{true}else{false};
 if(_droptimer < _dropCooldown) exitWith {
-	cutText [format["Airdrop planes are busy for another %1sec ...",(_droptimer - _dropCooldown)], "PLAIN DOWN"];
+	cutText [format["Airdrop planes are busy for another %1sec ...",(_dropCooldown - _droptimer)], "PLAIN DOWN"];
 };
 if ((_InCombMode==1) && (dayz_combat == 1)) exitWith {//Old Combat check
 	titleText [format["You can't call airdrops while in combat ..."], "PLAIN DOWN"];
@@ -141,7 +141,7 @@ if(_Has_Kit and _Has_Tools) then {
 				["", [-1], "", -5, [["expression", ""]], "1", "0"],
 				["*** Airdrop Random Vehicle ***", [5],  "", -5, [["expression", format[_EXECscrt,"my_cardrop.sqf"]]], "1", "1"],
 				["", [-1], "", -5, [["expression", ""]], "1", "0"],
-				["*** Call Artillery Strike ***", [6],  "", -5, [["expression", format[_EXECscrt,"Arti.sqf"]]], "1", "1"],
+			//	["*** Call Artillery Strike ***", [6],  "", -5, [["expression", format[_EXECscrt,"Arti.sqf"]]], "1", "1"],
 				["", [-1], "", -5, [["expression", ""]], "1", "0"],
 				["*** Surveillance Program ***", [7],  "", -5, [["expression", format[_EXECscrt,"AlPmaker_survcam.sqf"]]], "1", "1"],
 				["", [-1], "", -5, [["expression", ""]], "1", "0"],
@@ -162,8 +162,7 @@ if(_Has_Kit and _Has_Tools) then {
 				["", [-1], "", -5, [["expression", ""]], "1", "0"],
 				["*** Airdrop Random Vehicle ***", [4],  "", -5, [["expression", format[_EXECscrt,"my_cardrop.sqf"]]], "1", "1"],
 				["", [-1], "", -5, [["expression", ""]], "1", "0"],
-				["*** Surveillance Program ***", [6],  "", -5, [["expression", format[_EXECscrt,"AlPmaker_survcam.sqf"]]], "1", "1"],
-/*
+/*				["*** Surveillance Program ***", [6],  "", -5, [["expression", format[_EXECscrt,"AlPmaker_survcam.sqf"]]], "1", "1"],
 				["", [-1], "", -5, [["expression", ""]], "1", "0"],
 				["*** Artillery Strike ***", [5],  "", -5, [["expression", format[_EXECscrt,"Arti.sqf"]]], "1", "1"],
 */

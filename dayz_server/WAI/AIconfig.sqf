@@ -165,7 +165,7 @@ ai_gear1 = [
 
 /// 2 ///
 ai_gear2 = [
-["FoodCanPasta","ItemBandage","ItemBandage","ItemPainkiller"],
+["FoodCanPasta","ItemBandage","ItemSilverBar10oz","ItemPainkiller"],
 ["NVGoggles","ItemCompass","ItemKnife","ItemFlashlight"]
 ];
 
@@ -186,7 +186,7 @@ ai_gear5 = [
 ["ItemWaterbottle","ItemSilverBar10oz","ItemBandage","ItemPainkiller"],
 ["ItemWatch","ItemCrowbar","ItemMap","ItemKnife","ItemFlashlight"]
 ];
-
+/*
 /// 6 ///
 ai_gear6 = [
 ["ItemMorphine","FoodCanSardines","ItemSodaCoke","ItemSilverBar","ItemBandage"],
@@ -269,10 +269,10 @@ ai_gear18 = [
 ai_gear19 = [
 ["ItemAntibiotic","ItemGoldBar10oz","ItemBandage","ItemPainkiller"],
 ["ItemWatch","ItemEtool","ItemMap","ItemKnife","ItemFlashlight"]
-];
+];*/
 
 /// Gearsets to use if set to "Random" ///
-ai_gear_random = [ai_gear0,ai_gear1,ai_gear2,ai_gear3,ai_gear4,ai_gear5,ai_gear6,ai_gear7,ai_gear8,ai_gear9,ai_gear10,ai_gear11,ai_gear12,ai_gear13,ai_gear14,ai_gear15,ai_gear16,ai_gea17,ai_gear18,ai_gear19];
+ai_gear_random = [ai_gear0,ai_gear1,ai_gear2,ai_gear3,ai_gear4,ai_gear5];
 
 
 ///////////////////////////////////////////////////////

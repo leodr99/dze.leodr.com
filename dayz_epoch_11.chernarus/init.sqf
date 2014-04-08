@@ -34,14 +34,14 @@ spawnShoremode = 0; // Default = 1 (on shore); 0 = anywhere on the map
 spawnArea= 1500; // Default = 1500
 
 MaxVehicleLimit = 120; // Default = 50
-MaxDynamicDebris = 300; // Default = 100
+MaxDynamicDebris = 200; // Default = 100
 dayz_MapArea = 16000; // Default = 10000
-dayz_maxLocalZombies = 30; // Default = 30
-dayz_maxGlobalZombiesInit = 30; // start max global z's within 400m area
+dayz_maxLocalZombies = 20; // Default = 30
+dayz_maxGlobalZombiesInit = 25; // start max global z's within 400m area
 dayz_maxGlobalZombiesIncrease = 10; // amount of global z's increase per player in 400m area
-dayz_maxZeds = 300; // total max zombies
+dayz_maxZeds = 200; // total max zombies
 //dayz_zedsAttackVehicles = false; // disable zeds attacking vecs.
-MaxHeliCrashes = 5; 
+MaxHeliCrashes = 10; 
 MaxMineVeins = 25;
 
 
@@ -55,7 +55,7 @@ dayz_sellDistance_vehicle = 16;
 dayz_sellDistance_boat = 30;
 dayz_sellDistance_air = 40;
 
-dayz_maxAnimals = 8; // Default: 8
+dayz_maxAnimals = 5; // Default: 8
 dayz_tameDogs = true;
 DynamicVehicleDamageLow = 0; // Default: 0
 DynamicVehicleDamageHigh = 90; // Default: 100
@@ -70,7 +70,7 @@ DZE_GodModeBase = true;
 DZE_StaticConstructionCount = 1; //reduce build time to 1 step/stage / default = 0 (3 stages)
 DZE_HaloJump = true;
 DZE_HeliLift = false; // built'in tow/lift functions from Epoch.
-DZE_vehicleAmmo = 1; //enable machine gun ammo for cehicles with turrets
+DZE_vehicleAmmo = 1; //enable machine gun ammo for vehicles with turrets
 DZE_BackPackGuard = true;	//Enable/Disable backpack contents being wiped if logging out or loosing conn beside anothe player
 DZE_HumanityTargetDistance = 200; //force nametag view up to #value in meters
 DZE_safeVehicle = ["Old_bike_TK_INS_EP1","Old_bike_TK_CIV_EP1","ParachuteWest","ParachuteC","TT650_Civ","CSJ_GyroC"]; //vehicles that player can spawn/build
@@ -107,6 +107,7 @@ LEO_servicePoint = true; //service points script
 LEO_customWelcome = true; //custom welcome credits+intro
 LEO_airDrop = true; //airDrop activation
 LEO_radioMsgs = true; //WIP - RE radio messages to players with a "ItemRadio"
+LEO_REsec = false; //Disable Remote Execution from DZE
 /*End Custom Scripts variables*/
 
 //
@@ -215,8 +216,8 @@ if (!isDedicated) then {
 	
 	// SafeZone
 	if (LEO_AGNsafeZone) then {	[] execvm 'AGN\agn_SafeZoneCommander.sqf';};
-	// Mission System Markers
-    [] execVM "debug\addmarkers.sqf"; [] execVM "debug\addmarkers75.sqf";
+	// Mission System Markers //this is bullshit! since WAI does not use the variables contained in these scripts
+    //[] execVM "debug\addmarkers.sqf"; [] execVM "debug\addmarkers75.sqf";
     // Custom User Monitor - stats
 	if (LEO_customDebugMonitor) then { [] execVM "custom_monitor.sqf";};
 	// Action Menu
@@ -225,7 +226,9 @@ if (!isDedicated) then {
 };
 
 //Remote EXEC
+if (LEO_REsec) then {
 	#include "\z\addons\dayz_code\system\REsec.sqf"
+}
 
 //Start Dynamic Weather
 	execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";

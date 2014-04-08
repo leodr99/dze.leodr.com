@@ -43,7 +43,6 @@ fnc_debug = {
 	};
    
 /* Custom admin/mod monitor */
-	//if ((getPlayerUID player) in ["5393410"]) then { 
 	if (((getPlayerUID player) in AdminList) || ((getPlayerUID player) in ModList )) then { 
 		hintSilent parseText format ["
 		<t size='1' font='LucidaConsoleB'align='center'>*ADMIN* - %1</t><br/>
@@ -63,8 +62,8 @@ fnc_debug = {
 		<t size='0.75' font='Bitstream' align='left' color='#FFBF00'>Humanity: </t><t size='0.95' font='Bitstream' align='right'>%6</t><br/>
 		<t size='0.75' font='Bitstream' align='left' color='#FFBF00'>Blood: </t><t size='0.95' font='Bitstream' align='right'>%9</t><br/>
 		<t size='0.75' font='Bitstream' align='left' >GPS: %22</t><t size='0.95' font='Bitstream' align='right'>DIR: %24</t><br/>
-		<t size='0.75' font='Bitstream' align='center' > %21 </t><br />
-		<t size='0.75' font='Bitstream' align='left' color='#FFBF00'>Location:</t><t size='0.95' font='Bitstream' align='right' color='#FF0000'>%27</t>",
+		<t size='0.75' font='Bitstream' align='left' color='#FFBF00'>Location:</t><t size='0.95' font='Bitstream' align='right' color='#FF0000'>%27</t><br/>
+		<t size='0.75' font='Bitstream' align='left' >ASL Pos: %21</t><br/>",
 		(name player), //%1
 		(_kills), //%2
 		(_headShots), //%3
@@ -96,7 +95,6 @@ fnc_debug = {
 	} else {
 
 
-		//headshots removed - <t size='0.75'  font='Bitstream'align='left'>Headshots:</t><t size='0.75'      font='Bitstream'align='right'color='#FF0000'>%6</t><br/>
 		hintSilent parseText format ["
 		<t size='1' font='LucidaConsoleB'align='center'>dze.leodr.com</t><br/>
 		<img size='6' image='%9'/>
@@ -107,8 +105,9 @@ fnc_debug = {
 		<t size='0.75'  font='Bitstream'align='left'>Heroes Killed:</t><t size='0.75'      font='Bitstream'align='right'color='#FF0000'>%3</t><br/>
 		<t size='0.75'  font='Bitstream'align='left'>Bandits Killed:</t><t size='0.75'     font='Bitstream'align='right'color='#FF0000'>%4</t><br/>
 		<t size='0.75'  font='Bitstream'align='left'>Zombies Killed:</t><t size='0.75'     font='Bitstream'align='right'color='#FF0000'>%5</t><br/>
+		<t size='0.75'  font='Bitstream'align='left'>Headshots:</t><t size='0.75'      font='Bitstream'align='right'color='#FF0000'>%6</t><br/>
 		<t size='0.75'  font='Bitstream'align='left'>Zeds (alive/total): </t><t size='0.75'    font='Bitstream'align='right'color='#FF0000'>%13/%12</t><br/>
-		<t size='0.75'  font='Bitstream'align='left'>Survived:</t><t size='0.75'      font='Bitstream'align='right'color='#FF0000'>%7 Dayz</t><br/>
+		<t size='0.75'  font='Bitstream'align='left'>Survived:</t><t size='0.75'      font='Bitstream'align='right'color='#FF0000'>%7 DayZ</t><br/>
 		<t size='0.75'  font='Bitstream'align='left'>Client Fps:</t><t size='0.75'     font='Bitstream'align='right'color='#FF0000'>%14</t><br/>
 		<t size='0.75'  font='LucidaConsoleB'align='center'>Server Restart in </t><t size='0.75'  font='LucidaConsoleB'align='center'color='#F5E507'>%8 m</t>
 		",
