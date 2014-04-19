@@ -1,19 +1,3 @@
-/*//Needs fixing - breaking spacebar for building
-dayz_spaceInterrupt = {
-    private ["_dikCode", "_handled"];
-    _dikCode = _this select 1;
-    _handled = false;
- 
-    if (_dikCode == 0x44) then {
-        if (leo_stats) then {
-            leo_stats = false;
-            hintSilent "";
-        } else {[] spawn fnc_debug;};
-    };
-//    _handled
-};*/
-
-
 fnc_debug = {
      leo_stats = true;
      while {leo_stats} do

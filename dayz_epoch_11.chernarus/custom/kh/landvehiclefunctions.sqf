@@ -8,10 +8,10 @@ while{true} do {
 			_landvehicleActionsRemoved = 0;
 			thesuv = vehicle player;
 			if (suv_packgun <0) then {
-				suv_packgun = thesuv addAction ["Pack Gun","custom\suv\packgun.sqf",thesuv,6,false,false,"","(isNull (thesuv turretUnit [0])) && (player == driver thesuv) && (alive thesuv) && (thesuv animationPhase ""CloseCover2"" == 0)"];
+				suv_packgun = thesuv addAction ["Pack Gun","custom\kh\suv\packgun.sqf",thesuv,6,false,false,"","(isNull (thesuv turretUnit [0])) && (player == driver thesuv) && (alive thesuv) && (thesuv animationPhase ""CloseCover2"" == 0)"];
 			};
 			if (suv_deploygun <0) then {
-				suv_deploygun = thesuv addAction ["Deploy Gun","custom\suv\deploygun.sqf",thesuv,6,false,false,"","(isNull (thesuv turretUnit [0])) && (player == driver thesuv) && (alive thesuv) && (thesuv animationPhase ""CloseCover2"" == 1)"];
+				suv_deploygun = thesuv addAction ["Deploy Gun","custom\kh\suv\deploygun.sqf",thesuv,6,false,false,"","(isNull (thesuv turretUnit [0])) && (player == driver thesuv) && (alive thesuv) && (thesuv animationPhase ""CloseCover2"" == 1)"];
 			};
 		};
 	} else {

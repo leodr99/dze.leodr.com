@@ -6,7 +6,7 @@ cessna_smokeoff = -1;
 Cessna_Smoke_On = 1;
 _cessnasmokecounter = 1;
 if (cessna_smokeoff <0) then {
-	cessna_smokeoff = _currentCessna addAction  ["Smoke OFF", "custom\smokeoff.sqf",_currentCessna, 5, true, true, "",""];
+	cessna_smokeoff = _currentCessna addAction  ["Smoke OFF", "custom\kh\smokeoff.sqf",_currentCessna, 5, true, true, "",""];
 };
 
 while {speed _currentCessna >= 20 && (vehicle player) != player && Cessna_Smoke_On == 1} do {

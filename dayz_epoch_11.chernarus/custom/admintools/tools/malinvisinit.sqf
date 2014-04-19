@@ -13,6 +13,6 @@ if (malinvis==0) then
 	malinvis=0;
 };
 
-nil = [_malinv] execVM "admintools\tools\malinvis.sqf";
+nil = [_malinv] execVM "custom\admintools\tools\malinvis.sqf";
 
 hint "Toggled Invisibility";

@@ -43,10 +43,10 @@
   
  _role1 = "Welcome to";
  _role1names = ["LeoDR Server","running DayZ Epoch 1.0.4.2a", "Chernarus"];
- _role2 = "Server Admins";
+ _role2 = "Admin";
  _role2names = ["Leo"];
  _role3 = "Server Moderators";
- _role3names = ["Bad Company","Tiny"];
+ _role3names = ["Tiny"];
  _role4 = "Server Mods";
  _role4names = ["Self-bloodbag", "Missions", "Events", "Custom traders + items", "Service Points", "WAI Missions + Patrols", "Custom weapons", "Ghosts of Chernarus", "SafeZone Vehicle Cleanup", "and more..."];
  _role5 = "Website";
@@ -54,11 +54,11 @@
  _role6 = "Mumble";
  _role6names = ["dze.leodr.com"];
  _role7 = "Notes";
- _role7names = ["Server restarts at:","00:00 EDT","04:00 EDT","08:00 EDT","12:00 EDT","16:00 EDT","20:00 EDT","EDT = UTC-4"];
+ _role7names = ["Server restarts at:","00:00","04:00","08:00","12:00","16:00","20:00","GMT+0"];
  _role8 = "Email Support";
  _role8names = ["dayz@leodr.com"];
  _role9 = "Updates";
- _role9names = ["11032014:", "WickedAI + SFZone Cleanup", "and the usual bug/glitch hunt!", "16032014:","WAI.17 Missions + Patrols (46 locations)"];
+ _role9names = ["16032014:","WAI.17 Missions + Patrols (46 locations)","19042014:","AI refinement"];
  _role9 = "Special Thanks";
  _role9names = ["To all of the scripters", "that helped build this out!", "For your enjoyment!"];
  _role10 = "For more Info";

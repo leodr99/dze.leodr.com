@@ -16,7 +16,7 @@ _ndGen = false;//Require a Generator ? An entity, set by _genCls, must be within
 _rngGen = 1800;//Generator range (Generator must be within this radius from the tower for towerlights to be lit)
 _genCls = "PowerGenerator_EP1";//Class name of generator (TEsted PowerGenerator_EP1 & PowerGenerator)
 //End Edit Values
-fnc_axeTl = compile preprocessFileLineNumbers "custom\fnc_tower_lights.sqf";
+fnc_axeTl = compile preprocessFileLineNumbers "custom\kh\fnc_tower_lights.sqf";
 while {alive player}
 do
 {

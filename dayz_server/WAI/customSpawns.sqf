@@ -14,39 +14,24 @@ Custom group spawns Eg.
 
 Place your custom group spawns below
 */
-/*
-//Bridge Ambush
-[[953.237,4486.48,0.001],4,"Random","Random",4,"","","Random"] call spawn_group;
-diag_log ["WAI:CST:SPAWN:Bridge"];
-*/
+
 /*
 //Krazno Airport
 [[7523.51,7887.7,72.3753],4,"Random","Random",4,"","","Random"] call spawn_group;
 [[6913.39,8250.77,70.3717],4,"Random","Random",4,"","","Random"] call spawn_group;
 */
-//Bilgrad Na Moru
-/*[[5389.93,8717.57,35.8014],2,"Random","Random",2,"","","Random"] call spawn_group;
-diag_log ["WAI:CST:SPAWN:Bilgrad"];
-//Visochina
-[[9596.08,6582.89,155.365],2,"Random","Random",2,"","","Random"] call spawn_group;
-diag_log ["WAI:CST:SPAWN:Visochina"];*/
+
 /////////////////////////////
 //Cherno
 [[4774.0439,2507.7603,0],4,"Random","Random",2,"","Bandit2_DZ","Random"] call spawn_group;
-//[[6970.9785,2640.334,0],2,"Random","Random",2,"","Bandit2_DZ","Random"] call spawn_group;
+[[6970.9785,2640.334,0],2,"Random","Random",2,"","Bandit2_DZ","Random"] call spawn_group;
 diag_log ["WAI:CST:SPAWN:Cherno"];
-/*
+
 //Elektro1
 [[6566.5137,2412.969,0],4,"Random","Random",2,"","Bandit2_DZ","Random"] call spawn_group;
 //[[10186.388,1936.0364,3.4404879],2,"Random","Random",2,"","Bandit2_DZ","Random"] call spawn_group;
 diag_log ["WAI:CST:SPAWN:Elektro"];
 
-//Pusta
-[[10476.077,2412.2297,9.6632004],3,"Random","Random",4,"","Bandit2_DZ","Random"] call spawn_group;
-//Tulga
-[[953.237,4486.48,0],3,"Random","Random",4,"","Bandit2_DZ","Random"] call spawn_group;
-//Msta
-[[9164.4277,3832.1824,0],3,"Random","Random",4,"","Bandit2_DZ","Random"] call spawn_group;
 //Solnichniy
 [[12855.01, 4457.4199, 0],3,"Random","Random",4,"","Bandit2_DZ","Random"] call spawn_group;
 //Solnichniy Factory
@@ -59,6 +44,25 @@ diag_log ["WAI:CST:SPAWN:Elektro"];
 [[12161.262, 7288.5391, -0.00061035156],3,"Random","Random",4,"","Bandit2_DZ","Random"] call spawn_group;
 //Berezeno3
 [[12877.6, 8081.5957, 0],3,"Random","Random",4,"","Bandit2_DZ","Random"] call spawn_group;
+
+[[8710.1924, 11791.018, -3.0517578e-005], //Vybor
+3,        //Number Of units
+"Random",           //Skill level 0-1 or skill array number if using custom skills "Random" for random Skill array.
+"Random",         //Primary gun set number. "Random" for random weapon set.
+2,        //Number of magazines
+"",        //Backpack "" for random or classname here.
+"Bandit2_DZ",     //Skin "" for random or classname here.
+"Random"                  //Gearset number. "Random" for random gear set.
+] call spawn_group;
+diag_log ["WAI:CST:SPAWN:Vybor"];
+
+/*
+//Pusta
+[[10476.077,2412.2297,9.6632004],3,"Random","Random",4,"","Bandit2_DZ","Random"] call spawn_group;
+//Tulga
+[[953.237,4486.48,0],3,"Random","Random",4,"","Bandit2_DZ","Random"] call spawn_group;
+//Msta
+[[9164.4277,3832.1824,0],3,"Random","Random",4,"","Bandit2_DZ","Random"] call spawn_group;
 
 //Kraznostav
 [[11938.791, 9118.6982, 0],3,"Random","Random",2,"","Bandit2_DZ","Random"] call spawn_group;
@@ -78,16 +82,6 @@ diag_log ["WAI:CST:SPAWN:Elektro"];
 ] call spawn_group;
 diag_log ["WAI:CST:SPAWN:Lopatino"];
 
-[[8710.1924, 11791.018, -3.0517578e-005], //Vybor
-3,        //Number Of units
-"Random",           //Skill level 0-1 or skill array number if using custom skills "Random" for random Skill array.
-"Random",         //Primary gun set number. "Random" for random weapon set.
-2,        //Number of magazines
-"",        //Backpack "" for random or classname here.
-"Bandit2_DZ",     //Skin "" for random or classname here.
-"Random"                  //Gearset number. "Random" for random gear set.
-] call spawn_group;
-diag_log ["WAI:CST:SPAWN:Vybor"];
 
 [[6003.6455, 10296.365,0], //Kabanino
 2,        //Number Of units
@@ -378,6 +372,7 @@ diag_log ["WAI:CST:SPAWN:Green Mountain"];
 "Bandit2_DZ",     //Skin "" for random or classname here.
 "Random"                  //Gearset number. "Random" for random gear set.
 ] call spawn_group;
+*/
 
 [[11250.809, 4274.082,0], //Rog
 3,        //Number Of units
@@ -389,7 +384,7 @@ diag_log ["WAI:CST:SPAWN:Green Mountain"];
 "Random"                  //Gearset number. "Random" for random gear set.
 ] call spawn_group;
 diag_log ["WAI:CST:SPAWN:Rog"];
-*/
+
 
 [[6894.6455, 11438.785,0], //Devil's Castle
 6,        //Number Of units
@@ -401,6 +396,7 @@ diag_log ["WAI:CST:SPAWN:Rog"];
 "Random"                  //Gearset number. "Random" for random gear set.
 ] call spawn_group;
 diag_log ["WAI:CST:SPAWN:Devils Castle"];
+
 /*
 [[11458.502, 7483.2754, 12.369965], //Orlovets Factory
 3,        //Number Of units
@@ -487,7 +483,7 @@ diag_log ["WAI:CST:SPAWN:Orvolets"];
 "Random"                  //Gearset number. "Random" for random gear set.
 ] call spawn_group;
 diag_log ["WAI:CST:SPAWN:NWAF1"];
-/*
+
 [[4607.541, 9625.1084,0], //NWAF2
 3,        //Number Of units
 "Random",           //Skill level 0-1 or skill array number if using custom skills "Random" for random Skill array.
@@ -521,7 +517,7 @@ diag_log ["WAI:CST:SPAWN:NWAF3"];
 "Random"                  //Gearset number. "Random" for random gear set.
 ] call spawn_group;
 diag_log ["WAI:CST:SPAWN:NWAF4"];
-
+/*
 
 [[4103.6729, 10876.167,0], //NWAF5
 2,        //Number Of units
@@ -675,27 +671,28 @@ Custom Chopper Patrol spawn Eg.
 ] spawn heli_patrol;
 
 Place your heli patrols below
-
+*/
 
 
 //Komarovo
 [[3654.0908, 2475.9468, 0],[3554.0908, 2375.9468, 0],1600,10,"UH1H_DZ",1] spawn heli_patrol;
 diag_log ["WAI:CST:SPAWN:Heli:Komarovo"];
-*/
+
 //Elektro
 [[10480.69, 2217.8027, 0],[10380.69, 2117.8027, 0],2200,10,"UH1H_DZ",1] spawn heli_patrol;
 diag_log ["WAI:CST:SPAWN:Heli:Elektro"];
-/*
+
 //Zelenogorsk
 [[2758.7144, 5304.3457, 0],[2558.7144, 5004.3457, 0],1200,10,"UH1H_DZ",1] spawn heli_patrol;
 diag_log ["WAI:CST:SPAWN:Heli:Zelenogorsk"];
-*/
+
 //Gorka
 [[9659.084, 8795.334, 0],[9859.084, 8595.334, 0],2200,10,"UH1H_DZ",1] spawn heli_patrol;
 diag_log ["WAI:CST:SPAWN:Heli:Gorka"];
+
 //Solnichny
-//[[13454.279, 6233.647, 0],[12454.279, 6133.647, 0],1200,10,"UH1H_DZ",1] spawn heli_patrol;
-//diag_log ["WAI:CST:SPAWN:Heli:Solnichny"];
+[[13454.279, 6233.647, 0],[12454.279, 6133.647, 0],1200,10,"UH1H_DZ",1] spawn heli_patrol;
+diag_log ["WAI:CST:SPAWN:Heli:Solnichny"];
 
 //NWAF
 [[4480.0781, 10375.544, 0],[4607.541, 9625.1084,0],2200,15,"UH1H_DZ",1] spawn heli_patrol;
@@ -761,7 +758,7 @@ Place your vehicle patrols below this line
 //Cherno patrol
 [[6743.8853, 2581.1865],[8161.2,8421.46,91.0145],1000,10,"HMMWV_M998A2_SOV_DES_EP1_DZ",1] spawn vehicle_patrol;
 diag_log ["WAI:CST:SPAWN:VEC:Cherno"];
-/*
+
 //Berezino patrol
 [[12954.624, 9783.1533, 0],[12954.624, 9783.1533, 0],800,10,"HMMWV_M998A2_SOV_DES_EP1_DZ",1] spawn vehicle_patrol;
 diag_log ["WAI:CST:SPAWN:VEC:Berezino"];
@@ -769,7 +766,7 @@ diag_log ["WAI:CST:SPAWN:VEC:Berezino"];
 //Pavlovo patrol
 [[1693.9392, 3845.0657, 0],[1693.9392, 3845.0657, 0],800,10,"HMMWV_M998A2_SOV_DES_EP1_DZ",1] spawn vehicle_patrol;
 diag_log ["WAI:CST:SPAWN:VEC:Pavlovo"];
-*/
+
 //NWAF patrol
 [[4480.0781, 10375.544, 0],[4480.0781, 10375.544, 0],600,8,"HMMWV_M998A2_SOV_DES_EP1_DZ",1] spawn vehicle_patrol;
 diag_log ["WAI:CST:SPAWN:VEC:NWAF"];

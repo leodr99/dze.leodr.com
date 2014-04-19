@@ -14,7 +14,7 @@ if ((getPlayerUID player) in AdminList || (getPlayerUID player) in ModList) then
 			{
 				if (_idx == -1) then
 				{
-					_idx = (vehicle player) addaction [("<t color=""#585858"">" + ("Admin Menu") +"</t>"),"admintools\Eexcute.sqf","",0,false,true,"",""];
+					_idx = (vehicle player) addaction [("<t color=""#585858"">" + ("Admin Menu") +"</t>"),"custom\admintools\Eexcute.sqf","",0,false,true,"",""];
 					_veh = vehicle player;
 				};
 

@@ -40,14 +40,14 @@ player_currentAirVehicle = objNull;
 //s_player_sleepMyDog = -1;
 
 //Starting Air Vehicles action check
-_nil = [] execVM "custom\airvehiclefunctions.sqf";
+_nil = [] execVM "custom\kh\airvehiclefunctions.sqf";
 	diag_log "#################### Airvehicle functions loading...";
 //Starting Land Vehicles action check
-_nil = [] execVM "custom\landvehiclefunctions.sqf";
+_nil = [] execVM "custom\kh\landvehiclefunctions.sqf";
 	diag_log "#################### Landvehicle functions loading...";
 //Starting Object action check
 //_nil = [] execVM "custom\objectfunctions.sqf";
 	//diag_log "#################### Object functions loading...";
 //Start Tower Lights scripts
-_nil = [] execVM "custom\tower_lights.sqf";
+_nil = [] execVM "custom\kh\tower_lights.sqf";
 	diag_log "#################### Towerlight functions loading...";

@@ -182,7 +182,7 @@ if (isServer) then {
 if (!isDedicated) then {
 
 	//Load Admintools Users list
-	if (LEO_adminTools) then {	[] execVM "admintools\AdminList.sqf";};
+	if (LEO_adminTools) then {	[] execVM "custom\admintools\AdminList.sqf";};
 
 	//Conduct map operations
 	0 fadeSound 0;
@@ -202,7 +202,7 @@ if (!isDedicated) then {
 	//_CustomGpsVideo = [] execVM "intro\gps_video.sqf";		//Intro Video in ingame GPS monitor
 	
 	// service points helper scripts.
-	if (LEO_servicePoint) then { [] execVM "service_point\service_point.sqf";};
+	if (LEO_servicePoint) then { [] execVM "custom\service_point\service_point.sqf";};
 	// Remote Messages by Maca123	
 	if (LEO_REmsgs) then { _nil = [] execVM "custom\remote_messages.sqf";};
 	//anti Hack + admintools exception
@@ -242,11 +242,11 @@ if (LEO_REsec) then {
 //Lift+Tow Logistics
 if (LEO_R3FLog) then { [] execVM "R3F_ARTY_AND_LOG\init.sqf";};
 //AdminTools Epoch
-if (LEO_adminTools) then { [] execVM "admintools\Activate.sqf";};
+if (LEO_adminTools) then { [] execVM "custom\admintools\Activate.sqf";};
 // Breaking Point Fog effect
 if (LEO_efectFog) then { [] execVM "custom\effects\nightfog.sqf";};
 //KH special functions - c130, cessna, mv22
-if (LEO_KHspecials) then {	_nil = [] execVM "custom\kh_specials.sqf";};
+if (LEO_KHspecials) then {	_nil = [] execVM "custom\kh\kh_specials.sqf";};
 //Call AirDrop
 if (LEO_airDrop) then { [] execVM "custom\airdrop\notebook_cherno.sqf";};
 //Evac script

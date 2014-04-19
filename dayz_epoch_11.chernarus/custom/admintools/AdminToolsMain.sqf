@@ -1,7 +1,7 @@
-_pathtotools = "admintools\tools\";
-_pathtoweapon = "admintools\weaponkits\";
-_pathtovehicles = "admintools\vehicles\";
-_pathtocrates = "admintools\crates\";
+_pathtotools = "custom\admintools\tools\";
+_pathtoweapon = "custom\admintools\weaponkits\";
+_pathtovehicles = "custom\admintools\vehicles\";
+_pathtocrates = "custom\admintools\crates\";
 _EXECscript1 = 'player execVM "'+_pathtotools+'%1"';
 _EXECscript3 = 'player execVM "'+_pathtoweapon+'%1"';
 _EXECscript5 = 'player execVM "'+_pathtovehicles+'%1"';

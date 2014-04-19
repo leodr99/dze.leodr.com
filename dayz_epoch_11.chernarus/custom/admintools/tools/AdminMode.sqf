@@ -20,39 +20,39 @@ if (isNil "AdminMode") then {AdminMode = true;}else{AdminMode = !AdminMode;};
 
 godModeToggle = {
 	godMode = !godMode;
-	[godMode] execVM "admintools\tools\malplayerGM.sqf";
+	[godMode] execVM "custom\admintools\tools\malplayerGM.sqf";
 };
 carGodModeToggle = {
 	carGodMode = !carGodMode;
-	[carGodMode] execVM "admintools\tools\malvehicleGMon.sqf";
+	[carGodMode] execVM "custom\admintools\tools\malvehicleGMon.sqf";
 };
 playerESPToggle = {
 	playerESP = !playerESP;
-	[playerESP] execVM "admintools\tools\mallightesp.sqf";
+	[playerESP] execVM "custom\admintools\tools\mallightesp.sqf";
 };
 enhancedESPToggle = {
 	enhancedESP = !enhancedESP;
-	[enhancedESP] execVM "admintools\tools\EnhancedESP.sqf";
+	[enhancedESP] execVM "custom\admintools\tools\EnhancedESP.sqf";
 };
 grassOffToggle = {
 	grassOff = !grassOff;
-	[grassOff] execVM "admintools\tools\malgrasson.sqf";
+	[grassOff] execVM "custom\admintools\tools\malgrasson.sqf";
 };
 infAmmoToggle = {
 	infAmmo = !infAmmo;
-	[infAmmo] execVM "admintools\tools\malinfammo.sqf";
+	[infAmmo] execVM "custom\admintools\tools\malinfammo.sqf";
 };
 speedBoostToggle = {
 	speedBoost = !speedBoost;
-	[speedBoost] execVM "admintools\tools\speedboost.sqf";
+	[speedBoost] execVM "custom\admintools\tools\speedboost.sqf";
 };
 invisibilityToggle = {
 	invisibility = !invisibility;
-	[invisibility] execVM "admintools\tools\malinvis.sqf";
+	[invisibility] execVM "custom\admintools\tools\malinvis.sqf";
 };
 flyingToggle = {
 	flying = !flying;
-	[flying] execVM "admintools\tools\malfly.sqf";
+	[flying] execVM "custom\admintools\tools\malfly.sqf";
 };
 
 optionMenu = 
@@ -76,28 +76,28 @@ optionMenu =
 
 AdminToggleON =
 {
-	if (speedBoost) then {[speedBoost] execVM "admintools\tools\speedboost.sqf";};
-	if (enhancedESP) then {[enhancedESP] execVM "admintools\tools\EnhancedESP.sqf";};
-	if (playerESP) then {[playerESP] execVM "admintools\tools\mallightesp.sqf";};
-	if (invisibility) then {[invisibility] execVM "admintools\tools\malinvis.sqf";};
-	if (infAmmo) then {[infAmmo] execVM "admintools\tools\malinfammo.sqf";};
-	if (flying) then {[flying] execVM "admintools\tools\malfly.sqf";};
-	if (godMode) then {[godMode] execVM "admintools\tools\malplayerGM.sqf";};
-	if (carGodMode) then {[carGodMode] execVM "admintools\tools\malvehicleGMon.sqf";};
-	if (grassOff) then {[grassOff] execVM "admintools\tools\malgrasson.sqf";};
+	if (speedBoost) then {[speedBoost] execVM "custom\admintools\tools\speedboost.sqf";};
+	if (enhancedESP) then {[enhancedESP] execVM "custom\admintools\tools\EnhancedESP.sqf";};
+	if (playerESP) then {[playerESP] execVM "custom\admintools\tools\mallightesp.sqf";};
+	if (invisibility) then {[invisibility] execVM "custom\admintools\tools\malinvis.sqf";};
+	if (infAmmo) then {[infAmmo] execVM "custom\admintools\tools\malinfammo.sqf";};
+	if (flying) then {[flying] execVM "custom\admintools\tools\malfly.sqf";};
+	if (godMode) then {[godMode] execVM "custom\admintools\tools\malplayerGM.sqf";};
+	if (carGodMode) then {[carGodMode] execVM "custom\admintools\tools\malvehicleGMon.sqf";};
+	if (grassOff) then {[grassOff] execVM "custom\admintools\tools\malgrasson.sqf";};
 };
 
 AdminToggleOFF =
 {
-	if (speedBoost) then {[!speedBoost] execVM "admintools\tools\speedboost.sqf";};
-	if (enhancedESP) then {[!enhancedESP] execVM "admintools\tools\EnhancedESP.sqf";};
-	if (playerESP) then {[!playerESP] execVM "admintools\tools\mallightesp.sqf";};
-	if (invisibility) then {[!invisibility] execVM "admintools\tools\malinvis.sqf";};
-	if (infAmmo) then {[!infAmmo] execVM "admintools\tools\malinfammo.sqf";};
-	if (flying) then {[!flying] execVM "admintools\tools\malfly.sqf";};
-	if (godMode) then {[!godMode] execVM "admintools\tools\malplayerGM.sqf";};
-	if (carGodMode) then {[!carGodMode] execVM "admintools\tools\malvehicleGMon.sqf";};
-	if (grassOff) then {[!grassOff] execVM "admintools\tools\malgrasson.sqf";};
+	if (speedBoost) then {[!speedBoost] execVM "custom\admintools\tools\speedboost.sqf";};
+	if (enhancedESP) then {[!enhancedESP] execVM "custom\admintools\tools\EnhancedESP.sqf";};
+	if (playerESP) then {[!playerESP] execVM "custom\admintools\tools\mallightesp.sqf";};
+	if (invisibility) then {[!invisibility] execVM "custom\admintools\tools\malinvis.sqf";};
+	if (infAmmo) then {[!infAmmo] execVM "custom\admintools\tools\malinfammo.sqf";};
+	if (flying) then {[!flying] execVM "custom\admintools\tools\malfly.sqf";};
+	if (godMode) then {[!godMode] execVM "custom\admintools\tools\malplayerGM.sqf";};
+	if (carGodMode) then {[!carGodMode] execVM "custom\admintools\tools\malvehicleGMon.sqf";};
+	if (grassOff) then {[!grassOff] execVM "custom\admintools\tools\malgrasson.sqf";};
 };
 
 if(AdminMode) then {

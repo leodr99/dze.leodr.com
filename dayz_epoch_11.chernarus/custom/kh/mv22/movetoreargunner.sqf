@@ -44,8 +44,8 @@ player removeAllEventHandlers "handleDamage";
 player allowDamage true;
 cutText ["","BLACK IN",1];
 sleep 3;
-mv22_movefromreartocargoposition = _reargun addAction ["Get in Backseat position","custom\mv22\movetocargo.sqf",_MV22,6,false,false,"",""];
-mv22_ejecthalofromrearposition =  _reargun addAction ["HALO Jump","custom\mv22\exithalo.sqf",_MV22,2,false,false,"",""];
+mv22_movefromreartocargoposition = _reargun addAction ["Get in Backseat position","\z\addons\dayz_server\scripts\kh\mv22\movetocargo.sqf",_MV22,6,false,false,"",""];
+mv22_ejecthalofromrearposition =  _reargun addAction ["HALO Jump","\z\addons\dayz_server\scripts\kh\mv22\exithalo.sqf",_MV22,2,false,false,"",""];
 
 waitUntil {sleep 1; count (crew _reargun) <= 0};
 deleteVehicle _reargun;
